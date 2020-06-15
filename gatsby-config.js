@@ -1,16 +1,35 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Laura & Ashkon`,
+    description: `Details for the wedding of Laura Del Beccaro and Ashkon Nosrat`,
+    author: `@ldelbeccaro`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-stylus",
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `data`,
+        path: `${__dirname}/src/data`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `karla\:400,500`,
+          `Tajawal\:200,300,400,500,700,800,900`,
+          `Roboto\:300,400,500`,
+        ],
       },
     },
     `gatsby-transformer-sharp`,

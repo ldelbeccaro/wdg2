@@ -1,0 +1,33 @@
+$tan = #e3d7bd
+$lightTan = #ebe6d9
+$lightestTan = #f6f3e7
+$beige = #f0e2ce
+$gray = #d3d0c9
+$darkGray = #b1ab9f
+$white = #ffffff
+$black = #151414
+
+$fontXL = 60px
+$fontL = 24px
+$fontM = 20px
+$fontS = 16px
+$fontXS = 14px
+
+header()
+  font-weight 300
+  font-size $fontXL
+
+subtext()
+  font-weight 400
+  font-size $fontXS
+  color $darkGray
+
+link()
+  border-bottom 1px solid transparent
+  color $black
+  text-decoration none
+  transition all 0.5s ease
+
+  &:hover
+    // border-bottom 1px solid $gray
+    color $darkGray

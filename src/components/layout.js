@@ -10,7 +10,10 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import Menu from "./menu"
+import "../styles/reset.css"
+import "../styles/index.styl"
+import "../styles/layout.styl"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -18,6 +21,17 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+        }
+      }
+      allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___index] }) {
+        edges {
+          node {
+            frontmatter {
+              title
+              url
+              component
+            }
+          }
         }
       }
     }
@@ -28,18 +42,21 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          display: `flex`,
+          justifyContent: `space-between`,
+          height: `calc(100% - 180px)`,
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Menu pages={data.allMarkdownRemark.edges} />
       </div>
+      <footer>
+        <div>© {new Date().getFullYear()}</div>
+        <div>
+          Email us!{" "}
+          <a href="mailto:ashkonlaura@gmail.com">ashkonlaura@gmail.com</a>
+        </div>
+      </footer>
     </>
   )
 }
