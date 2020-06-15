@@ -29,6 +29,8 @@ module.exports = {
           `karla\:400,500`,
           `Tajawal\:200,300,400,500,700,800,900`,
           `Roboto\:300,400,500`,
+          `Merriweather\:300`,
+          // merriweather regular, montserrat bold
         ],
       },
     },

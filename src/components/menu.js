@@ -49,10 +49,6 @@ const Menu = ({ pages }) => {
           <Link
             className="nav-item"
             key={page.url}
-            style={{
-              fontSize: `60px`,
-              fontWeight: `300`,
-            }}
             to={page.url}
             onMouseOver={e => setNavHeight(getNavHeight(e))}
             onClick={() => console.log("go to page.component")}
