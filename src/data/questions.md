@@ -18,3 +18,5 @@ A note asking guests to reach out to you ahead of time if they have food allergi
 registry?
 
 contact (email & text)
+
+https://blog.wedsites.com/include-wedding-website/

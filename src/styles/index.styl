@@ -17,3 +17,70 @@ body
 
 a
   link()
+
+.home
+  display flex
+
+  .gatsby-image-wrapper
+    width 350px
+
+  .welcome
+    serifHeader()
+    color transparent
+    opacity 0
+    -webkit-text-stroke 1px rgba(255,255,255,0.4);
+    animation welcomeAppearDisappear 6s ease-in, welcomeColor 5s, welcomeFontSize 10s ease-in
+
+  .message
+    max-width 500px
+
+@keyframes welcomeAppearDisappear {
+  0% {
+    opacity: 0
+    top: 50px
+  }
+  33% {
+    opacity: 1
+  }
+  66% {
+    top: 0
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+    top: 0
+  }
+}
+
+@keyframes welcomeColor {
+  0% {
+    color: rgba(255,255,255,0.5)
+    -webkit-text-stroke: 1px rgba(255,255,255,0.5)
+  }
+  50% {
+    -webkit-text-stroke: 1px white
+  }
+  80% {
+    color: transparent
+  }
+  100% {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.5)
+    color: transparent
+  }
+
+}
+
+@keyframes welcomeFontSize {
+  0% {
+    font-size: 23vw
+  }
+  60% {
+    font-size: 23vw
+  }
+  80% {
+    font-size: $fontXL
+  }
+  100% {
+    font-size: $fontXL
+  }
+}

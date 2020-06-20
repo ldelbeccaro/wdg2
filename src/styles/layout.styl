@@ -1,14 +1,69 @@
 @require 'styles'
 
-footer
-  subtext()
-  align-items center
-  display flex
-  flex-direction column
-  margin 20px 0
+.layout
+  height 100%
 
-  a
-    color $black
+  .blur
+    animation blurBackground 3s
+    filter blur(3px)
+    -webkit-filter blur(3px)
+    height 100%
+    position fixed
+    width 100%
+    z-index -1
 
-    &:hover
-      color $darkGray
+    .background
+      background-size cover
+      height 100%
+      opacity 0.5
+      position relative
+      transition background-image 0.3s linear
+
+      &.root
+        opacity 1
+
+  .content
+    display flex
+    height calc(100% - 180px)
+    justify-content space-between
+
+  footer
+    subtext()
+    align-items center
+    display flex
+    flex-direction column
+    margin 20px 0
+
+    a
+      color $black
+
+      &:hover
+        color $darkGray
+
+
+@keyframes backgroundOpacity {
+  0% {
+    opacity: 0.5
+  }
+  20% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0.5
+  }
+}
+
+@keyframes blurBackground {
+  0% {
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  }
+  20% {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  }
+  100% {
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  }
+}

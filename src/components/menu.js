@@ -1,43 +1,45 @@
+import React, { useContext, useRef, useEffect } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState, useRef } from "react"
 
 import "../styles/menu.styl"
 
+import MenuContext from "../contexts/MenuContext"
+
 const Menu = ({ pages }) => {
-  const [navIndicatorHeight, setNavHeight] = useState(0)
+  const { navHeight, navColor, setMenu } = useContext(MenuContext)
   const navRef = useRef(null)
+  const pageUrl = pages.find(page =>
+    window.location.pathname.includes(page.node.frontmatter.url)
+  ).node.frontmatter.url
+
+  useEffect(() => setMenu({ height: getNavHeight() }), [])
 
   const getNavHeight = e => {
-    if (e.target === e.target.parentNode.lastChild) {
+    const target = e
+      ? e.target
+      : document.querySelector(`.nav-item[href="${pageUrl}"]`)
+
+    if (target === target.parentNode.lastChild) {
       return `100%`
     }
-    const targetY = e.target.getBoundingClientRect().bottom
+    const targetY = target.getBoundingClientRect().bottom
     const navY = navRef.current.getBoundingClientRect().y
-    return targetY - navY
+    return `${targetY - navY}px`
   }
 
   return (
     <div
       className="nav"
       ref={navRef}
-      style={{
-        display: `flex`,
-        flexDirection: `column`,
-        justifyContent: `space-between`,
-        padding: `40px`,
-        paddingRight: `80px`,
-        borderLeft: `1px solid #b1ab9f`,
-        position: `relative`,
-      }}
-      onMouseLeave={() => setNavHeight(0)}
+      onMouseLeave={() => setMenu({ height: getNavHeight() })}
     >
       <div
         className="selected-nav-line"
         style={{
           width: `1px`,
-          backgroundColor: `#151414`,
-          height: navIndicatorHeight,
+          backgroundColor: navColor,
+          height: navHeight,
           position: `absolute`,
           left: `-1px`,
           top: 0,
@@ -50,7 +52,7 @@ const Menu = ({ pages }) => {
             className="nav-item"
             key={page.url}
             to={page.url}
-            onMouseOver={e => setNavHeight(getNavHeight(e))}
+            onMouseOver={e => setMenu({ height: getNavHeight(e) })}
             onClick={() => console.log("go to page.component")}
           >
             {page.title}

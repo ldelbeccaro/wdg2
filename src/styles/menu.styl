@@ -1,10 +1,20 @@
 @require 'styles'
 
 .nav
+  display flex
+  flex-direction column
+  justify-content space-between
+  padding 40px
+  padding-right 80px
+  border-left 1px solid #b1ab9f
+  position relative
+
   .selected-nav-line
-    transition height 0.4s linear, background-color 0.4s linear // height 0.5s ease
-    // transition background-color 0.4s linear
+    transition height 0.4s linear, background-color 0.4s linear
 
   .nav-item
     font-size $fontXXL
     font-weight 200
+
+    &[aria-current='page']
+      color $black

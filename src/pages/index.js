@@ -1,20 +1,31 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Link } from "gatsby"
+
+import BackgroundContext from "../contexts/BackgroundContext"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      {/* <Image /> */}
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-  </Layout>
-)
+import root from "../images/root.png"
+
+const IndexPage = () => {
+  const { setBackground } = useContext(BackgroundContext)
+  useEffect(
+    () => setBackground({ background: root, backgroundAnimation: "0" }),
+    [setBackground]
+  )
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <div className="home">
+        <div>
+          <Link to="/rsvp">RSVP</Link>
+          <div className="welcome">welcome</div>
+        </div>
+      </div>
+    </Layout>
+  )
+}
 
 export default IndexPage

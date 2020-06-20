@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { graphql } from "gatsby"
 
+import BackgroundContext from "../contexts/BackgroundContext"
 import Layout from "../components/layout"
 
 import Timeline from "../components/timeline"
@@ -9,7 +10,24 @@ import RSVP from "../components/rsvp"
 
 import "../styles/template.styl"
 
+import home from "../images/home.png"
+import schedule from "../images/schedule.png"
+import rsvp from "../images/rsvp.png"
+
+const images = {
+  home,
+  schedule,
+  rsvp,
+}
+
 export default function Template({ data }) {
+  const { setBackground } = useContext(BackgroundContext)
+
+  useEffect(() => {
+    const image = images[data.markdownRemark.frontmatter.title]
+    setBackground({ background: image })
+  }, [data, setBackground])
+
   const post = data.markdownRemark
   const componentMap = {
     timeline: Timeline,
