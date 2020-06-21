@@ -2,6 +2,8 @@
 title: "questions"
 url: "/questions"
 index: 4
+image: "../images/questions.png"
+color: "#a9253b"
 ---
 
 faq

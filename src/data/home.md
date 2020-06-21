@@ -2,10 +2,20 @@
 title: "home"
 url: "/home"
 index: 1
+image: "../images/home.png"
+color: "#e19578"
 ---
 
-        <div className="details">
-          <div>Laura & Ashkon are getting married!</div>
+**still to do**
+- something with legos, ice cream, soccer, animations?
+- menu
+  - make it collapse and come out, and when it comes out it fades the rest of the content
+  - change color of each menu item
+    - https://www.60fps.fr/en/awards
+  - make font size responsive
+
+
+**Laura & Ashkon are getting married!**
           <div>September 21, 2021</div>
           <div>4pm</div>
           <div>On the beach in Santa Barbara</div>

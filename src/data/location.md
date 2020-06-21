@@ -2,6 +2,8 @@
 title: "location"
 url: "/location"
 index: 3
+image: "../images/location.png"
+color: "#99c0e3"
 ---
 
 travel

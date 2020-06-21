@@ -1,16 +1,23 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useContext } from "react"
 
 import "../styles/header.styl"
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <h1>
-      <Link to="/">{siteTitle}</Link>
-    </h1>
-  </header>
-)
+import BackgroundContext from "../contexts/BackgroundContext"
+
+const Header = ({ siteTitle }) => {
+  const { colorBg } = useContext(BackgroundContext)
+  return (
+    <header>
+      <h1>
+        <Link to="/" style={{ color: colorBg }}>
+          {siteTitle}
+        </Link>
+      </h1>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

@@ -1,20 +1,28 @@
 @require 'styles'
 
 .nav
+  border-left 1px solid #b1ab9f
   display flex
   flex-direction column
   justify-content space-between
   padding 40px
   padding-right 80px
-  border-left 1px solid #b1ab9f
   position relative
 
   .selected-nav-line
+    left -1px
+    position absolute
+    top 0
     transition height 0.4s linear, background-color 0.4s linear
+    width 1px
 
   .nav-item
+    color alpha($white, 0.4)
     font-size $fontXXL
     font-weight 200
 
+    &:hover
+      color $white
+
     &[aria-current='page']
-      color $black
+      color $white

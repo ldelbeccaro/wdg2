@@ -20,7 +20,11 @@ const IndexPage = () => {
       <SEO title="Home" />
       <div className="home">
         <div>
-          <Link to="/rsvp">RSVP</Link>
+          <Link to="/rsvp">RSVP button goes here</Link>
+          <div>
+            Should automatically transition to home page... maybe should just be
+            home page but then link is dumb, maybe should just go to /home
+          </div>
           <div className="welcome">welcome</div>
         </div>
       </div>

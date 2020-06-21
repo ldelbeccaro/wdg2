@@ -1,8 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import BackgroundContext from "../contexts/BackgroundContext"
+import MenuContext from "../contexts/MenuContext"
 
 import Header from "./header"
 import Menu from "./menu"
@@ -11,7 +12,10 @@ import "../styles/index.styl"
 import "../styles/layout.styl"
 
 const Layout = ({ children }) => {
-  const { bg, bgAnimation } = useContext(BackgroundContext)
+  const { bg, bgAnimation, colorBg } = useContext(BackgroundContext)
+  const { MainContent, setMenu } = useContext(MenuContext)
+
+  useEffect(() => setMenu({ content: children, lastPageContent: children }), [])
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -27,16 +31,16 @@ const Layout = ({ children }) => {
               title
               url
               component
+              image {
+                publicURL
+              }
+              color
             }
           }
         }
       }
     }
   `)
-
-  const backgroundCss = bg.startsWith("#")
-    ? bg
-    : `url(${bg}) no-repeat center 0 fixed`
 
   return (
     <div className="layout">
@@ -46,14 +50,21 @@ const Layout = ({ children }) => {
             bg.startsWith("/static/root") ? ` root` : ``
           }`}
           style={{
-            background: backgroundCss,
+            backgroundImage: `url(${bg})`,
             animation: `backgroundOpacity ${bgAnimation}`,
+          }}
+        ></div>
+        <div
+          className="color-background"
+          style={{
+            background: "#151414", //colorBg,
+            opacity: colorBg === `#fff` ? 0 : 0.7,
           }}
         ></div>
       </div>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className="content">
-        <main>{children}</main>
+        {MainContent}
         <Menu pages={data.allMarkdownRemark.edges} />
       </div>
       <footer>

@@ -4,22 +4,31 @@ import PropTypes from "prop-types"
 
 import "../styles/menu.styl"
 
+import BackgroundContext from "../contexts/BackgroundContext"
 import MenuContext from "../contexts/MenuContext"
 
+import Animation from "./animations/animation"
+
 const Menu = ({ pages }) => {
-  const { navHeight, navColor, setMenu } = useContext(MenuContext)
+  const { colorBg, setBackground } = useContext(BackgroundContext)
+  const { navHeight, lastPageContent, setMenu } = useContext(MenuContext)
   const navRef = useRef(null)
-  const pageUrl = pages.find(page =>
-    window.location.pathname.includes(page.node.frontmatter.url)
-  ).node.frontmatter.url
 
   useEffect(() => setMenu({ height: getNavHeight() }), [])
+
+  const currentPage = pages.find(
+    page => window.location.pathname === page.node.frontmatter.url
+  )
+  const pageUrl = currentPage ? currentPage.node.frontmatter.url : "/"
 
   const getNavHeight = e => {
     const target = e
       ? e.target
       : document.querySelector(`.nav-item[href="${pageUrl}"]`)
 
+    if (!target) {
+      return `0px`
+    }
     if (target === target.parentNode.lastChild) {
       return `100%`
     }
@@ -32,17 +41,16 @@ const Menu = ({ pages }) => {
     <div
       className="nav"
       ref={navRef}
-      onMouseLeave={() => setMenu({ height: getNavHeight() })}
+      onMouseLeave={() => {
+        setMenu({ height: getNavHeight(), content: lastPageContent })
+        setBackground({ colorBackground: "#fff" })
+      }}
     >
       <div
         className="selected-nav-line"
         style={{
-          width: `1px`,
-          backgroundColor: navColor,
+          backgroundColor: colorBg,
           height: navHeight,
-          position: `absolute`,
-          left: `-1px`,
-          top: 0,
         }}
       ></div>
       {pages
@@ -52,8 +60,10 @@ const Menu = ({ pages }) => {
             className="nav-item"
             key={page.url}
             to={page.url}
-            onMouseOver={e => setMenu({ height: getNavHeight(e) })}
-            onClick={() => console.log("go to page.component")}
+            onMouseEnter={e => {
+              setMenu({ height: getNavHeight(e), content: Animation })
+              setBackground({ colorBackground: page.color })
+            }}
           >
             {page.title}
           </Link>

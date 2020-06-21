@@ -2,6 +2,9 @@
 title: "about"
 url: "/about"
 index: 5
+image: "../images/about.png"
+color: "#a5a072"
+
 ---
 
 <strong>our story</strong>

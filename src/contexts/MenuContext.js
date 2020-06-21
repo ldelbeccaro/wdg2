@@ -2,7 +2,8 @@ import React, { useState } from "react"
 
 const defaultValues = {
   navHeight: 0,
-  navColor: "#000",
+  mainContent: <div />,
+  lastPageContent: <div />,
   setMenu: () => {},
 }
 
@@ -10,15 +11,21 @@ const MenuContext = React.createContext(defaultValues)
 
 const MenuProvider = ({ children }) => {
   const [navHeight, setNavHeight] = useState(defaultValues.navHeight)
-  const [navColor, setNavColor] = useState(defaultValues.navColor)
+  const [MainContent, setMainContent] = useState(defaultValues.mainContent)
+  const [lastPageContent, setLastPageContent] = useState(
+    defaultValues.mainContent
+  )
 
-  const setMenu = ({ height, color }) => {
-    setNavHeight(height ? height : navHeight)
-    setNavColor(color ? color : navColor)
+  const setMenu = ({ height, content, lastPageContent }) => {
+    height && setNavHeight(height)
+    content && setMainContent(content)
+    lastPageContent && setLastPageContent(lastPageContent)
   }
 
   return (
-    <MenuContext.Provider value={{ navHeight, navColor, setMenu }}>
+    <MenuContext.Provider
+      value={{ navHeight, MainContent, lastPageContent, setMenu }}
+    >
       {children}
     </MenuContext.Provider>
   )
