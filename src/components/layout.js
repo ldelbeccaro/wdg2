@@ -64,7 +64,7 @@ const Layout = ({ children }) => {
       </div>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className="content">
-        {MainContent}
+        <div>{MainContent}</div>
         <Menu pages={data.allMarkdownRemark.edges} />
       </div>
       <footer>

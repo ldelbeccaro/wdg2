@@ -2,17 +2,20 @@
 title: "home"
 url: "/home"
 index: 1
-image: "../images/home.png"
+image: "../images/root.png"
 color: "#e19578"
 ---
 
 **still to do**
-- something with legos, ice cream, soccer, animations?
-- menu
-  - make it collapse and come out, and when it comes out it fades the rest of the content
-  - change color of each menu item
-    - https://www.60fps.fr/en/awards
-  - make font size responsive
+* menu
+  * make it collapse and come out, and when it comes out it fades the rest of the content
+  * make font size responsive
+  https://www.60fps.fr/en
+
+  legos
+  - figure out how to make image better after legos actually fall — just change image to a full rectangle?
+  - https://www.google.com/search?q=soccer+ball+legos&rlz=1C5CHFA_enUS896US896&sxsrf=ALeKk03ksN5fLWifLv9VG_iAeDskpB0v9A:1592639380868&source=lnms&tbm=isch&sa=X&ved=2ahUKEwio47SE9I_qAhVDLX0KHaFPDsIQ_AUoAnoECA0QBA&biw=1280&bih=798&dpr=2#imgrc=Hf4nuZNo6PdA2M
+  - https://www.google.com/search?q=lego+ice+cream+cone&tbm=isch&ved=2ahUKEwjp-MGS55DqAhV2AzQIHTsQAkAQ2-cCegQIABAA&oq=lego+ice+cream+cone&gs_lcp=CgNpbWcQAzICCAAyAggAMgYIABAIEB4yBggAEAgQHjIGCAAQCBAeMgQIABAYOgQIIxAnOgQIABBDOgUIABCxAzoHCAAQsQMQQzoECAAQHlCgwwFYwdkBYPPaAWgBcAB4AIABdogBoA2SAQQxOC4ymAEAoAEBqgELZ3dzLXdpei1pbWc&sclient=img&ei=SDjuXum0H_aG0PEPu6CIgAQ&bih=798&biw=1280&rlz=1C5CHFA_enUS896US896#imgrc=dnOjKwaebi286M
 
 
 **Laura & Ashkon are getting married!**
