@@ -62,27 +62,34 @@ const Menu = ({ pages }) => {
             onClick={e => {
               e.preventDefault()
               const target = e.target
+              const nav = document.querySelector(".nav")
 
               target.classList.add("selected")
-              target.setAttribute("style", `color: ${page.color}`)
+              target.setAttribute("style", `color: ${page.color};`)
               setBackground({ lastColorBackground: page.color })
               document
                 .querySelector(`.nav-item[aria-current="page"]`)
                 .setAttribute("style", "color: #8c8c8c;")
 
               setTimeout(() => {
-                setMenu({ showing: false, content: <div /> })
+                setMenu({ content: <div /> })
+                nav.setAttribute("style", "width: 0;")
               }, 500)
+
+              setTimeout(() => {
+                setMenu({ showing: false })
+              }, 700)
 
               setTimeout(() => {
                 target.classList.remove("selected")
                 target.setAttribute("style", "")
+                nav.setAttribute("style", "")
                 if (pageUrl === target.getAttribute("href")) {
                   setMenu({ content: lastPageContent })
                 } else {
                   navigate(target.getAttribute("href"))
                 }
-              }, 1000)
+              }, 1200)
             }}
             onMouseEnter={e => {
               setNavHeight(getNavHeight(e))

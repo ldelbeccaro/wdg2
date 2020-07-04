@@ -22,8 +22,18 @@ const Header = ({ siteTitle }) => {
       <div
         id="menu"
         onClick={() => {
+          const nav = document.querySelector(".nav")
+
           if (navShowing) {
-            setMenu({ showing: !navShowing, content: lastPageContent })
+            setTimeout(() => {
+              setMenu({ content: <div /> })
+              nav.setAttribute("style", "width: 0; opacity: 0;")
+            }, 0)
+
+            setTimeout(() => {
+              setMenu({ showing: !navShowing, content: lastPageContent })
+              nav.setAttribute("style", "")
+            }, 500)
           } else {
             setMenu({ showing: !navShowing, content: Animation })
             setBackground({ colorBackground: lastColorBg })

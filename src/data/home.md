@@ -7,9 +7,6 @@ color: "#e19578"
 ---
 
 **still to do**
-* menu
-  * outgoing should animate width
-
   legos
   - figure out how to make image better after legos actually fall — just change image to a full rectangle?
 
@@ -19,7 +16,6 @@ color: "#e19578"
 
 
 **Laura & Ashkon are getting married!**
-```
           <div>September 21, 2021</div>
           <div>4pm</div>
           <div>On the beach in Santa Barbara</div>
@@ -52,4 +48,3 @@ color: "#e19578"
             Feel free to <a href="mailto:ashkonlaura@gmail.com">contact us</a>{" "}
             if you have any questions at all!
           </div>
-```
