@@ -12,8 +12,8 @@ import "../styles/index.styl"
 import "../styles/layout.styl"
 
 const Layout = ({ children }) => {
-  const { bg, bgAnimation, colorBg } = useContext(BackgroundContext)
-  const { MainContent, setMenu } = useContext(MenuContext)
+  const { bg } = useContext(BackgroundContext)
+  const { navShowing, MainContent, setMenu } = useContext(MenuContext)
 
   useEffect(() => setMenu({ content: children, lastPageContent: children }), [])
 
@@ -49,22 +49,16 @@ const Layout = ({ children }) => {
           className={`background${
             bg.startsWith("/static/root") ? ` root` : ``
           }`}
-          style={{
-            backgroundImage: `url(${bg})`,
-            animation: `backgroundOpacity ${bgAnimation}`,
-          }}
+          style={{ backgroundImage: `url(${bg})` }}
         ></div>
         <div
           className="color-background"
-          style={{
-            background: "#151414", //colorBg,
-            opacity: colorBg === `#fff` ? 0 : 0.7,
-          }}
+          style={{ opacity: navShowing ? 0.8 : 0 }}
         ></div>
       </div>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className="content">
-        <div>{MainContent}</div>
+        <div className="main-content">{MainContent}</div>
         <Menu pages={data.allMarkdownRemark.edges} />
       </div>
       <footer>

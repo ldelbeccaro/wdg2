@@ -2,7 +2,6 @@ import React, { useState } from "react"
 
 const defaultValues = {
   bg: "#fff",
-  bgAnimation: "3s ease",
   colorBg: "#fff",
   setBackground: () => {},
 }
@@ -12,21 +11,21 @@ const BackgroundContext = React.createContext(defaultValues)
 const BackgroundProvider = ({ children }) => {
   const [bg, setBgState] = useState(defaultValues.bg)
   const [colorBg, setColorBg] = useState(defaultValues.colorBg)
-  const [bgAnimation, setBgAnimation] = useState(defaultValues.bgAnimation)
+  const [lastColorBg, setLastColorBg] = useState(defaultValues.colorBg)
 
   const setBackground = ({
     background,
-    backgroundAnimation,
     colorBackground,
+    lastColorBackground,
   }) => {
     background && setBgState(background)
     colorBackground && setColorBg(colorBackground)
-    backgroundAnimation && setBgAnimation(backgroundAnimation)
+    lastColorBackground && setLastColorBg(lastColorBackground)
   }
 
   return (
     <BackgroundContext.Provider
-      value={{ bg, bgAnimation, colorBg, setBackground }}
+      value={{ bg, colorBg, lastColorBg, setBackground }}
     >
       {children}
     </BackgroundContext.Provider>

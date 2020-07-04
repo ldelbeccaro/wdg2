@@ -7,11 +7,11 @@ import "../styles/menu.styl"
 import BackgroundContext from "../contexts/BackgroundContext"
 import MenuContext from "../contexts/MenuContext"
 
-import Animation from "./animations/animation"
-
 const Menu = ({ pages }) => {
-  const { colorBg, setBackground } = useContext(BackgroundContext)
-  const { navHeight, lastPageContent, setMenu } = useContext(MenuContext)
+  const { colorBg, lastColorBg, setBackground } = useContext(BackgroundContext)
+  const { navShowing, navHeight, lastPageContent, setMenu } = useContext(
+    MenuContext
+  )
   const navRef = useRef(null)
 
   useEffect(() => setMenu({ height: getNavHeight() }), [])
@@ -39,11 +39,11 @@ const Menu = ({ pages }) => {
 
   return (
     <div
-      className="nav"
+      className={`nav${navShowing ? `` : ` hidden`}`}
       ref={navRef}
       onMouseLeave={() => {
-        setMenu({ height: getNavHeight(), content: lastPageContent })
-        setBackground({ colorBackground: "#fff" })
+        setMenu({ height: getNavHeight() })
+        setBackground({ colorBackground: lastColorBg })
       }}
     >
       <div
@@ -60,8 +60,12 @@ const Menu = ({ pages }) => {
             className="nav-item"
             key={page.url}
             to={page.url}
+            onClick={() => {
+              setMenu({ showing: false, content: lastPageContent })
+              setBackground({ lastColorBackground: page.color })
+            }}
             onMouseEnter={e => {
-              setMenu({ height: getNavHeight(e), content: Animation })
+              setMenu({ height: getNavHeight(e) })
               setBackground({ colorBackground: page.color })
             }}
           >

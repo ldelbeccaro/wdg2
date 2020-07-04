@@ -8,3 +8,5 @@ component: "questions"
 ---
 
 animate cards as they come in and then animate .card-border to come down from 0 to 100% height
+
+https://dribbble.com/search/shots/popular/animation?q=card%20hover

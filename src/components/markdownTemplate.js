@@ -17,7 +17,6 @@ export default function Template({ data }) {
   useEffect(() => {
     setBackground({
       background: data.markdownRemark.frontmatter.image.publicURL,
-      colorBackground: "#fff",
     })
   }, [data])
 

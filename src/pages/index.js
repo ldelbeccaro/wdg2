@@ -26,7 +26,6 @@ const IndexPage = () => {
             home page but then link is dumb, maybe should just go to /home
           </div>
           <div className="welcome-image"></div>
-          {/* <div className="welcome">welcome</div> */}
         </div>
       </div>
     </Layout>

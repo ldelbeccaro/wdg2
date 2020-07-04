@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 
 import "../../styles/animations/ice-cream.styl"
 
@@ -23,54 +23,61 @@ import OneByOne from "../../images/lego/1x1"
 
 const IceCream = () => {
   const { colorBg } = useContext(BackgroundContext)
-  const live = colorBg !== "#fff"
+
+  useEffect(() => {
+    const blocks = document.querySelectorAll(".block")
+    for (const block of blocks) {
+      block.classList.add("live")
+    }
+  }, [])
+
   const coneColor = "#d4b063"
 
   return (
     <div className="animation">
       <div className="ice-cream">
-        <div className={`block one-left ${live ? `live` : ``}`}>
+        <div className={`block one-left`}>
           <ThreeByTwoFill clr={colorBg} />
         </div>
-        <div className={`block one-center ${live ? `live` : ``}`}>
+        <div className={`block one-center`}>
           <FourByTwoFill clr={colorBg} />
         </div>
-        <div className={`block one-right ${live ? `live` : ``}`}>
+        <div className={`block one-right`}>
           <ThreeByTwoFill clr={colorBg} />
         </div>
       </div>
       <div className="cone">
-        <div className={`block six-left ${live ? `live` : ``}`}>
+        <div className={`block six-left`}>
           <FourByOneFill clr={"#dfc48b"} />
         </div>
-        <div className={`block six-center ${live ? `live` : ``}`}>
+        <div className={`block six-center`}>
           <FourByTwoFill clr={"#daba77"} />
         </div>
-        <div className={`block six-right ${live ? `live` : ``}`}>
+        <div className={`block six-right`}>
           <FourByOneFill clr={coneColor} />
         </div>
-        <div className={`block five-left ${live ? `live` : ``}`}>
+        <div className={`block five-left`}>
           <TwoByTwoFill clr={"#dfc48b"} />
         </div>
-        <div className={`block five-right ${live ? `live` : ``}`}>
+        <div className={`block five-right`}>
           <TwoByTwoFill clr={coneColor} />
         </div>
-        <div className={`block five-top ${live ? `live` : ``}`}>
+        <div className={`block five-top`}>
           <TwoByOneLeftFill clr={coneColor} />
         </div>
-        <div className={`block five-bottom ${live ? `live` : ``}`}>
+        <div className={`block five-bottom`}>
           <TwoByOneLeftFill clr={"#daba77"} />
         </div>
-        <div className={`block four ${live ? `live` : ``}`}>
+        <div className={`block four`}>
           <ThreeByTwoFill clr={coneColor} />
         </div>
-        <div className={`block three ${live ? `live` : ``}`}>
+        <div className={`block three`}>
           <TwoByTwoFill clr={coneColor} />
         </div>
-        <div className={`block two ${live ? `live` : ``}`}>
+        <div className={`block two`}>
           <TwoByOneRightFill clr={coneColor} />
         </div>
-        <div className={`block one ${live ? `live` : ``}`}>
+        <div className={`block one`}>
           <OneByOneFill clr={coneColor} />
         </div>
       </div>

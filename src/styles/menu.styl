@@ -1,13 +1,20 @@
 @require 'styles'
 
+$darkWhite = darken($white, 45)
+
 .nav
-  border-left 1px solid #b1ab9f
+  border-left 1px solid $darkWhite
   display flex
   flex-direction column
   justify-content space-between
   padding 40px
-  padding-right 80px
+  width 29%
   position relative
+  transition width 0.3s ease-out 0.15s, opacity 0.4s
+
+  &.hidden
+    opacity 0
+    width 0
 
   .selected-nav-line
     left -1px
@@ -17,12 +24,14 @@
     width 1px
 
   .nav-item
-    color alpha($white, 0.4)
-    font-size $fontXXL
+    color $darkWhite
+    font-size 7.7vh
     font-weight 200
+    padding 1.7vh
+    transition color 0.4s ease-out
 
     &:hover
-      color $white
+      color white
 
     &[aria-current='page']
-      color $white
+      color white
