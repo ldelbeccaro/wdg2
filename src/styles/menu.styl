@@ -9,6 +9,7 @@ $darkWhite = darken($white, 45)
   justify-content space-between
   padding 40px
   width 29%
+  opacity 1
   position relative
   transition width 0.3s ease-out 0.15s, opacity 0.4s
 
@@ -28,10 +29,13 @@ $darkWhite = darken($white, 45)
     font-size 7.7vh
     font-weight 200
     padding 1.7vh
-    transition color 0.4s ease-out
+    transition color 0.4s ease-out, margin-left 0.2s linear
 
     &:hover
       color white
 
     &[aria-current='page']
       color white
+
+    &.selected
+      margin-left 12px

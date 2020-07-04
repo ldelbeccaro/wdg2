@@ -1,5 +1,5 @@
-import React, { useContext, useRef, useEffect } from "react"
-import { Link } from "gatsby"
+import React, { useState, useContext, useRef, useEffect } from "react"
+import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
 
 import "../styles/menu.styl"
@@ -8,23 +8,22 @@ import BackgroundContext from "../contexts/BackgroundContext"
 import MenuContext from "../contexts/MenuContext"
 
 const Menu = ({ pages }) => {
+  const [navHeight, setNavHeight] = useState(0)
   const { colorBg, lastColorBg, setBackground } = useContext(BackgroundContext)
-  const { navShowing, navHeight, lastPageContent, setMenu } = useContext(
-    MenuContext
-  )
+  const { navShowing, lastPageContent, setMenu } = useContext(MenuContext)
   const navRef = useRef(null)
 
-  useEffect(() => setMenu({ height: getNavHeight() }), [])
+  useEffect(() => setNavHeight(getNavHeight()), [navShowing])
 
   const currentPage = pages.find(
     page => window.location.pathname === page.node.frontmatter.url
   )
   const pageUrl = currentPage ? currentPage.node.frontmatter.url : "/"
+  const currentNavItem = document.querySelector(`.nav-item[href="${pageUrl}"]`)
 
   const getNavHeight = e => {
-    const target = e
-      ? e.target
-      : document.querySelector(`.nav-item[href="${pageUrl}"]`)
+    const target = e ? e.target : currentNavItem
+    console.log(target)
 
     if (!target) {
       return `0px`
@@ -42,7 +41,7 @@ const Menu = ({ pages }) => {
       className={`nav${navShowing ? `` : ` hidden`}`}
       ref={navRef}
       onMouseLeave={() => {
-        setMenu({ height: getNavHeight() })
+        setNavHeight(getNavHeight())
         setBackground({ colorBackground: lastColorBg })
       }}
     >
@@ -60,12 +59,33 @@ const Menu = ({ pages }) => {
             className="nav-item"
             key={page.url}
             to={page.url}
-            onClick={() => {
-              setMenu({ showing: false, content: lastPageContent })
+            onClick={e => {
+              e.preventDefault()
+              const target = e.target
+
+              target.classList.add("selected")
+              target.setAttribute("style", `color: ${page.color}`)
               setBackground({ lastColorBackground: page.color })
+              document
+                .querySelector(`.nav-item[aria-current="page"]`)
+                .setAttribute("style", "color: #8c8c8c;")
+
+              setTimeout(() => {
+                setMenu({ showing: false, content: <div /> })
+              }, 500)
+
+              setTimeout(() => {
+                target.classList.remove("selected")
+                target.setAttribute("style", "")
+                if (pageUrl === target.getAttribute("href")) {
+                  setMenu({ content: lastPageContent })
+                } else {
+                  navigate(target.getAttribute("href"))
+                }
+              }, 1000)
             }}
             onMouseEnter={e => {
-              setMenu({ height: getNavHeight(e) })
+              setNavHeight(getNavHeight(e))
               setBackground({ colorBackground: page.color })
             }}
           >

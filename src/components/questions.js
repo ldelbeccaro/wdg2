@@ -19,6 +19,15 @@ const Questions = () => {
     window.addEventListener("resize", resizeAllGridItems)
   }, [questionsRef, resizeAllGridItems])
 
+  const resizeAllGridItems = () => {
+    const ref = questionsRef.current
+    if (!ref) return
+    const allItems = ref.querySelectorAll(".question")
+    for (const item of allItems) {
+      resizeGridItem(item)
+    }
+  }
+
   const resizeGridItem = item => {
     const ref = questionsRef.current
     const rowHeight = parseInt(
@@ -37,15 +46,6 @@ const Questions = () => {
         (rowHeight + rowGap)
     )
     item.style.gridRowEnd = "span " + rowSpan
-  }
-
-  const resizeAllGridItems = () => {
-    const ref = questionsRef.current
-    if (!ref) return
-    const allItems = ref.querySelectorAll(".question")
-    for (const item of allItems) {
-      resizeGridItem(item)
-    }
   }
 
   return (
@@ -104,7 +104,7 @@ const Question = ({ icon, q, children }) => {
     >
       <div className="faq-content">
         <div className="q">
-          <img className="icon" src={icon} />
+          <img alt="question icon" className="icon" src={icon} />
           <div className="text">{q}</div>
         </div>
         <div className="answer">{children}</div>
