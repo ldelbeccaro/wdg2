@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from "react"
 import { graphql } from "gatsby"
 
 import BackgroundContext from "../contexts/BackgroundContext"
-import MenuContext from "../contexts/MenuContext"
 
 import Layout from "../components/layout"
+import Welcome from "../components/welcome"
 import Timeline from "../components/timeline"
 import Questions from "../components/questions"
 import RSVP from "../components/rsvp"
@@ -25,13 +25,14 @@ export default function Template({ data }) {
     timeline: Timeline,
     questions: Questions,
     rsvp: RSVP,
+    welcome: Welcome,
   }
   const Component = componentMap[post.frontmatter.component]
 
   return (
     <Layout>
       <div className="template-content">
-        <h2>{post.frontmatter.title}</h2>
+        {/* <h2>{post.frontmatter.title}</h2> */}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       {post.frontmatter.component && <Component />}

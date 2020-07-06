@@ -67,9 +67,9 @@ const Menu = ({ pages }) => {
               target.classList.add("selected")
               target.setAttribute("style", `color: ${page.color};`)
               setBackground({ lastColorBackground: page.color })
-              document
-                .querySelector(`.nav-item[aria-current="page"]`)
-                .setAttribute("style", "color: #8c8c8c;")
+              if (currentNavItem) {
+                currentNavItem.setAttribute("style", "color: #8c8c8c;")
+              }
 
               setTimeout(() => {
                 setMenu({ content: <div /> })

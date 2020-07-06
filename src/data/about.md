@@ -2,9 +2,7 @@
 title: "about"
 url: "/about"
 index: 5
-image: "../images/about.png"
 color: "#a5a072"
-
 ---
 
 <strong>our story</strong>
@@ -21,3 +19,5 @@ not too many
 inspo
 photo gallery: https://www.awwwards.com/inspiration/julie-cristobal-horizontal-navigation
 https://www.awwwards.com/inspiration/image-reveal-animation-mask-stuuudio
+
+this kind of scrolling? https://throwbacks-music.com/

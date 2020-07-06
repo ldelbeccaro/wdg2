@@ -5,6 +5,7 @@ import BackgroundContext from "../contexts/BackgroundContext"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Welcome from "../components/welcome"
 
 import root from "../images/root.png"
 
@@ -20,12 +21,8 @@ const IndexPage = () => {
       <SEO title="Home" />
       <div className="home">
         <div>
-          <Link to="/rsvp">RSVP button goes here</Link>
-          <div>
-            Should automatically transition to home page... maybe should just be
-            home page but then link is dumb, maybe should just go to /home
-          </div>
           <div className="welcome-image"></div>
+          <Welcome />
         </div>
       </div>
     </Layout>
