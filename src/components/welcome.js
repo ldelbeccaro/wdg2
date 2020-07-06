@@ -32,15 +32,16 @@ export default ({ buffer }) => {
           more.
         </p>
         <p>
-          Most importantly, please <Link to="/rsvp">RSVP</Link>!
-        </p>
-        <p>
           Feel free to <a href="mailto:ashkonlaura@gmail.com">contact us</a> if
           you have any questions at all :) We love you all and cannot wait to
           celebrate with you!
         </p>
         <p>Love, Laura & Ashkon</p>
+        {/* <div style={{ color: "red", marginTop: "32px" }}>responsiveness</div> */}
       </div>
+      <Link to="/rsvp" className="button">
+        RSVP →
+      </Link>
     </div>
   )
 }
