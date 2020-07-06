@@ -2,6 +2,7 @@
 title: "about"
 url: "/about"
 index: 5
+image: "../images/blank.png"
 color: "#a5a072"
 ---
 

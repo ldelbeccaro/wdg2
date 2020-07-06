@@ -8,6 +8,7 @@ import BackgroundContext from "../contexts/BackgroundContext"
 import MenuContext from "../contexts/MenuContext"
 
 import Animation from "./animations/animation"
+import Welcome from "./welcome"
 
 const Header = ({ siteTitle }) => {
   const { navShowing, lastPageContent, setMenu } = useContext(MenuContext)
@@ -15,7 +16,11 @@ const Header = ({ siteTitle }) => {
   return (
     <header>
       <h1>
-        <Link to="/" style={{ color: navShowing ? colorBg : `#fff` }}>
+        <Link
+          to="/"
+          style={{ color: navShowing ? colorBg : `#fff` }}
+          onClick={() => setMenu({ showing: false, content: Welcome })}
+        >
           {siteTitle}
         </Link>
       </h1>

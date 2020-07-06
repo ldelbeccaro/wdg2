@@ -7,12 +7,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Welcome from "../components/welcome"
 
-import root from "../images/root.png"
+import blank from "../images/blank.png"
 
 const IndexPage = () => {
   const { setBackground } = useContext(BackgroundContext)
   useEffect(
-    () => setBackground({ background: root, backgroundAnimation: "0" }),
+    () => setBackground({ background: blank, backgroundAnimation: "0" }),
     [setBackground]
   )
 
@@ -20,10 +20,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <div className="home">
-        <div>
-          <div className="welcome-image"></div>
-          <Welcome />
-        </div>
+        <Welcome buffer />
       </div>
     </Layout>
   )

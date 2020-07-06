@@ -1,6 +1,6 @@
 ---
 title: "home"
-url: "/home"
+url: "/"
 index: 1
 image: "../images/blank.png"
 color: "#e19578"

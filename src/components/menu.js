@@ -23,7 +23,6 @@ const Menu = ({ pages }) => {
 
   const getNavHeight = e => {
     const target = e ? e.target : currentNavItem
-    console.log(target)
 
     if (!target) {
       return `0px`

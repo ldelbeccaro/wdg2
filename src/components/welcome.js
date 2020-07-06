@@ -8,10 +8,10 @@ import MenuContext from "../contexts/MenuContext"
 
 import Animation from "./animations/animation"
 
-export default () => {
+export default ({ buffer }) => {
   const { setMenu } = useContext(MenuContext)
   return (
-    <div className="welcome">
+    <div className={`welcome${buffer ? ` buffer` : ``}`}>
       <div className="welcome-image">
         <img src={image} />
       </div>
