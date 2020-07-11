@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react"
-import { Link } from "gatsby"
 
 import BackgroundContext from "../contexts/BackgroundContext"
 

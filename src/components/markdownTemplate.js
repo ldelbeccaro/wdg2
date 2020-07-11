@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import Welcome from "../components/welcome"
 import Timeline from "../components/timeline"
 import Questions from "../components/questions"
+import Photos from "../components/photos"
 import RSVP from "../components/rsvp"
 
 import "../styles/template.styl"
@@ -26,6 +27,7 @@ export default function Template({ data }) {
     questions: Questions,
     rsvp: RSVP,
     welcome: Welcome,
+    photos: Photos,
   }
   const Component = componentMap[post.frontmatter.component]
 

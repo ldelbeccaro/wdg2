@@ -13,7 +13,7 @@ export default ({ buffer }) => {
   return (
     <div className={`welcome${buffer ? ` buffer` : ``}`}>
       <div className="welcome-image">
-        <img src={image} />
+        <img src={image} alt="Laura and Ashkon in Italy" />
       </div>
       <div className="welcome-blob"></div>
       <div className="welcome-blob-2"></div>
@@ -24,9 +24,12 @@ export default ({ buffer }) => {
       <div className="message">
         <p>
           Welcome to our wedding website! Click{" "}
-          <a onClick={() => setMenu({ showing: true, content: Animation })}>
+          <span
+            className="link"
+            onClick={() => setMenu({ showing: true, content: Animation })}
+          >
             MENU
-          </a>{" "}
+          </span>{" "}
           in the top right corner to find resources and information about our
           schedule, location and accommodations, frequently asked questions, and
           more.
@@ -37,7 +40,13 @@ export default ({ buffer }) => {
           celebrate with you!
         </p>
         <p>Love, Laura & Ashkon</p>
-        {/* <div style={{ color: "red", marginTop: "32px" }}>responsiveness</div> */}
+        <div style={{ color: "red", marginTop: "32px" }}>responsiveness</div>
+        <div style={{ color: "red", marginTop: "32px" }}>
+          content animations
+        </div>
+        <div style={{ color: "red", marginTop: "32px" }}>
+          color of header nav
+        </div>
       </div>
       <Link to="/rsvp" className="button">
         RSVP →
