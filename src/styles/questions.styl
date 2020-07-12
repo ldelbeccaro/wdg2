@@ -13,10 +13,23 @@ $shadowColor = darken($backgroundColor, 70)
   .question
     background-color white
     cursor default
-    filter drop-shadow(0 10px 5px alpha($shadowColor, 0.1))
     padding 24px
     position relative
-    transition filter 0.4s ease-in-out  
+    transition filter 0.4s ease-in-out
+
+    $colors = #b2ffc8 #b2e9ff #b2c3ff #b2ffef #e5ddff #b2f6ff #cee3fb #d2e1ff #b2dcff #dee0f9
+
+    for idx in 0..9
+      &:nth-child({idx})
+
+        animation waitToFadeIn (0.1s * idx) linear, fadeIn 1s ease (0.1s * idx)
+        filter drop-shadow(0 10px 5px alpha(darken($colors[idx], 70), 0.1))
+
+        .card-border
+          background alpha($colors[idx], 0.5)
+
+        &:hover
+          filter drop-shadow(0 8px 8px alpha(darken($colors[idx], 70), 0.2))
 
     .q
       align-items center
@@ -42,21 +55,44 @@ $shadowColor = darken($backgroundColor, 70)
       z-index 3
 
     .card-border
-      background alpha($backgroundColor, 0.5)
+      animation growIn 1.5s ease
       height 72px
       right 16px
       position absolute
       top -8px
-      transition top 0.4s ease-in-out, width 0.4s ease-in-out
+      transition top 0.4s ease-in-out, width 0.4s ease-in-out, right 0.4s ease-in-out
       width 8px
       z-index 1
 
     &.hover
-      filter drop-shadow(0 8px 8px alpha($shadowColor, 0.2))
-
-      .text
-        // color white
-
       .card-border
+        right 0
         top 0
-        width calc(100% - 16px)
+        width 100%
+
+@keyframes waitToFadeIn
+  0%
+    opacity 0
+    transform translateY(-10px)
+  100%
+    opacity 0
+    transform translateY(-10px)
+
+@keyframes fadeIn
+  0%
+    opacity 0
+    transform translateY(-10px)
+  100%
+    opacity 1
+    transform translateY(0)
+
+@keyframes growIn
+  0%
+    opacity 0
+    height 0
+  33%
+    opacity 0
+    height 0
+  100%
+    opacity 1
+    height 72px
