@@ -18,7 +18,7 @@ const Header = ({ siteTitle }) => {
       <h1>
         <Link
           to="/"
-          style={{ color: navShowing ? colorBg : `#fff` }}
+          style={{ color: navShowing ? colorBg : `#797474` }}
           onClick={() => setMenu({ showing: false, content: Welcome })}
         >
           {siteTitle}

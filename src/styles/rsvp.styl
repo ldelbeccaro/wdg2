@@ -1,0 +1,311 @@
+@require 'styles'
+
+.rsvp
+  display grid
+  grid-template-columns minmax(0,1fr) minmax(0,2fr)
+  height calc(100vh - 144px)
+  margin-top 40px
+  position relative
+  transition color 1.5s linear
+  width 100%
+  z-index 10
+
+  .left
+    height calc(100vh - 144px)
+
+    .rsvp-text
+      align-items center
+      display grid
+      grid-template-columns max-content auto
+
+      h2
+        serifHeader()
+        text-transform lowercase
+
+      .line
+        background $black
+        height 1px
+        margin-left 32px
+        width calc(100% - 64px)
+    
+    .info
+      font-weight 500
+      margin-top 40px
+      text-transform uppercase
+
+  .back
+    cursor pointer
+    font-size $fontS
+    margin 16px 0
+    text-transform uppercase
+
+  .section-label
+    serifHeader()
+    margin-bottom 40px
+    text-transform lowercase
+
+  .right
+    position relative
+    margin-right: 40px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    margin-left: -20px;
+    top -144px
+    height 100vh
+
+    .right-scroll
+      height 100vh
+      overflow scroll
+      position absolute
+      right -20px
+      top 0
+      width 100%
+
+  .name-stage, .rsvp-stage, .meal-stage, .submit-stage
+    transition transform 1s ease, opacity 1s ease
+    opacity 0
+
+  .name-stage
+    margin-bottom 56px
+    margin-top 144px
+
+    .label
+      serifHeader()
+      font-size $fontXL
+      margin-right 24px
+      text-transform lowercase
+
+    .input-container
+      position relative
+
+      input
+        serifHeader()
+        background none
+        border none
+        border-bottom 1px solid white
+        color $white
+        font-size $fontXL
+        outline none
+        padding 8px 0
+
+      .dropdown
+        background alpha($white, 0.5)
+        max-height 300px
+        overflow scroll
+        position absolute
+        width 100%
+        z-index 100
+
+        .dropdown-item
+          cursor pointer
+          padding 16px 8px
+          width calc(100% - 16px)
+
+          &:hover
+            background alpha($darkGray, 0.5)
+
+    &.stage-0
+      opacity 1
+
+    &.stage-1, &.stage-2, &.stage-3
+      pointer-events none
+
+  .rsvp-stage
+    opacity 0
+    margin-bottom 40px
+
+    .party-rsvp
+      .attendees
+        align-items center
+        display grid
+        grid-template-columns repeat(auto-fill, 230px)
+        margin-bottom 16px
+
+        .attendee-rsvp
+          margin-bottom 16px
+
+    &.stage-1
+      opacity 1
+
+    &.stage-0, &.stage-2
+      pointer-events none
+
+  .meal-stage
+    opacity 0
+
+    .meal-selection
+      margin-bottom 32px
+
+      .person
+        margin-bottom 40px
+
+        .flex
+          align-items center
+          display grid
+          grid-template-columns 220px auto
+          height 27px
+          margin-bottom 24px
+
+          .name
+            font-weight 500
+            text-transform uppercase
+
+          .restrictions
+            align-items center
+            display flex
+            margin-left 32px
+
+            .label
+              color $white
+              font-weight 500
+
+              &.add
+                border-bottom 1px solid transparent
+                cursor pointer
+
+                &:hover
+                  border-bottom 1px solid $white
+
+            input
+              regularText()
+              background none
+              border none
+              border-bottom 1px solid $black
+              color $white
+              margin-left 16px
+              outline none
+              padding-bottom 0
+
+        .input
+          &.meal
+            align-items center
+            display grid
+            justify-items center
+            grid-template-columns repeat(auto-fill, minmax(128px, 1fr));
+    
+    &.stage-2
+      opacity 1
+
+    &.stage-0, &.stage-1, &.stage-3
+      pointer-events none
+
+  .submit-stage
+    opacity 0
+
+    .submit-container
+      align-items center
+      display flex
+      height 50px
+      position relative
+
+      .submit
+        border 1px solid transparent
+        height 20px
+        transition width 0.5s linear, padding 0.5s linear, height 0.5s linear, color 0.1s linear
+
+        &[disabled]
+          background alpha($black, 0.3)
+
+        &.error-border
+          border 1px solid $red          
+
+      .thanks
+        serifHeader()
+        margin-left 24px
+        opacity 0
+        text-transform lowercase
+        transform translateY(8px)
+        transition opacity 0.5s ease-in 1s, transform 0.5s linear 1s
+
+      .check
+        height 32px
+        left 8px
+        opacity 0
+        position absolute
+        top 8px
+        transition opacity 0.5s linear 1s
+        z-index -1
+
+      .circle
+        height 50px
+        pointer-events none
+        position absolute
+        width 50px
+
+        .foreground
+          fill: transparent;
+          stroke-dasharray 377
+          stroke-dashoffset 377
+          stroke $white
+          transition all 1.3s linear 0.6s
+          transform rotate(-90deg)
+          transform-origin 50% 50%
+
+      &.submitted
+        margin-left 2px
+        pointer-events none
+
+        .submit
+          color transparent
+          height 0
+          padding 24px
+          width 0
+
+        .thanks
+          opacity 1
+          transform translateY(0)
+
+        .check
+          opacity 1
+          z-index 3
+
+        .circle
+          overflow visible
+
+          .foreground
+            stroke-dashoffset 0
+
+    .thanks-text
+      serifHeader()
+      animation fadeIn 1.5s ease-in
+      line-height 1.4em
+      margin-top 64px
+      text-transform lowercase
+
+    .error
+      color $red
+      margin-top 16px
+      font-weight 500
+
+    &.stage-2, &.stage-3
+      opacity 1
+
+    &.stage-0, &.stage-1
+      pointer-events none
+
+  .next, .submit
+    background alpha($black, 0.8)
+    border-radius 32px
+    color $white
+    cursor pointer
+    font-size $fontM
+    font-weight 500
+    padding 16px 32px 11px
+    text-transform uppercase
+    transition opacity 0.3s linear
+    width max-content
+
+    &:hover
+      background alpha($black, 1)
+
+@keyframes fadeIn
+  0%
+    transform translateY(16px)
+    opacity 0
+  75%
+    transform translateY(16px)
+    opacity 0
+  100%
+    transform translateY(0)
+    opacity 1
+  

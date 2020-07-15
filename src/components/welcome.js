@@ -19,7 +19,7 @@ export default ({ buffer }) => {
       <div className="welcome-blob-2"></div>
       <div className="main-info">
         <h2>Laura & Ashkon are getting married!</h2>
-        <p>September 21, 2021 • 4pm • Paso Robles, CA</p>
+        <p>April 21, 2022 • 4pm • Paso Robles, CA</p>
       </div>
       <div className="message">
         <p>
@@ -40,12 +40,14 @@ export default ({ buffer }) => {
           celebrate with you!
         </p>
         <p>Love, Laura & Ashkon</p>
-        <div style={{ color: "red", marginTop: "32px" }}>responsiveness</div>
         <div style={{ color: "red", marginTop: "32px" }}>
-          content animations
+          schedule, location
         </div>
         <div style={{ color: "red", marginTop: "32px" }}>
-          color of header nav
+          photos animation & sizing
+        </div>
+        <div style={{ color: "red", marginTop: "32px" }}>
+          at the end: responsiveness, content animations, color of header nav
         </div>
       </div>
       <Link to="/rsvp" className="button">

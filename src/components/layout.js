@@ -61,13 +61,6 @@ const Layout = ({ children }) => {
         <div className="main-content">{MainContent}</div>
         <Menu pages={data.allMarkdownRemark.edges} />
       </div>
-      <footer>
-        <div>© {new Date().getFullYear()}</div>
-        <div>
-          Email us!{" "}
-          <a href="mailto:ashkonlaura@gmail.com">ashkonlaura@gmail.com</a>
-        </div>
-      </footer>
     </div>
   )
 }

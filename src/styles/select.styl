@@ -1,0 +1,39 @@
+@require 'styles'
+
+.select
+  align-items center
+  cursor pointer
+  display flex
+
+  &.image
+    flex-direction column
+
+    .label
+      margin-top 8px
+
+  > svg
+    height 24px
+    margin-right 12px
+
+  .select-image
+    align-items center
+    border 1px solid $reallyDarkGray
+    border-radius 50%
+    display flex
+    height 72px
+    justify-content center
+    transition height 0.1s ease-in 0.05s, width 0.1s ease-in 0.05s, background 0.1s ease-in 0.05s, margin 0.1s ease-in 0.05s, border 0.3s linear
+    width 72px
+
+    svg
+      width 24px
+      height 24px
+
+    &.selected
+      background $reallyDarkGray
+      height 64px
+      margin 4px 0
+      width 64px
+
+    &:hover
+      border 1px solid $black
