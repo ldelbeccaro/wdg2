@@ -1,34 +1,19 @@
 import React, { useState, useRef, useEffect } from "react"
 
 import { filterAndSortItems } from "../helpers/search"
+import { sendRsvpToAirtable, getNamesFromAirtable } from "../helpers/airtable"
 
 import "../styles/rsvp.styl"
 
 import Select from "../components/select"
 import { Check } from "./svg"
 
-const allNames = [
-  {
-    name: "Laura Del Beccaro",
-    guests: ["Ashkon Nosrat", "Callum Loftus-Cheek"],
-  },
-  {
-    name: "Ashkon Nosrat",
-    guests: ["Laura Del Beccaro", "Callum Loftus-Cheek"],
-  },
-  { name: "Kathryn Del Beccaro", guests: [] },
-  { name: "David Del Beccaro", guests: ["Arleen Armstrong"] },
-  { name: "Arleen Armstrong", guests: ["David Del Beccaro"] },
-  { name: "May Bahi-Nur", guests: ["Warren Coleman"] },
-  { name: "Warren Coleman", guests: ["May Bahi-Nur"] },
-  { name: "Mehrdad Nosrat", guests: ["Mahnaz Mehrabi"] },
-  { name: "Mahnaz Mehrabi", guests: ["Mehrdad Nosrat"] },
-  { name: "Shabnam Peña", guests: ["Chris Peña", "Maya Peña"] },
-  { name: "Chris Peña", guests: ["Shabnam Peña", "Maya Peña"] },
-]
+// TODO
+// hook up to airtable to write rsvp
 
 const blankRsvp = {
   attendees: [],
+  ids: [],
   rsvps: [],
   meals: [],
   restrictions: [],
@@ -37,6 +22,7 @@ const blankTransform = { transform: `translateY(0)` }
 const RSVP = () => {
   // if RSVP'd already, show message
   const [nameInput, setNameInput] = useState("")
+  const [allNames, setAllNames] = useState([])
   const [rsvpStage, setRsvpStage] = useState(0)
   const [rsvp, setRsvp] = useState(blankRsvp)
   const [style, setStyle] = useState(blankTransform)
@@ -52,6 +38,35 @@ const RSVP = () => {
   const missingMeals = rsvp.rsvps
     .map((resp, i) => (!resp ? true : !!rsvp.meals[i]))
     .some(meal => !meal)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const newAllNames = await getNamesFromAirtable()
+
+      setAllNames(
+        newAllNames.map(record => ({
+          id: record.id,
+          name: record.fields.name,
+          meal: record.fields.dinner,
+          rsvp: record.fields.RSVP,
+          restrictions: record.fields["dietary restrictions"],
+          guests: !record.fields["related guests"]
+            ? []
+            : record.fields["related guests"].map(id => {
+                const fullRecord = newAllNames.find(record => record.id === id)
+                return {
+                  id: fullRecord.id,
+                  name: fullRecord.fields.name,
+                  meal: fullRecord.fields.dinner,
+                  rsvp: fullRecord.fields.RSVP,
+                  restrictions: fullRecord.fields["dietary restrictions"],
+                }
+              }),
+        }))
+      )
+    }
+    fetchData()
+  }, [])
 
   useEffect(() => {
     const positions = [stageOneRef, stageTwoRef, stageThreeRef].map(ref => {
@@ -82,7 +97,6 @@ const RSVP = () => {
     } else if (rsvpStage === 3) {
       const height1 = stageTwoRef.current.offsetHeight
       const height2 = stageThreeRef.current.offsetHeight
-      // const bottom2 = stageThreeRef.current.getBoundingClientRect().bottom
       const scrollTop = rightGridRef.current.querySelector(".right-scroll")
         .scrollTop
       setStyle({
@@ -142,12 +156,21 @@ const RSVP = () => {
                       setMatchingNames([])
                       setRsvpStage(1)
                       setNameInput(name.name)
-                      const totalCount = name.guests.length + 1
                       setRsvp({
-                        attendees: [name.name, ...name.guests],
-                        rsvps: new Array(totalCount).fill(true),
-                        meals: new Array(totalCount).fill(null),
-                        restrictions: new Array(totalCount).fill(""),
+                        attendees: [name.name, ...name.guests.map(g => g.name)],
+                        rsvps: [
+                          name.rsvp === undefined
+                            ? true
+                            : JSON.parse(name.rsvp),
+                          ...name.guests.map(g =>
+                            g.rsvp === undefined ? true : JSON.parse(g.rsvp)
+                          ),
+                        ],
+                        meals: [name.meal, ...name.guests.map(g => g.meal)],
+                        restrictions: [
+                          name.restrictions,
+                          ...name.guests.map(g => g.restrictions || ""),
+                        ],
                       })
                     }}
                   >
@@ -215,7 +238,7 @@ const RSVP = () => {
                   .map((person, i) => ({ name: person, idx: i }))
                   .filter(person => !!rsvp.rsvps[person.idx])
                   .map(person => (
-                    <div className="person">
+                    <div className="person" key={person.name}>
                       <div className="flex">
                         <div className="name">{person.name}</div>
                         <div className="restrictions">
@@ -223,6 +246,7 @@ const RSVP = () => {
                             <>
                               <div className="label">Dietary restrictions:</div>
                               <input
+                                value={rsvp.restrictions[person.idx]}
                                 onChange={e => {
                                   const newRestrictions = [...rsvp.restrictions]
                                   newRestrictions.splice(
@@ -259,13 +283,10 @@ const RSVP = () => {
                           meal => (
                             <Select
                               image={
-                                // <svg>
-                                //   <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-                                // </svg>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   id="Layer_1"
-                                  enable-background="new 0 0 509.768 509.768"
+                                  enableBackground="new 0 0 509.768 509.768"
                                   height="512"
                                   viewBox="0 0 509.768 509.768"
                                   width="512"
