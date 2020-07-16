@@ -5,21 +5,12 @@ import "../../styles/animations/ice-cream.styl"
 import BackgroundContext from "../../contexts/BackgroundContext"
 
 import FourByTwoFill from "../../images/lego/4x2-fill"
-import FourByTwo from "../../images/lego/4x2"
 import FourByOneFill from "../../images/lego/4x1-fill"
-import FourByOne from "../../images/lego/4x1"
 import ThreeByTwoFill from "../../images/lego/3x2-fill"
-import ThreeByTwo from "../../images/lego/3x2"
-import ThreeByOneFill from "../../images/lego/3x1-fill"
-import ThreeByOne from "../../images/lego/3x1"
 import TwoByTwoFill from "../../images/lego/2x2-fill"
-import TwoByTwo from "../../images/lego/2x2"
 import TwoByOneRightFill from "../../images/lego/2x1-right-fill"
-import TwoByOneRight from "../../images/lego/2x1-right"
 import TwoByOneLeftFill from "../../images/lego/2x1-left-fill"
-import TwoByOneLeft from "../../images/lego/2x1-left"
 import OneByOneFill from "../../images/lego/1x1-fill"
-import OneByOne from "../../images/lego/1x1"
 
 const IceCream = () => {
   const { colorBg } = useContext(BackgroundContext)

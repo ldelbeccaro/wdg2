@@ -1,4 +1,10 @@
-import React, { useState, useContext, useRef, useEffect } from "react"
+import React, {
+  useState,
+  useContext,
+  useRef,
+  useEffect,
+  useCallback,
+} from "react"
 import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
 
@@ -13,27 +19,30 @@ const Menu = ({ pages }) => {
   const { navShowing, lastPageContent, setMenu } = useContext(MenuContext)
   const navRef = useRef(null)
 
-  useEffect(() => setNavHeight(getNavHeight()), [navShowing])
-
   const currentPage = pages.find(
     page => window.location.pathname === page.node.frontmatter.url
   )
   const pageUrl = currentPage ? currentPage.node.frontmatter.url : "/"
   const currentNavItem = document.querySelector(`.nav-item[href="${pageUrl}"]`)
 
-  const getNavHeight = e => {
-    const target = e ? e.target : currentNavItem
+  const getNavHeight = useCallback(
+    e => {
+      const target = e ? e.target : currentNavItem
 
-    if (!target) {
-      return `0px`
-    }
-    if (target === target.parentNode.lastChild) {
-      return `100%`
-    }
-    const targetY = target.getBoundingClientRect().bottom
-    const navY = navRef.current.getBoundingClientRect().y
-    return `${targetY - navY}px`
-  }
+      if (!target) {
+        return `0px`
+      }
+      if (target === target.parentNode.lastChild) {
+        return `100%`
+      }
+      const targetY = target.getBoundingClientRect().bottom
+      const navY = navRef.current.getBoundingClientRect().y
+      return `${targetY - navY}px`
+    },
+    [currentNavItem]
+  )
+
+  useEffect(() => setNavHeight(getNavHeight()), [navShowing, getNavHeight])
 
   return (
     <div
@@ -43,6 +52,7 @@ const Menu = ({ pages }) => {
         setNavHeight(getNavHeight())
         setBackground({ colorBackground: lastColorBg })
       }}
+      role="none"
     >
       <div
         className="selected-nav-line"

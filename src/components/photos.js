@@ -92,6 +92,11 @@ export default () => {
       <div
         className="expand-photos-container"
         onClick={() => setExpanded(true)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={e => {
+          if (e.keyCode === 13) setExpanded(true)
+        }}
       >
         <div className="expand-photos link">View photos</div>
         <div
@@ -106,15 +111,33 @@ export default () => {
             }
           }}
           onMouseLeave={() => (clusterRef.current.style = "")}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => {
+            if (e.keyCode === 13) setExpanded(true)
+          }}
         >
-          <img className="cluster" src={cluster} ref={clusterRef} />
+          <img
+            className="cluster"
+            alt="assorted photos of Laura and Ashkon"
+            src={cluster}
+            ref={clusterRef}
+          />
         </div>
       </div>
       <div className="photos-container">
         <div className="photo-background"></div>
         {expanded && (
           <>
-            <div className="close" onClick={() => setExpanded(false)}>
+            <div
+              className="close"
+              onClick={() => setExpanded(false)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.keyCode === 13) setExpanded(false)
+              }}
+            >
               <CloseSvg />
               <div className="text">Scroll down ↓</div>
             </div>
@@ -123,12 +146,13 @@ export default () => {
                 {photos.map((photo, i) => {
                   const idx = i + 1
                   return (
-                    <>
+                    <div key={idx}>
                       <div
                         className={`image index-${idx}`}
                         onMouseEnter={() => setCurrentImageHover(idx)}
+                        role="img"
                       >
-                        <img src={photo.img} />
+                        <img src={photo.img} alt={photo.caption} />
                       </div>
                       <div
                         className={`caption index-${idx}${
@@ -137,7 +161,7 @@ export default () => {
                       >
                         {photo.caption}
                       </div>
-                    </>
+                    </div>
                   )
                 })}
                 <div className="image index-10" />

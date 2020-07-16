@@ -19,7 +19,7 @@ export default function Template({ data }) {
     setBackground({
       background: data.markdownRemark.frontmatter.image.publicURL,
     })
-  }, [data])
+  }, [data, setBackground])
 
   const post = data.markdownRemark
   const componentMap = {

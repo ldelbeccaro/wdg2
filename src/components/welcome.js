@@ -27,6 +27,12 @@ export default ({ buffer }) => {
           <span
             className="link"
             onClick={() => setMenu({ showing: true, content: Animation })}
+            onKeyDown={e => {
+              if (e.keyCode === 13)
+                setMenu({ showing: true, content: Animation })
+            }}
+            role="link"
+            tabIndex={0}
           >
             MENU
           </span>{" "}
@@ -46,6 +52,7 @@ export default ({ buffer }) => {
         <div style={{ color: "red", marginTop: "32px" }}>
           photos animation & sizing
         </div>
+        <div style={{ color: "red", marginTop: "32px" }}>links in FAQ</div>
         <div style={{ color: "red", marginTop: "32px" }}>
           at the end: responsiveness, content animations, color of header nav
         </div>

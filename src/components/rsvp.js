@@ -118,6 +118,43 @@ const RSVP = () => {
     }
   }, [refPositions, rsvpStage])
 
+  const onSubmitRsvp = () => {
+    if (missingMeals) {
+      setError("Please choose a meal for each attendee")
+    } else {
+      rightGridRef.current
+        .querySelector(".right-scroll")
+        .setAttribute(
+          "style",
+          "position: sticky; overflow: hidden; margin-left: 20px"
+        )
+      setError("")
+      setRsvpStage(3)
+      console.log(rsvp)
+      setSubmitted(true)
+    }
+  }
+
+  const onSelectName = name => {
+    setMatchingNames([])
+    setRsvpStage(1)
+    setNameInput(name.name)
+    setRsvp({
+      attendees: [name.name, ...name.guests.map(g => g.name)],
+      rsvps: [
+        name.rsvp === undefined ? true : JSON.parse(name.rsvp),
+        ...name.guests.map(g =>
+          g.rsvp === undefined ? true : JSON.parse(g.rsvp)
+        ),
+      ],
+      meals: [name.meal, ...name.guests.map(g => g.meal)],
+      restrictions: [
+        name.restrictions,
+        ...name.guests.map(g => g.restrictions || ""),
+      ],
+    })
+  }
+
   return (
     <div className="rsvp" style={submitted ? { color: "white" } : {}}>
       <div className="left">
@@ -141,6 +178,7 @@ const RSVP = () => {
             <div className="label">What's your name?</div>
             <div className="input-container">
               <input
+                aria-label="your name"
                 value={nameInput}
                 onChange={e => {
                   setNameInput(e.target.value)
@@ -152,26 +190,11 @@ const RSVP = () => {
                   <div
                     key={name.name}
                     className="dropdown-item"
-                    onClick={() => {
-                      setMatchingNames([])
-                      setRsvpStage(1)
-                      setNameInput(name.name)
-                      setRsvp({
-                        attendees: [name.name, ...name.guests.map(g => g.name)],
-                        rsvps: [
-                          name.rsvp === undefined
-                            ? true
-                            : JSON.parse(name.rsvp),
-                          ...name.guests.map(g =>
-                            g.rsvp === undefined ? true : JSON.parse(g.rsvp)
-                          ),
-                        ],
-                        meals: [name.meal, ...name.guests.map(g => g.meal)],
-                        restrictions: [
-                          name.restrictions,
-                          ...name.guests.map(g => g.restrictions || ""),
-                        ],
-                      })
+                    onClick={() => onSelectName(name)}
+                    role="menuitem"
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.keyCode === 13) onSelectName(name)
                     }}
                   >
                     {name.name}
@@ -191,6 +214,15 @@ const RSVP = () => {
                 setRsvpStage(0)
                 setNameInput("")
                 setRsvp(blankRsvp)
+              }}
+              role="link"
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.keyCode === 13) {
+                  setRsvpStage(0)
+                  setNameInput("")
+                  setRsvp(blankRsvp)
+                }
               }}
             >
               ← Wrong name? Go back
@@ -217,7 +249,15 @@ const RSVP = () => {
                   </div>
                 ))}
               </div>
-              <div className="next" onClick={() => setRsvpStage(2)}>
+              <div
+                className="next"
+                onClick={() => setRsvpStage(2)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => {
+                  if (e.keyCode === 13) setRsvpStage(2)
+                }}
+              >
                 Next
               </div>
             </div>
@@ -227,7 +267,15 @@ const RSVP = () => {
             ref={stageThreeRef}
             style={style}
           >
-            <div className="back" onClick={() => setRsvpStage(1)}>
+            <div
+              className="back"
+              onClick={() => setRsvpStage(1)}
+              role="link"
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.keyCode === 13) setRsvpStage(1)
+              }}
+            >
               ← Missing someone? Go back
             </div>
             <div className="meal-selection">
@@ -242,40 +290,23 @@ const RSVP = () => {
                       <div className="flex">
                         <div className="name">{person.name}</div>
                         <div className="restrictions">
-                          {rsvp.restrictions[person.idx] ? (
-                            <>
-                              <div className="label">Dietary restrictions:</div>
-                              <input
-                                value={rsvp.restrictions[person.idx]}
-                                onChange={e => {
-                                  const newRestrictions = [...rsvp.restrictions]
-                                  newRestrictions.splice(
-                                    person.idx,
-                                    1,
-                                    e.target.value
-                                  )
-                                  setRsvp({
-                                    ...rsvp,
-                                    restrictions: newRestrictions,
-                                  })
-                                }}
-                              />
-                            </>
-                          ) : (
-                            <div
-                              className="label add"
-                              onClick={() => {
-                                const newRestrictions = [...rsvp.restrictions]
-                                newRestrictions.splice(person.idx, 1, true)
-                                setRsvp({
-                                  ...rsvp,
-                                  restrictions: newRestrictions,
-                                })
-                              }}
-                            >
-                              Add dietary restrictions +
-                            </div>
-                          )}
+                          <div className="label">Dietary restrictions:</div>
+                          <input
+                            aria-label="dietary restrictions"
+                            value={rsvp.restrictions[person.idx]}
+                            onChange={e => {
+                              const newRestrictions = [...rsvp.restrictions]
+                              newRestrictions.splice(
+                                person.idx,
+                                1,
+                                e.target.value
+                              )
+                              setRsvp({
+                                ...rsvp,
+                                restrictions: newRestrictions,
+                              })
+                            }}
+                          />
                         </div>
                       </div>
                       <div className="input meal">
@@ -330,22 +361,11 @@ const RSVP = () => {
               <div
                 className={`submit${error ? ` error-border` : ``}`}
                 disabled={missingMeals}
-                onClick={() => {
-                  if (missingMeals) {
-                    setError("Please choose a meal for each attendee")
-                  } else {
-                    rightGridRef.current
-                      .querySelector(".right-scroll")
-                      .setAttribute(
-                        "style",
-                        "position: sticky; overflow: hidden; margin-left: 20px"
-                      )
-                    setError("")
-                    setRsvpStage(3)
-                    // todo actually send to airtable
-                    console.log(rsvp)
-                    setSubmitted(true)
-                  }
+                onClick={onSubmitRsvp}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => {
+                  if (e.keyCode === 13) onSubmitRsvp()
                 }}
               >
                 RSVP
@@ -355,7 +375,10 @@ const RSVP = () => {
             {!!error && <div className="error">{error}</div>}
             {submitted && (
               <div className="thanks-text">
-                We're unbelievably excited to celebrate with you 🎉
+                We're unbelievably excited to celebrate with you{" "}
+                <span role="img" aria-label="party emoji">
+                  🎉
+                </span>
               </div>
             )}
           </div>

@@ -12,41 +12,42 @@ import phone from "../images/icons/phone.svg"
 
 import "../styles/questions.styl"
 
+const resizeAllGridItems = ref => {
+  if (!ref) return
+  const allItems = ref.querySelectorAll(".question")
+  for (const item of allItems) {
+    resizeGridItem(item, ref)
+  }
+}
+
+const resizeGridItem = (item, ref) => {
+  const rowHeight = parseInt(
+    window.getComputedStyle(ref).getPropertyValue("grid-auto-rows")
+  )
+  const rowGap = parseInt(
+    window.getComputedStyle(ref).getPropertyValue("grid-row-gap")
+  )
+  const padding = parseInt(
+    window.getComputedStyle(item).getPropertyValue("padding")
+  )
+  const rowSpan = Math.ceil(
+    (item.querySelector(".faq-content").getBoundingClientRect().height +
+      rowGap +
+      padding * 2) /
+      (rowHeight + rowGap)
+  )
+  item.style.gridRowEnd = "span " + rowSpan
+}
+
 const Questions = () => {
   const questionsRef = useRef(null)
+
   useEffect(() => {
-    resizeAllGridItems(questionsRef)
-    window.addEventListener("resize", resizeAllGridItems)
-  }, [questionsRef, resizeAllGridItems])
-
-  const resizeAllGridItems = () => {
-    const ref = questionsRef.current
-    if (!ref) return
-    const allItems = ref.querySelectorAll(".question")
-    for (const item of allItems) {
-      resizeGridItem(item)
-    }
-  }
-
-  const resizeGridItem = item => {
-    const ref = questionsRef.current
-    const rowHeight = parseInt(
-      window.getComputedStyle(ref).getPropertyValue("grid-auto-rows")
+    resizeAllGridItems(questionsRef.current)
+    window.addEventListener("resize", () =>
+      resizeAllGridItems(questionsRef.current)
     )
-    const rowGap = parseInt(
-      window.getComputedStyle(ref).getPropertyValue("grid-row-gap")
-    )
-    const padding = parseInt(
-      window.getComputedStyle(item).getPropertyValue("padding")
-    )
-    const rowSpan = Math.ceil(
-      (item.querySelector(".faq-content").getBoundingClientRect().height +
-        rowGap +
-        padding * 2) /
-        (rowHeight + rowGap)
-    )
-    item.style.gridRowEnd = "span " + rowSpan
-  }
+  }, [questionsRef])
 
   return (
     <div className="questions" ref={questionsRef}>
@@ -83,8 +84,9 @@ const Questions = () => {
       <Question icon={gift} q="Where are you registered?">
         Please donate to Black Lives Matter. If you feel compelled to give
         beyond that, we can't thank you enough for your generosity. We're
-        registered at <a>Crate and Barrel</a> for those who are interested, but
-        truly do not expect any gifts beyond the donation links above!
+        registered at <a href="link to site">Crate and Barrel</a> for those who
+        are interested, but truly do not expect any gifts beyond the donation
+        links above!
       </Question>
       <Question icon={phone} q="What's your contact info?">
         {`Feel free to contact us at any time :) call or text Laura at
@@ -101,6 +103,7 @@ const Question = ({ icon, q, children }) => {
       className={`question${hover ? ` hover` : ``}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      role="listitem"
     >
       <div className="faq-content">
         <div className="q">

@@ -13,6 +13,26 @@ import Welcome from "./welcome"
 const Header = ({ siteTitle }) => {
   const { navShowing, lastPageContent, setMenu } = useContext(MenuContext)
   const { colorBg, lastColorBg, setBackground } = useContext(BackgroundContext)
+
+  const onClickMenu = () => {
+    const nav = document.querySelector(".nav")
+
+    if (navShowing) {
+      setTimeout(() => {
+        setMenu({ content: <div /> })
+        nav.setAttribute("style", "width: 0; opacity: 0;")
+      }, 0)
+
+      setTimeout(() => {
+        setMenu({ showing: !navShowing, content: lastPageContent })
+        nav.setAttribute("style", "")
+      }, 500)
+    } else {
+      setMenu({ showing: !navShowing, content: Animation })
+      setBackground({ colorBackground: lastColorBg })
+    }
+  }
+
   return (
     <header>
       <h1>
@@ -26,24 +46,12 @@ const Header = ({ siteTitle }) => {
       </h1>
       <div
         id="menu"
-        onClick={() => {
-          const nav = document.querySelector(".nav")
-
-          if (navShowing) {
-            setTimeout(() => {
-              setMenu({ content: <div /> })
-              nav.setAttribute("style", "width: 0; opacity: 0;")
-            }, 0)
-
-            setTimeout(() => {
-              setMenu({ showing: !navShowing, content: lastPageContent })
-              nav.setAttribute("style", "")
-            }, 500)
-          } else {
-            setMenu({ showing: !navShowing, content: Animation })
-            setBackground({ colorBackground: lastColorBg })
-          }
+        onClick={onClickMenu}
+        onKeyDown={e => {
+          if (e.keyCode === 13) onClickMenu()
         }}
+        role="link"
+        tabIndex={0}
       >
         menu
       </div>
