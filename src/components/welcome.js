@@ -47,11 +47,9 @@ export default ({ buffer }) => {
         </p>
         <p>Love, Laura & Ashkon</p>
         <div style={{ color: "red", marginTop: "32px" }}>
-          schedule, location
+          schedule, location, photos animation & sizing, welcome animation fixes
         </div>
-        <div style={{ color: "red", marginTop: "32px" }}>
-          photos animation & sizing
-        </div>
+        <div style={{ color: "red", marginTop: "32px" }}>firefox</div>
         <div style={{ color: "red", marginTop: "32px" }}>links in FAQ</div>
         <div style={{ color: "red", marginTop: "32px" }}>
           at the end: responsiveness, content animations, color of header nav

@@ -112,7 +112,6 @@ const Question = ({ icon, q, children }) => {
         </div>
         <div className="answer">{children}</div>
         <div className="card-border" />
-        <div className="card-border-cover" />
       </div>
     </div>
   )

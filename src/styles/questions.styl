@@ -13,9 +13,11 @@ $shadowColor = darken($backgroundColor, 70)
   .question
     background-color white
     cursor default
+    opacity 1
     padding 24px
     position relative
     transition filter 0.4s ease-in-out
+    transform translateY(0)
 
     $colors = #b2ffc8 #b2e9ff #b2c3ff #b2ffef #e5ddff #b2f6ff #cee3fb #d2e1ff #b2dcff #dee0f9
 
@@ -45,7 +47,7 @@ $shadowColor = darken($backgroundColor, 70)
       .text
         color $black
         font-weight 500
-        transition color 0.3s 0.2s ease-in-out
+        transition color 0.3s ease-in-out 0.2s
 
     .answer
       color $darkGray

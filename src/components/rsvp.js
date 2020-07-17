@@ -11,6 +11,12 @@ import { Check } from "./svg"
 // TODO
 // hook up to airtable to write rsvp
 
+// maybe icons
+// steak: https://www.flaticon.com/premium-icon/steak_1886772
+// pasta: https://www.flaticon.com/premium-icon/spaghetti_1886769
+// lobster: https://www.flaticon.com/premium-icon/lobster_1886716
+// french fries: https://www.flaticon.com/premium-icon/french-fries_1886681
+
 const blankRsvp = {
   attendees: [],
   ids: [],
