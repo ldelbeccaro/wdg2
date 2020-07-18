@@ -9,8 +9,6 @@ import Select from "../components/select"
 import { Check } from "./svg"
 
 // TODO
-// hook up to airtable to write rsvp
-
 // maybe icons
 // steak: https://www.flaticon.com/premium-icon/steak_1886772
 // pasta: https://www.flaticon.com/premium-icon/spaghetti_1886769
@@ -136,7 +134,7 @@ const RSVP = () => {
         )
       setError("")
       setRsvpStage(3)
-      console.log(rsvp)
+      sendRsvpToAirtable(rsvp)
       setSubmitted(true)
     }
   }
@@ -146,6 +144,7 @@ const RSVP = () => {
     setRsvpStage(1)
     setNameInput(name.name)
     setRsvp({
+      ids: [name.id, ...name.guests.map(g => g.id)],
       attendees: [name.name, ...name.guests.map(g => g.name)],
       rsvps: [
         name.rsvp === undefined ? true : JSON.parse(name.rsvp),

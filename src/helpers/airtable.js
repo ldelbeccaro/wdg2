@@ -16,15 +16,11 @@ const sendRsvpToAirtable = rsvp => {
       },
     }
   })
-  base("Guests").update([...updates], function (err, records) {
+  base("Guests").update([...updates], err => {
     if (err) {
       console.error(err)
       return
     }
-    console.log(records)
-    // records.forEach(function(record) {
-    //   console.log(record.get('table'));
-    // });
   })
 }
 
