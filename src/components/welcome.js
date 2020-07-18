@@ -46,14 +46,15 @@ export default ({ buffer }) => {
           celebrate with you!
         </p>
         <p>Love, Laura & Ashkon</p>
-        <div style={{ color: "red", marginTop: "32px" }}>
-          schedule, location, photos animation & sizing, welcome animation fixes
-        </div>
-        <div style={{ color: "red", marginTop: "32px" }}>firefox</div>
-        <div style={{ color: "red", marginTop: "32px" }}>links in FAQ</div>
-        <div style={{ color: "red", marginTop: "32px" }}>
-          at the end: responsiveness, content animations, color of header nav
-        </div>
+        <p style={{ color: "red" }}>photos redo</p>
+        <p style={{ color: "red" }}>questions animation fixes</p>
+        <p style={{ color: "red" }}>questions firefox fixes</p>
+        <p style={{ color: "red" }}>schedule</p>
+        <p style={{ color: "red" }}>content animations</p>
+        <p style={{ color: "red" }}>header nav (color, etc.)</p>
+        <p style={{ color: "red" }}>responsiveness</p>
+        <p style={{ color: "red" }}>firefox</p>
+        <p style={{ color: "red" }}>when we plan: links in FAQ, location</p>
       </div>
       <Link to="/rsvp" className="button">
         RSVP →
