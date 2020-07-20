@@ -58,7 +58,7 @@ export default () => {
 
     if (scrollPosition > totalHeight / 2) {
       scrollRef.current.parentNode.scrollTop = 1
-    } else if (scrollPosition < 0) {
+    } else if (scrollPosition < 1) {
       scrollRef.current.parentNode.scrollTop = totalHeight / 2
     }
 
