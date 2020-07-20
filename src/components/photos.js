@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from "react"
 
 import "../styles/photos.styl"
 
-import { CloseSvg } from "./svg"
-
 import nye from "../images/about.png"
 import hawaii from "../images/location.png"
 import chelsea from "../images/chelsea.png"
@@ -15,7 +13,7 @@ import cris from "../images/schedule.png"
 import france from "../images/questions.png"
 import cluster from "../images/photos.png"
 
-const photos = [
+const photosOne = [
   { img: hawaii, caption: `Our first Hawai'ian adventure` },
   { img: chelsea, caption: `At Stamford Bridge (Chelsea's stadium)` },
   { img: italy, caption: `Our favorite lookout in Sicily` },
@@ -24,6 +22,8 @@ const photos = [
     img: serious,
     caption: `Stacey & Eric had an amazing photographer at their wedding`,
   },
+]
+const photosTwo = [
   {
     img: peace,
     caption: `Ashkon's all-time favorite photo; Laura tried to veto it...`,
@@ -31,144 +31,108 @@ const photos = [
   { img: cris, caption: `Cris & Max's wedding` },
   { img: nye, caption: `Hibs holiday party` },
   { img: france, caption: `Women's world cup 2019 🏆 USWNT wins` },
+  { img: cluster, caption: `Some pictures to be de-clustered` },
 ]
 
+const Photo = ({ img, caption, onLoad }) => {
+  return (
+    <div className="photo">
+      <div className="cover">
+        <div className="caption">{caption}</div>
+      </div>
+      <img src={img} alt={caption} onLoad={onLoad} />
+    </div>
+  )
+}
+
 export default () => {
-  const [expanded, setExpanded] = useState(false)
-  const [currentImageHover, setCurrentImageHover] = useState(0)
-  const clusterRef = useRef()
-  const thumbnailsRef = useRef()
+  const columnOneRef = useRef(null)
+  const columnTwoRef = useRef(null)
+  const scrollRef = useRef(null)
+  const [oneScrollTop, setOneScrollTop] = useState(0)
 
-  let counter = 0
-  const updateRate = 10
-  const shouldUpdate = () => counter++ % updateRate === 0
+  const handleScroll = () => {
+    const scrollPosition = scrollRef.current.parentNode.scrollTop
+    const totalHeight = scrollRef.current.scrollHeight
+    const twoHeight = columnTwoRef.current.scrollHeight
 
-  const origin = {
-    x: 0,
-    y: 0,
+    if (scrollPosition > totalHeight / 2) {
+      scrollRef.current.parentNode.scrollTop = 1
+    } else if (scrollPosition < 0) {
+      scrollRef.current.parentNode.scrollTop = totalHeight / 2
+    }
+
+    columnOneRef.current.parentNode.scrollTop = oneScrollTop - scrollPosition
+    columnTwoRef.current.parentNode.scrollTop =
+      scrollPosition * (twoHeight / totalHeight)
+  }
+
+  const adjustOnLoad = () => {
+    if (columnOneRef.current) {
+      setOneScrollTop(columnOneRef.current.parentNode.scrollTop)
+      columnOneRef.current.parentNode.scrollTop =
+        columnOneRef.current.scrollHeight
+    }
+    if (scrollRef.current) {
+      const height = Math.max(
+        columnOneRef.current.scrollHeight,
+        columnTwoRef.current.scrollHeight
+      )
+      scrollRef.current.setAttribute("style", `height: ${height}px`)
+    }
   }
 
   useEffect(() => {
-    if (thumbnailsRef.current) {
-      // find center of container to find relative mouse position
-      const target = thumbnailsRef.current
-      const rect = target.getBoundingClientRect()
-      origin.x = rect.x + Math.floor(target.offsetWidth / 2)
-      origin.y = rect.y + Math.floor(target.offsetHeight / 2)
-    }
-  }, [thumbnailsRef, expanded, origin])
+    adjustOnLoad()
+  }, [columnOneRef.current, scrollRef.current])
 
   useEffect(() => {
-    // prevent background scrolling when overlay is up
-    const body = document.querySelector("body")
-    if (expanded) {
-      body.setAttribute("style", "position:sticky;overflow:hidden")
-    } else {
-      body.setAttribute("style", "position:static;overflow:auto")
+    if (columnOneRef.current) {
+      const photos = columnOneRef.current.querySelectorAll(".photo")
+      for (const photo of photos) {
+        columnOneRef.current.appendChild(photo.cloneNode(true))
+      }
     }
-  }, [expanded])
-
-  const update = e => {
-    const x = e.clientX - origin.x
-    const y = (e.clientY - origin.y) * -1
-    updateTransformStyle(
-      (y / clusterRef.current.offsetHeight / 2).toFixed(2),
-      (x / clusterRef.current.offsetWidth / 2).toFixed(2)
-    )
-  }
-
-  const updateTransformStyle = (x, y) => {
-    var style = "rotateX(" + x * 100 + "deg) rotateY(" + y * 100 + "deg)"
-    const target = clusterRef.current
-    target.style.transform = style
-    target.style.webkitTransform = style
-    target.style.mozTransform = style
-    target.style.msTransform = style
-    target.style.oTransform = style
-  }
+    if (columnTwoRef.current) {
+      const photos = columnTwoRef.current.querySelectorAll(".photo")
+      for (const photo of photos) {
+        columnTwoRef.current.appendChild(photo.cloneNode(true))
+      }
+    }
+  }, [])
 
   return (
-    <div className={`photos${expanded ? ` expanded` : ``}`}>
-      <div
-        className="expand-photos-container"
-        onClick={() => setExpanded(true)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={e => {
-          if (e.keyCode === 13) setExpanded(true)
-        }}
-      >
-        <div className="expand-photos link">View photos</div>
-        <div
-          className="thumbnails"
-          ref={thumbnailsRef}
-          onMouseEnter={e => {
-            update(e)
-          }}
-          onMouseMove={e => {
-            if (shouldUpdate) {
-              update(e)
-            }
-          }}
-          onMouseLeave={() => (clusterRef.current.style = "")}
-          role="button"
-          tabIndex={0}
-          onKeyDown={e => {
-            if (e.keyCode === 13) setExpanded(true)
-          }}
-        >
-          <img
-            className="cluster"
-            alt="assorted photos of Laura and Ashkon"
-            src={cluster}
-            ref={clusterRef}
-          />
+    <div className="photos">
+      <div className="photos-mask" onScroll={handleScroll}>
+        <div className="scrolling-mask" ref={scrollRef} />
+      </div>
+      <div className="column-container">
+        <div className="scrolling-container">
+          <div className="column column-one" ref={columnOneRef}>
+            {photosOne.map(photo => (
+              <Photo
+                key={photo.img}
+                img={photo.img}
+                caption={photo.caption}
+                onLoad={adjustOnLoad}
+              />
+            ))}
+          </div>
         </div>
       </div>
-      <div className="photos-container">
-        <div className="photo-background"></div>
-        {expanded && (
-          <>
-            <div
-              className="close"
-              onClick={() => setExpanded(false)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={e => {
-                if (e.keyCode === 13) setExpanded(false)
-              }}
-            >
-              <CloseSvg />
-              <div className="text">Scroll down ↓</div>
-            </div>
-            <div className="images-scroll-container">
-              <div className="images">
-                {photos.map((photo, i) => {
-                  const idx = i + 1
-                  return (
-                    <div key={idx}>
-                      <div
-                        className={`image index-${idx}`}
-                        onMouseEnter={() => setCurrentImageHover(idx)}
-                        role="img"
-                      >
-                        <img src={photo.img} alt={photo.caption} />
-                      </div>
-                      <div
-                        className={`caption index-${idx}${
-                          currentImageHover === idx ? ` show` : ``
-                        }`}
-                      >
-                        {photo.caption}
-                      </div>
-                    </div>
-                  )
-                })}
-                <div className="image index-10" />
-              </div>
-            </div>
-          </>
-        )}
+      <div className="column-container">
+        <div className="scrolling-container">
+          <div className="column column-two" ref={columnTwoRef}>
+            {photosTwo.map(photo => (
+              <Photo
+                key={photo.img}
+                img={photo.img}
+                caption={photo.caption}
+                onLoad={adjustOnLoad}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )
