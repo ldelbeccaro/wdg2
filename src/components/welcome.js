@@ -46,8 +46,6 @@ export default ({ buffer }) => {
           celebrate with you!
         </p>
         <p>Love, Laura & Ashkon</p>
-        <p style={{ color: "red" }}>questions animation fixes</p>
-        <p style={{ color: "red" }}>questions firefox fixes</p>
         <p style={{ color: "red" }}>schedule</p>
         <p style={{ color: "red" }}>content animations</p>
         <p style={{ color: "red" }}>header nav (color, etc.)</p>

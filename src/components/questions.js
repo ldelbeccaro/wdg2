@@ -27,9 +27,7 @@ const resizeGridItem = (item, ref) => {
   const rowGap = parseInt(
     window.getComputedStyle(ref).getPropertyValue("grid-row-gap")
   )
-  const padding = parseInt(
-    window.getComputedStyle(item).getPropertyValue("padding")
-  )
+  const padding = 24
   const rowSpan = Math.ceil(
     (item.querySelector(".faq-content").getBoundingClientRect().height +
       rowGap +
