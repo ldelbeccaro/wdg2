@@ -24,6 +24,7 @@
       height 100%
 
   .column-container
+    animation fadeInContent 1s ease-in 0.5s, waitToFadeInContent 0.5s linear, slideInRight 1s ease-in-out 0.5s, waitToSlideInRight 0.5s linear
     height 100vh
     overflow hidden
 
@@ -65,3 +66,15 @@
         img
           border-radius 16px
           width 100%
+
+@keyframes slideInRight
+  from
+    transform translateX(-16px)
+  to
+    transform translateX(0)
+
+@keyframes waitToSlideInRight
+  from
+    transform translateX(-16px)
+  to
+    transform translateX(-16px)

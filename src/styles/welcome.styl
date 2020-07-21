@@ -1,6 +1,7 @@
 @require 'styles'
 
 .welcome
+  animation fadeInContent 1s ease-in-out
   overflow auto
   padding 0px 40px 16px
 
@@ -26,6 +27,7 @@
       left -80%
 
   .welcome-blob
+    animation welcomeBlob 15s infinite running
     background-color #8ac5cd
     border-radius 40%
     top 35%
@@ -38,6 +40,7 @@
     z-index 1
 
   .welcome-blob-2
+    animation welcomeBlobTwo 15s 2s infinite running
     background-color $gray
     border-radius 40%
     top 55%
@@ -85,3 +88,31 @@
 
     &:hover
       border 1px solid $darkGray
+
+@keyframes welcomeBlob
+  0%
+    transform rotate(45deg)
+  20%
+    transform translate(-64px, -40px) rotate(15deg)
+  40%
+    transform translate(-64px, 0) rotate(60deg)
+  60%
+    transform translate(-8px, 8px) rotate(-5deg)
+  80%
+    transform translate(-40px, 32px) rotate(60deg)
+  100%
+    transform rotate(45deg)
+
+@keyframes welcomeBlobTwo
+  0%
+    transform rotate(40deg)
+  20%
+    transform translate(32px, -8px) rotate(15deg)
+  40%
+    transform translate(-16px, 32px) rotate(60deg)
+  60%
+    transform translate(64px, -80px) rotate(-5deg)
+  80%
+    transform translate(-8px, -32px) rotate(60deg)
+  100%
+    transform rotate(40deg)

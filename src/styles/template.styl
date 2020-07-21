@@ -1,8 +1,9 @@
 @require 'styles'
 
 .template-content
-  padding 40px
+  animation fadeInContent 0.7s linear
   max-width 600px
+  padding 40px
 
   p
     line-height 1.2
@@ -17,3 +18,15 @@
     max-height calc(100vh - 104px - 80px)
     max-width calc(35vw - 80px)
     overflow-y scroll
+
+@keyframes fadeInContent
+  from
+    opacity 0
+  to
+    opacity 1
+
+@keyframes waitToFadeInContent
+  from
+    opacity 0
+  to
+    opacity 0
