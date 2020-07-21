@@ -9,13 +9,10 @@ component: "photos"
 
 ## Our story
 
-We happened to meet briefly when we first moved to San Francisco after college — Laura's roommate worked with Ashkon — but didn't become close until we both left our first jobs and ended up at the same company. Ashkon would bribe Laura to answer technical questions for him by offering PEZ (still her favorite candy).
+We happened to meet briefly when we first moved to SF after college (via mutual friends) but didn't become close until we ended up at the same company. Ashkon would bribe Laura to help him with technical questions by offering her favorite candy, PEZ.
 <br />
 <br />
-When ski season started, the friendship really began. Laura had a car and Ashkon convinced her to get a season pass with him. We became much closer over many ski trips, eventually becoming best friends. Laura practically lived at Ashkon's apartment, working too much while Ashkon made too many cookies.
+We became best friends when ski season started. Laura had a car and Ashkon convinced her to get a season pass with him. They continued to hang out all the time — Laura practically lived at Ashkon's apartment, working too much while Ashkon made too many cookies.
 <br />
 <br />
-At some point, something finally clicked and we started dating. Because we were already so close, we became serious pretty quickly — and the rest is history!
-<br />
-<br />
-Now, our lives involve a lot of playing soccer, watching Chelsea games, hosting lots of friends, and watching movies or playing board games.
+At some point, something finally clicked and we started dating. Now, our lives involve a lot of playing soccer, watching Chelsea games, and hosting lots of friends for game nights.

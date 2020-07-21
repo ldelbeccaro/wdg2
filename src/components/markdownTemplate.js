@@ -33,7 +33,9 @@ export default function Template({ data }) {
 
   return (
     <Layout>
-      <div className="template-content">
+      <div
+        className={`template-content ${post.frontmatter.component}-template`}
+      >
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       {post.frontmatter.component && <Component />}

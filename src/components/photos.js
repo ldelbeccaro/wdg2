@@ -87,6 +87,7 @@ export default () => {
   }, [columnOneRef.current, scrollRef.current])
 
   useEffect(() => {
+    window.addEventListener("resize", () => adjustOnLoad())
     if (columnOneRef.current) {
       const photos = columnOneRef.current.querySelectorAll(".photo")
       for (const photo of photos) {
