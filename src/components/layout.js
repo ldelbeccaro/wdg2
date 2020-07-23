@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
                 publicURL
               }
               color
+              menuColor
             }
           }
         }

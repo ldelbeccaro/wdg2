@@ -4,5 +4,6 @@ url: "/"
 index: 1
 image: "../images/blank.png"
 color: "#e19578"
+menuColor: "#ffffff"
 component: "welcome"
 ---

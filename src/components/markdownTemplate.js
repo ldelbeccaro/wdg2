@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { graphql } from "gatsby"
 
 import BackgroundContext from "../contexts/BackgroundContext"
+import MenuContext from "../contexts/MenuContext"
 
 import Layout from "../components/layout"
 import Welcome from "../components/welcome"
@@ -14,12 +15,16 @@ import "../styles/template.styl"
 
 export default function Template({ data }) {
   const { setBackground } = useContext(BackgroundContext)
+  const { setMenu } = useContext(MenuContext)
 
   useEffect(() => {
     setBackground({
       background: data.markdownRemark.frontmatter.image.publicURL,
+      colorBackground: data.markdownRemark.frontmatter.color,
+      lastColorBackground: data.markdownRemark.frontmatter.color,
     })
-  }, [data, setBackground])
+    setMenu({ menuNavColor: data.markdownRemark.frontmatter.menuColor })
+  }, [])
 
   const post = data.markdownRemark
   const componentMap = {
@@ -51,6 +56,8 @@ export const query = graphql`
         title
         url
         component
+        color
+        menuColor
         image {
           publicURL
         }

@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 
 import "../styles/header.styl"
 
@@ -11,8 +11,29 @@ import Animation from "./animations/animation"
 import Welcome from "./welcome"
 
 const Header = ({ siteTitle }) => {
-  const { navShowing, lastPageContent, setMenu } = useContext(MenuContext)
+  const { navShowing, lastPageContent, menuNavColor, setMenu } = useContext(
+    MenuContext
+  )
   const { colorBg, lastColorBg, setBackground } = useContext(BackgroundContext)
+
+  const data = useStaticQuery(graphql`
+    query HomeColorQuery {
+      markdownRemark(fields: { slug: { eq: "/home/" } }) {
+        frontmatter {
+          color
+        }
+      }
+    }
+  `)
+
+  const color = data.markdownRemark.frontmatter.color
+
+  useEffect(() => {
+    setBackground({
+      colorBackground: color,
+      lastColorBackground: color,
+    })
+  }, [])
 
   const onClickMenu = () => {
     const nav = document.querySelector(".nav")
@@ -38,14 +59,21 @@ const Header = ({ siteTitle }) => {
       <h1>
         <Link
           to="/"
-          style={{ color: navShowing ? colorBg : `#797474` }}
-          onClick={() => setMenu({ showing: false, content: Welcome })}
+          style={{ color: colorBg }}
+          onClick={() => {
+            setMenu({ showing: false, content: Welcome })
+            setBackground({
+              colorBackground: color,
+              lastColorBackground: color,
+            })
+          }}
         >
           {siteTitle}
         </Link>
       </h1>
       <div
         id="menu"
+        style={{ color: menuNavColor }}
         onClick={onClickMenu}
         onKeyDown={e => {
           if (e.keyCode === 13) onClickMenu()
@@ -53,7 +81,7 @@ const Header = ({ siteTitle }) => {
         role="link"
         tabIndex={0}
       >
-        menu
+        Menu
       </div>
     </header>
   )
