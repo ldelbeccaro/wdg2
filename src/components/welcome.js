@@ -46,17 +46,17 @@ export default ({ buffer }) => {
           celebrate with you!
         </p>
         <p>Love, Laura & Ashkon</p>
-        <p style={{ color: "red" }}>responsiveness</p>
-        <p style={{ color: "red" }}>firefox</p>
-        <p style={{ color: "red" }}>legos</p>
-        <p style={{ color: "red" }}>
-          when planned: links in FAQ, schedule, location (plus content
-          animations & responsiveness), pick colors & pictures
-        </p>
       </div>
       <Link to="/rsvp" className="button">
         RSVP →
       </Link>
+      <p style={{ color: "red", marginTop: "80px" }}>responsiveness</p>
+      <p style={{ color: "red" }}>firefox</p>
+      <p style={{ color: "red" }}>legos</p>
+      <p style={{ color: "red" }}>
+        when planned: links in FAQ, schedule, location (plus content animations
+        & responsiveness), pick colors & pictures
+      </p>
     </div>
   )
 }
