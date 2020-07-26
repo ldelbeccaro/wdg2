@@ -12,14 +12,14 @@ export default ({ buffer }) => {
   const { setMenu } = useContext(MenuContext)
   return (
     <div className={`welcome${buffer ? ` buffer` : ``}`}>
-      <div className="welcome-image">
-        <img src={image} alt="Laura and Ashkon in Italy" />
-      </div>
       <div className="welcome-blob"></div>
       <div className="welcome-blob-2"></div>
       <div className="main-info">
         <h2>Laura & Ashkon are getting married!</h2>
         <p>April 21, 2022 • 4pm • Paso Robles, CA</p>
+      </div>
+      <div className="welcome-image">
+        <img src={image} alt="Laura and Ashkon in Italy" />
       </div>
       <div className="message">
         <p>
@@ -51,7 +51,6 @@ export default ({ buffer }) => {
         RSVP →
       </Link>
       <div style={{ marginTop: "80px" }}>
-        <p style={{ color: "red" }}>responsive home</p>
         <p style={{ color: "red" }}>responsive menu</p>
         <p style={{ color: "red" }}>responsive rsvp</p>
         <p style={{ color: "red" }}>responsive about</p>

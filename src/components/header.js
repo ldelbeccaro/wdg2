@@ -75,7 +75,13 @@ const Header = ({ siteTitle }) => {
       </h1>
       <div
         id="menu"
-        style={{ color: menuNavColor }}
+        style={{
+          color: navShowing
+            ? "#fff"
+            : typeof window !== `undefined` && window.innerWidth > 499
+            ? menuNavColor
+            : "#56504e",
+        }}
         onClick={onClickMenu}
         onKeyDown={e => {
           if (e.keyCode === 13) onClickMenu()

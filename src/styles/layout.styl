@@ -37,7 +37,19 @@
     display flex
     justify-content space-between
     margin 0 auto
-    max-width min(100vw, 1200px)
+    width 100vw
+    max-width 1280px
+
+    +media($large-screen)
+      height 100%
+      top: 0;
+      position: absolute;
+      padding-top: 104px;
+      left: calc((100vw - 1280px) / 2);
+      max-width: 1280px;
+      overflow: hidden;
+      border-left: 2px solid $tan;
+      border-right: 2px solid $tan;
 
     .main-content
       display flex

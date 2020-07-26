@@ -18,12 +18,29 @@
   .welcome-image
     border-radius 0 0 40% 40%
     height 62vw
+    max-height 800px
+    max-width 800px
     overflow hidden
     position absolute
     right -10%
-    top -25%
+    top -15vw
     width 55vw
     transform rotate(45deg)
+    z-index -1
+
+    +media($mobile-screen)
+      margin 24px 0 40px
+      overflow initial
+      position relative
+      right 0
+      top 0
+      transform none
+      width calc(100vw - 48px)
+
+    +media($large-screen)
+      top -116px
+      height: 720px;
+      width: 720px;
 
     img
       height 122%
@@ -32,6 +49,19 @@
       top 10%
       transform rotate(-45deg)
       left -80%
+
+      +media($mobile-screen)
+        border-radius 2px
+        height 100%
+        left 0
+        position relative
+        top 0
+        transform none
+        width 100%
+
+      +media($normal-screen)
+        left -65%
+        top 15%
 
   .welcome-blob
     animation welcomeBlob 15s infinite running
@@ -46,6 +76,9 @@
     width 30vw
     z-index 1
 
+    +media($mobile-screen)
+      left 70%
+
   .welcome-blob-2
     animation welcomeBlobTwo 15s 2s infinite running
     background-color #7c9067
@@ -58,6 +91,10 @@
     transform rotate(40deg)
     width 30vw
     z-index 1
+
+    +media($mobile-screen)
+      left 20vw
+      top 30%
 
   .main-info
     max-width 400px
