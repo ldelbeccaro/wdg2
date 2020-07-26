@@ -17,6 +17,7 @@ const MenuProvider = ({ children }) => {
   const [lastPageContent, setLastPageContent] = useState(
     defaultValues.mainContent
   )
+  const [navRef, setNavRef] = useState(null)
 
   const setMenu = ({ showing, content, lastPageContent, menuNavColor }) => {
     showing !== undefined && setNavShowing(showing)
@@ -33,6 +34,8 @@ const MenuProvider = ({ children }) => {
         lastPageContent,
         menuNavColor,
         setMenu,
+        navRef,
+        setNavRef,
       }}
     >
       {children}

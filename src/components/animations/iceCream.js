@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useRef } from "react"
 
 import "../../styles/animations/ice-cream.styl"
 
@@ -14,18 +14,21 @@ import OneByOneFill from "../../images/lego/1x1-fill"
 
 const IceCream = () => {
   const { colorBg } = useContext(BackgroundContext)
+  const animationRef = useRef(null)
 
   useEffect(() => {
-    const blocks = document.querySelectorAll(".block")
-    for (const block of blocks) {
-      block.classList.add("live")
+    if (animationRef.current) {
+      const blocks = animationRef.current.querySelectorAll(".block")
+      for (const block of blocks) {
+        block.classList.add("live")
+      }
     }
-  }, [])
+  }, [animationRef.current])
 
   const coneColor = "#d4b063"
 
   return (
-    <div className="animation">
+    <div className="animation" ref={animationRef}>
       <div className="ice-cream">
         <div className={`block one-left`}>
           <ThreeByTwoFill clr={colorBg} />

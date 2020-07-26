@@ -11,9 +11,13 @@ import Animation from "./animations/animation"
 import Welcome from "./welcome"
 
 const Header = ({ siteTitle }) => {
-  const { navShowing, lastPageContent, menuNavColor, setMenu } = useContext(
-    MenuContext
-  )
+  const {
+    navShowing,
+    lastPageContent,
+    menuNavColor,
+    setMenu,
+    navRef,
+  } = useContext(MenuContext)
   const { colorBg, lastColorBg, setBackground } = useContext(BackgroundContext)
 
   const data = useStaticQuery(graphql`
@@ -36,17 +40,15 @@ const Header = ({ siteTitle }) => {
   }, [])
 
   const onClickMenu = () => {
-    const nav = document.querySelector(".nav")
-
     if (navShowing) {
       setTimeout(() => {
         setMenu({ content: <div /> })
-        nav.setAttribute("style", "width: 0; opacity: 0;")
+        navRef.setAttribute("style", "width: 0; opacity: 0;")
       }, 0)
 
       setTimeout(() => {
         setMenu({ showing: !navShowing, content: lastPageContent })
-        nav.setAttribute("style", "")
+        navRef.setAttribute("style", "")
       }, 500)
     } else {
       setMenu({ showing: !navShowing, content: Animation })

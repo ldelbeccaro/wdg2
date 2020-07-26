@@ -16,17 +16,35 @@ import MenuContext from "../contexts/MenuContext"
 const Menu = ({ pages }) => {
   const [navHeight, setNavHeight] = useState(0)
   const { colorBg, lastColorBg, setBackground } = useContext(BackgroundContext)
-  const { navShowing, lastPageContent, setMenu } = useContext(MenuContext)
-  const navRef = useRef(null)
+  const {
+    navShowing,
+    lastPageContent,
+    setMenu,
+    navRef,
+    setNavRef,
+  } = useContext(MenuContext)
+  const [currentNavItem, setCurrentNavItem] = useState(null)
+  const [pageUrl, setPageUrl] = useState("/")
 
-  const currentPage =
-    typeof window !== `undefined`
-      ? pages.find(
-          page => window.location.pathname === page.node.frontmatter.url
-        )
-      : undefined
-  const pageUrl = currentPage ? currentPage.node.frontmatter.url : "/"
-  const currentNavItem = document.querySelector(`.nav-item[href="${pageUrl}"]`)
+  useEffect(() => {
+    if (navRef) {
+      const currentPage =
+        typeof window !== `undefined`
+          ? pages.find(
+              page => window.location.pathname === page.node.frontmatter.url
+            )
+          : undefined
+      if (currentPage) {
+        setPageUrl(currentPage.node.frontmatter.url)
+      }
+    }
+  }, [navRef])
+
+  useEffect(() => {
+    if (navRef) {
+      setCurrentNavItem(navRef.querySelector(`.nav-item[href="${pageUrl}"]`))
+    }
+  }, [pageUrl])
 
   const getNavHeight = useCallback(
     e => {
@@ -39,7 +57,7 @@ const Menu = ({ pages }) => {
         return `100%`
       }
       const targetY = target.getBoundingClientRect().bottom
-      const navY = navRef.current.getBoundingClientRect().y
+      const navY = navRef.getBoundingClientRect().y
       return `${targetY - navY}px`
     },
     [currentNavItem]
@@ -50,7 +68,7 @@ const Menu = ({ pages }) => {
   return (
     <div
       className={`nav${navShowing ? `` : ` hidden`}`}
-      ref={navRef}
+      ref={setNavRef}
       onMouseLeave={() => {
         setNavHeight(getNavHeight())
         setBackground({ colorBackground: lastColorBg })
@@ -74,7 +92,6 @@ const Menu = ({ pages }) => {
             onClick={e => {
               e.preventDefault()
               const target = e.target
-              const nav = document.querySelector(".nav")
 
               target.classList.add("selected")
               target.setAttribute("style", `color: ${page.color};`)
@@ -85,7 +102,7 @@ const Menu = ({ pages }) => {
 
               setTimeout(() => {
                 setMenu({ content: <div /> })
-                nav.setAttribute("style", "width: 0;")
+                navRef.setAttribute("style", "width: 0;")
               }, 500)
 
               setTimeout(() => {
@@ -98,7 +115,7 @@ const Menu = ({ pages }) => {
               setTimeout(() => {
                 target.classList.remove("selected")
                 target.setAttribute("style", "")
-                nav.setAttribute("style", "")
+                navRef.setAttribute("style", "")
                 if (pageUrl === target.getAttribute("href")) {
                   setMenu({ content: lastPageContent })
                 } else {
