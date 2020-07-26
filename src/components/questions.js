@@ -16,17 +16,13 @@ const resizeAllGridItems = ref => {
   if (!ref) return
   const allItems = ref.querySelectorAll(".question")
   for (const item of allItems) {
-    resizeGridItem(item, ref)
+    resizeGridItem(item)
   }
 }
 
-const resizeGridItem = (item, ref) => {
-  const rowHeight = parseInt(
-    window.getComputedStyle(ref).getPropertyValue("grid-auto-rows")
-  )
-  const rowGap = parseInt(
-    window.getComputedStyle(ref).getPropertyValue("grid-row-gap")
-  )
+const resizeGridItem = item => {
+  const rowHeight = 8
+  const rowGap = 32
   const padding = 24
   const rowSpan = Math.ceil(
     (item.querySelector(".faq-content").getBoundingClientRect().height +
@@ -42,9 +38,11 @@ const Questions = () => {
 
   useEffect(() => {
     resizeAllGridItems(questionsRef.current)
-    window.addEventListener("resize", () =>
-      resizeAllGridItems(questionsRef.current)
-    )
+    if (typeof window !== `undefined`) {
+      window.addEventListener("resize", () =>
+        resizeAllGridItems(questionsRef.current)
+      )
+    }
   }, [questionsRef])
 
   return (

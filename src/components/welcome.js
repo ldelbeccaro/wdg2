@@ -50,9 +50,15 @@ export default ({ buffer }) => {
       <Link to="/rsvp" className="button">
         RSVP →
       </Link>
-      <p style={{ color: "red", marginTop: "80px" }}>responsiveness</p>
+      <p style={{ color: "red", marginTop: "80px" }}>responsive faq</p>
+      <p style={{ color: "red" }}>responsive header</p>
+      <p style={{ color: "red" }}>responsive menu</p>
+      <p style={{ color: "red" }}>responsive rsvp</p>
+      <p style={{ color: "red" }}>responsive about</p>
+      <p style={{ color: "red" }}>responsive home</p>
       <p style={{ color: "red" }}>firefox</p>
       <p style={{ color: "red" }}>legos</p>
+      <p style={{ color: "red" }}>password</p>
       <p style={{ color: "red" }}>
         when planned: links in FAQ, schedule, location (plus content animations
         & responsiveness), pick colors & pictures

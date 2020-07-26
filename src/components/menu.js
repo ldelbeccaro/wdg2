@@ -19,9 +19,12 @@ const Menu = ({ pages }) => {
   const { navShowing, lastPageContent, setMenu } = useContext(MenuContext)
   const navRef = useRef(null)
 
-  const currentPage = pages.find(
-    page => window.location.pathname === page.node.frontmatter.url
-  )
+  const currentPage =
+    typeof window !== `undefined`
+      ? pages.find(
+          page => window.location.pathname === page.node.frontmatter.url
+        )
+      : undefined
   const pageUrl = currentPage ? currentPage.node.frontmatter.url : "/"
   const currentNavItem = document.querySelector(`.nav-item[href="${pageUrl}"]`)
 
