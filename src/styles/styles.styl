@@ -1,3 +1,5 @@
+@require 'responsive'
+
 $tan = #e3d7bd
 $lightTan = #ebe6d9
 $lightestTan = #f6f3e7
@@ -12,8 +14,10 @@ $green = #87cc94
 
 $fontXXL = 72px
 $fontXL = 36px
+$fontXLMobile = 30px
 $fontL = 24px
 $fontM = 20px
+$fontMMobile = 18px
 $fontS = 16px
 $fontXS = 14px
 
@@ -26,6 +30,9 @@ regularText()
 header()
   font-weight 300
   font-size $fontXL
+
+  +media($mobile-screen)
+    font-size $fontXLMobile
 
 serifHeader()
   font-family 'Merriweather'

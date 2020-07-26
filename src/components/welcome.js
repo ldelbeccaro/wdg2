@@ -50,20 +50,25 @@ export default ({ buffer }) => {
       <Link to="/rsvp" className="button">
         RSVP →
       </Link>
-      <p style={{ color: "red", marginTop: "80px" }}>responsive faq</p>
-      <p style={{ color: "red" }}>responsive header</p>
-      <p style={{ color: "red" }}>responsive menu</p>
-      <p style={{ color: "red" }}>responsive rsvp</p>
-      <p style={{ color: "red" }}>responsive about</p>
-      <p style={{ color: "red" }}>responsive home</p>
-      <p style={{ color: "red" }}>firefox</p>
-      <p style={{ color: "red" }}>legos</p>
-      <p style={{ color: "red" }}>password</p>
-      <p style={{ color: "red" }}>make sure images load before they need to</p>
-      <p style={{ color: "red" }}>
-        when planned: links in FAQ, schedule, location (plus content animations
-        & responsiveness), pick colors & pictures
-      </p>
+      <div style={{ marginTop: "80px" }}>
+        <p style={{ color: "red" }}>responsive home</p>
+        <p style={{ color: "red" }}>responsive menu</p>
+        <p style={{ color: "red" }}>responsive rsvp</p>
+        <p style={{ color: "red" }}>responsive about</p>
+        <p style={{ color: "red" }}>firefox</p>
+        <p style={{ color: "red" }}>legos</p>
+        <p style={{ color: "red" }}>password</p>
+        <p style={{ color: "red" }}>
+          make sure images load before they need to
+        </p>
+        <p style={{ color: "red" }}>
+          figure out 0-width menu causing scrolling to right
+        </p>
+        <p style={{ color: "red" }}>
+          when planned: links in FAQ, schedule, location (plus content
+          animations & responsiveness), pick colors & pictures
+        </p>
+      </div>
     </div>
   )
 }

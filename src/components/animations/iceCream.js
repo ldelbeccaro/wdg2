@@ -23,7 +23,7 @@ const IceCream = () => {
         block.classList.add("live")
       }
     }
-  }, [animationRef.current])
+  }, [animationRef])
 
   const coneColor = "#d4b063"
 
