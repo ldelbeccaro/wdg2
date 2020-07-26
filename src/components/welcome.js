@@ -59,6 +59,7 @@ export default ({ buffer }) => {
       <p style={{ color: "red" }}>firefox</p>
       <p style={{ color: "red" }}>legos</p>
       <p style={{ color: "red" }}>password</p>
+      <p style={{ color: "red" }}>make sure images load before they need to</p>
       <p style={{ color: "red" }}>
         when planned: links in FAQ, schedule, location (plus content animations
         & responsiveness), pick colors & pictures

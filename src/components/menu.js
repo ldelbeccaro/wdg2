@@ -57,13 +57,17 @@ const Menu = ({ pages }) => {
         return `100%`
       }
       const targetY = target.getBoundingClientRect().bottom
-      const navY = navRef.getBoundingClientRect().y
+      const navY = navRef ? navRef.getBoundingClientRect().y : 0
       return `${targetY - navY}px`
     },
-    [currentNavItem]
+    [currentNavItem, navRef]
   )
 
-  useEffect(() => setNavHeight(getNavHeight()), [navShowing, getNavHeight])
+  useEffect(() => setNavHeight(getNavHeight()), [
+    navShowing,
+    getNavHeight,
+    navRef,
+  ])
 
   return (
     <div
