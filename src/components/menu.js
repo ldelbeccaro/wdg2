@@ -112,7 +112,7 @@ const Menu = ({ pages }) => {
               setTimeout(() => {
                 setMenu({
                   showing: false,
-                  menuNavColor: page.menuColor || "#fff",
+                  menuNavColor: page.menuColor,
                 })
               }, 700)
 

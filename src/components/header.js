@@ -1,6 +1,6 @@
 import { Link, graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 
 import "../styles/header.styl"
 
@@ -19,6 +19,21 @@ const Header = ({ siteTitle }) => {
     navRef,
   } = useContext(MenuContext)
   const { colorBg, lastColorBg, setBackground } = useContext(BackgroundContext)
+  const [navMenuFontColor, setColor] = useState(
+    typeof window !== `undefined` && window.innerWidth > 638
+      ? menuNavColor
+      : "#56504e"
+  )
+
+  useEffect(() => {
+    if (navShowing) {
+      setColor("#ffffff")
+    } else if (typeof window !== `undefined` && window.innerWidth > 638) {
+      setColor(menuNavColor || "#ffffff")
+    } else {
+      setColor("#56504e")
+    }
+  }, [menuNavColor, navShowing])
 
   const data = useStaticQuery(graphql`
     query HomeColorQuery {
@@ -75,13 +90,7 @@ const Header = ({ siteTitle }) => {
       </h1>
       <div
         id="menu"
-        style={{
-          color: navShowing
-            ? "#fff"
-            : typeof window !== `undefined` && window.innerWidth > 499
-            ? menuNavColor
-            : "#56504e",
-        }}
+        style={{ color: navMenuFontColor }}
         onClick={onClickMenu}
         onKeyDown={e => {
           if (e.keyCode === 13) onClickMenu()
