@@ -110,7 +110,7 @@ const RSVP = () => {
           height1 +
           40 +
           height2 +
-          40 +
+          80 +
           6 -
           144 -
           parentY -
@@ -126,12 +126,7 @@ const RSVP = () => {
     if (missingMeals) {
       setError("Please choose a meal for each attendee")
     } else {
-      rightGridRef.current
-        .querySelector(".right-scroll")
-        .setAttribute(
-          "style",
-          "position: sticky; overflow: hidden; margin-left: 20px"
-        )
+      rightGridRef.current.querySelector(".right-scroll").classList.add("fixed")
       setError("")
       setRsvpStage(3)
       sendRsvpToAirtable(rsvp)
@@ -162,7 +157,7 @@ const RSVP = () => {
 
   return (
     <div className="rsvp" style={submitted ? { color: "white" } : {}}>
-      <div className="left">
+      <div className={`left stage-${rsvpStage}`}>
         <div className="rsvp-text">
           <h2>RSVP</h2>
           <div className="line"></div>

@@ -7,9 +7,21 @@
 
   &.image
     flex-direction column
+    margin-bottom 8px
+    position relative
 
     .label
       margin-top 8px
+      position absolute
+      text-align center
+      top 80px
+
+      +media($small-screen)
+        font-size $fontMMobile
+        top 54px
+
+      +media($smallest-screen)
+        font-size $fontS
 
   > svg
     height 24px
@@ -25,9 +37,22 @@
     transition height 0.1s ease-in 0.05s, width 0.1s ease-in 0.05s, background 0.1s ease-in 0.05s, margin 0.1s ease-in 0.05s, border 0.3s linear
     width 72px
 
+    +media($small-screen)
+      height 48px
+      width 48px
+
+      svg
+        height 16px
+        width 16px
+
+      &.selected
+        height 44px !important
+        margin 2px 0 !important
+        width 44px !important
+
     svg
-      width 24px
       height 24px
+      width 24px
 
     &.selected
       background $reallyDarkGray

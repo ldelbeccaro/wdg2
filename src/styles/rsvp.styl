@@ -6,13 +6,29 @@
   grid-template-columns minmax(0,1fr) minmax(0,2fr)
   height calc(100vh - 144px)
   margin-top 40px
+  padding 0 80px
   position relative
   transition color 1.5s linear
   width 100%
   z-index 10
 
+  +media($small-screen)
+    padding 0 40px
+
+  +media($mobile-screen)
+    display block
+    padding 0 24px
+
   .left
     height calc(100vh - 144px)
+
+    &.stage-1, &.stage-2, &.stage-3
+      +media($mobile-screen)
+        h2
+          opacity 0
+
+    +media($mobile-screen)
+      height initial
 
     .rsvp-text
       align-items center
@@ -23,16 +39,32 @@
         serifHeader()
         text-transform lowercase
 
+        +media($extra-small-screen)
+          font-size $fontXLMobile
+
+        +media($mobile-screen)
+          font-family 'Tajawal'
+          font-size $fontS
+          font-weight 500
+          margin 16px 0
+          text-transform uppercase
+
       .line
         background $black
         height 1px
         margin-left 32px
         width calc(100% - 64px)
-    
+
+        +media($mobile-screen)
+          display none
+
     .info
       font-weight 500
       margin-top 40px
       text-transform uppercase
+
+      +media($mobile-screen)
+        display none
 
   .back
     cursor pointer
@@ -45,14 +77,21 @@
     margin-bottom 40px
     text-transform lowercase
 
+    +media($extra-small-screen)
+      font-size $fontXLMobile
+
   .right
     position relative
-    margin-right: 40px;
+    margin-right: 20px;
     overflow-x: hidden;
     overflow-y: visible;
     margin-left: -20px;
     top -144px
     height 100vh
+
+    +media($mobile-screen)
+      margin-left -10px
+      margin-right 10px
 
     .right-scroll
       height 100vh
@@ -61,6 +100,20 @@
       right -20px
       top 0
       width 100%
+
+      &.fixed
+        position sticky
+        overflow hidden
+        margin-left 20px
+
+        +media($mobile-screen)
+          margin-left 10px
+          margin-top 40px
+          height calc(100vh - 40px)
+
+      +media($mobile-screen)
+        top 64px
+        right -10px
 
   .name-stage, .rsvp-stage, .meal-stage, .submit-stage
     transition transform 1s ease, opacity 1s ease
@@ -76,6 +129,9 @@
       margin-right 24px
       text-transform lowercase
 
+      +media($extra-small-screen)
+        font-size $fontXLMobile
+
     .input-container
       position relative
 
@@ -88,6 +144,9 @@
         font-size $fontXL
         outline none
         padding 8px 0
+
+        +media($extra-small-screen)
+          font-size $fontXLMobile
 
       .dropdown
         background alpha($white, 0.5)
@@ -138,27 +197,40 @@
       margin-bottom 32px
 
       .person
-        margin-bottom 40px
+        margin-bottom 80px
 
         .flex
           align-items center
           display grid
+          grid-column-gap 24px
           grid-template-columns 220px auto
           height 27px
           margin-bottom 24px
+
+          +media($small-screen)
+            grid-template-columns 140px auto
+
+          +media($extra-small-screen)
+            display block
+            margin-bottom 64px
 
           .name
             font-weight 500
             text-transform uppercase
 
+            +media($extra-small-screen)
+              margin-bottom 16px
+
           .restrictions
             align-items center
             display flex
-            margin-left 32px
 
             .label
               color $white
               font-weight 500
+
+              +media($extra-small-screen)
+                font-size $fontMMobile
 
               &.add
                 border-bottom 1px solid transparent
@@ -179,11 +251,17 @@
 
         .input
           &.meal
-            align-items center
+            align-items flex-start
             display grid
-            justify-items center
+            justify-items flex-start
             grid-template-columns repeat(auto-fill, minmax(128px, 1fr));
-    
+
+            +media($small-screen)
+              grid-template-columns repeat(auto-fill, minmax(100px, 1fr));
+
+            +media($extra-small-screen)
+              grid-template-columns repeat(auto-fill, minmax(64px, 1fr));
+
     &.stage-2
       opacity 1
 
@@ -192,6 +270,9 @@
 
   .submit-stage
     opacity 0
+
+    +media($mobile-screen)
+      padding-right 40px
 
     .submit-container
       align-items center
@@ -217,6 +298,9 @@
         text-transform lowercase
         transform translateY(8px)
         transition opacity 0.5s ease-in 1s, transform 0.5s linear 1s
+
+        +media($extra-small-screen)
+          font-size $fontXLMobile
 
       .check
         height 32px
@@ -272,6 +356,9 @@
       line-height 1.4em
       margin-top 64px
       text-transform lowercase
+
+      +media($extra-small-screen)
+        font-size $fontXLMobile
 
     .error
       color $red
