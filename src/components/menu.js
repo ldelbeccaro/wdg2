@@ -106,10 +106,14 @@ const Menu = ({ pages }) => {
 
               setTimeout(() => {
                 setMenu({ content: <div /> })
-                navRef.setAttribute("style", "width: 0;")
+                navRef.setAttribute("style", "width: 0; left: 100vw;")
               }, 500)
 
               setTimeout(() => {
+                navRef.setAttribute(
+                  "style",
+                  "width: 0; padding: 0; left: 100vw"
+                )
                 setMenu({
                   showing: false,
                   menuNavColor: page.menuColor,
@@ -125,7 +129,7 @@ const Menu = ({ pages }) => {
                 } else {
                   navigate(target.getAttribute("href"))
                 }
-              }, 1200)
+              }, 1500)
             }}
             onMouseEnter={e => {
               setNavHeight(getNavHeight(e))

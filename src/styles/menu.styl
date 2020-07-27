@@ -1,4 +1,5 @@
 @require 'styles'
+@require 'responsive'
 
 $darkWhite = darken($white, 45)
 
@@ -8,10 +9,14 @@ $darkWhite = darken($white, 45)
   flex-direction column
   justify-content space-between
   padding 40px
-  width 29%
+  width 32%
   opacity 1
   position relative
-  transition width 0.3s ease-out 0.15s, opacity 0.4s
+  transition width 0.3s ease-out 0.15s, opacity 0.4s, left 0.7s
+
+  +media($mobile-screen)
+    left 0
+    position absolute
 
   &.hidden
     opacity 0
@@ -27,10 +32,13 @@ $darkWhite = darken($white, 45)
 
   .nav-item
     color $darkWhite
-    font-size 7.7vh
+    font-size calc(min(10vw, 7.1vh))
     font-weight 200
-    padding 1.7vh
+    padding 1.2vh
     transition color 0.4s ease-out, margin-left 0.2s linear
+
+    +media($mobile-screen)
+      font-size 7.1vh
 
     &:hover
       border-bottom 1px solid transparent

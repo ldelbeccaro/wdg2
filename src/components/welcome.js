@@ -51,7 +51,6 @@ export default ({ buffer }) => {
         RSVP →
       </Link>
       <div style={{ marginTop: "80px" }}>
-        <p style={{ color: "red" }}>responsive menu</p>
         <p style={{ color: "red" }}>responsive rsvp</p>
         <p style={{ color: "red" }}>responsive about</p>
         <p style={{ color: "red" }}>firefox</p>

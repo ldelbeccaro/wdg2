@@ -14,8 +14,8 @@
     z-index -1
 
     .background
-      // animation backgroundOpacity 3s ease-in-out
-      background-size 100%
+      background-size cover
+      background-position 50%
       background-attachment fixed
       height 100%
       width 100%
@@ -67,16 +67,6 @@
 
       &:hover
         color $darkGray
-
-
-@keyframes backgroundOpacity {
-  0% {
-    opacity: 1
-  }
-  100% {
-    opacity: 0.5
-  }
-}
 
 @keyframes blurBackground {
   0% {

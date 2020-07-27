@@ -1,3 +1,5 @@
+@require '../responsive'
+
 .animation
   width 100%
 
@@ -8,12 +10,28 @@
     position absolute
 
     &.live
-      transform translate(0, 450px)
+      transform translate(0, 50vh) //max(200px, 50vh))
+
+      +media($mobile-screen)
+        transform translate(0, 100vh)
 
   .ice-cream, .cone
     position absolute
-    top -250px
-    left 350px
+    top -25vh
+    left calc((100vw - 35%) / 2) //25vw
+
+    +media($large-screen)
+      left 400px
+
+    +media($extra-small-screen)
+      left 20vw
+
+    +media($mobile-screen)
+      left 264px
+      transform scale(0.7)
+
+    +media($smallest-screen)
+      left 208px
 
   .ice-cream
     .one-left
@@ -32,7 +50,7 @@
       transition transform 1s linear 2s
 
   .cone
-    top -200px
+    top calc(-25vh + 24px)
 
     .six-left
       top 1px
@@ -65,7 +83,6 @@
       z-index 5
       transition transform 1s linear 0.9s
     .five-bottom
-      // top 288px
       top 38px
       left -25px
       z-index 8
