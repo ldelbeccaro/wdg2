@@ -50,6 +50,7 @@ export default () => {
   const columnTwoRef = useRef(null)
   const scrollRef = useRef(null)
   const [oneScrollTop, setOneScrollTop] = useState(0)
+  const [showPhotos, setShowPhotos] = useState(false)
 
   const handleScroll = () => {
     const scrollPosition = scrollRef.current.parentNode.scrollTop
@@ -69,9 +70,9 @@ export default () => {
 
   const adjustOnLoad = () => {
     if (columnOneRef.current) {
+      const height = columnOneRef.current.scrollHeight
+      columnOneRef.current.parentNode.scrollTop = height
       setOneScrollTop(columnOneRef.current.parentNode.scrollTop)
-      columnOneRef.current.parentNode.scrollTop =
-        columnOneRef.current.scrollHeight
     }
     if (scrollRef.current) {
       const height = Math.max(
@@ -84,7 +85,7 @@ export default () => {
 
   useEffect(() => {
     adjustOnLoad()
-  }, [columnOneRef.current, scrollRef.current])
+  }, [columnOneRef.current, scrollRef.current, showPhotos])
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -105,7 +106,12 @@ export default () => {
   }, [])
 
   return (
-    <div className="photos">
+    <div className={`photos${showPhotos ? ` show` : ``}`}>
+      <div
+        className="toggle-photos"
+        onClick={() => setShowPhotos(!showPhotos)}
+      >{`${showPhotos ? `Hide` : `Show`} photos`}</div>
+      <div className="photos-bg" />
       <div className="photos-mask" onScroll={handleScroll}>
         <div className="scrolling-mask" ref={scrollRef} />
       </div>

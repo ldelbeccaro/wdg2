@@ -9,6 +9,62 @@
   top 0
   width 60vw
 
+  +media($extra-small-screen)
+    bottom -16px
+    grid-column-gap 24px
+    left 0
+    position absolute
+    right initial
+    top initial
+    z-index 1
+
+    .photos-mask, .column-container
+      display none
+
+  &.show
+    +media($extra-small-screen)
+      height calc(100vh - 40px)
+      top 0
+      width 100vw
+
+      .photos-bg
+        background: white;
+        display block
+        height: 100vh;
+        position: absolute;
+        width: 100vw;
+        z-index: -1;
+
+      .photos-mask, .column-container
+        display initial
+
+      .column-container
+        height calc(100vh - 40px)
+
+      .toggle-photos
+        bottom -32px
+
+      .column-container .column .photo
+        margin-bottom 20px
+
+        .caption
+          display none
+
+  .toggle-photos
+    link()
+    display none
+
+    +media($extra-small-screen)
+      bottom 24px
+      display block
+      height min-content
+      left 24px
+      position absolute
+      z-index 999
+
+  .photos-bg
+    display none
+
   .photos-mask
     background linear-gradient(to bottom, alpha($white, 0.6) 0%, transparent 12%, transparent 88%, alpha($white, 0.4) 100%)
     height 100%

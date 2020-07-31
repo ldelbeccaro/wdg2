@@ -19,6 +19,14 @@
     max-width calc(35vw - 80px)
     overflow-y scroll
 
+    +media($extra-small-screen)
+      max-width calc(100vw - 80px)
+
+    +media($mobile-screen)
+      max-height calc(100vh - 80px - 80px)
+      max-width calc(100vw - 48px)
+      padding 24px
+
   &.questions-template, &.rsvp-template
     padding 0
 
