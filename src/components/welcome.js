@@ -51,7 +51,6 @@ export default ({ buffer }) => {
         RSVP →
       </Link>
       <div style={{ marginTop: "80px" }}>
-        <p style={{ color: "red" }}>firefox</p>
         <p style={{ color: "red" }}>legos</p>
         <p style={{ color: "red" }}>password</p>
         <p style={{ color: "red" }}>
