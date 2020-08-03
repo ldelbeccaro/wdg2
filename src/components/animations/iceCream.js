@@ -30,16 +30,60 @@ const IceCream = () => {
   return (
     <div className="animation" ref={animationRef}>
       <div className="ice-cream">
-        <div className={`block one-left`}>
+        <div className="four">
+          <div className={`block top`}>
+            <TwoByTwoFill clr={colorBg} />
+          </div>
+        </div>
+        <div className="three">
+          <div className={`block top`}>
+            <ThreeByTwoFill clr={colorBg} />
+          </div>
+          <div className={`block left`}>
+            <ThreeByTwoFill clr={colorBg} />
+          </div>
+          <div className={`block bottom`}>
+            <TwoByTwoFill clr={colorBg} />
+          </div>
+          <div className={`block right`}>
+            <ThreeByTwoFill clr={colorBg} />
+          </div>
+        </div>
+        <div className="two">
+          <div className={`block top-left`}>
+            <TwoByTwoFill clr={colorBg} />
+          </div>
+          <div className={`block top-right`}>
+            <TwoByTwoFill clr={colorBg} />
+          </div>
+          <div className={`block left`}>
+            <ThreeByTwoFill clr={colorBg} />
+          </div>
+          <div className={`block center`}>
+            <FourByTwoFill clr={colorBg} />
+          </div>
+          <div className={`block right`}>
+            <ThreeByTwoFill clr={colorBg} />
+          </div>
+        </div>
+
+        <div className={`block one top-left`}>
+          <TwoByTwoFill clr={colorBg} />
+        </div>
+        <div className={`block one top-right`}>
+          <TwoByTwoFill clr={colorBg} />
+        </div>
+        <div className={`block one left`}>
           <ThreeByTwoFill clr={colorBg} />
         </div>
-        <div className={`block one-center`}>
+        <div className={`block one center`}>
           <FourByTwoFill clr={colorBg} />
         </div>
-        <div className={`block one-right`}>
+        <div className={`block one right`}>
           <ThreeByTwoFill clr={colorBg} />
         </div>
       </div>
+
       <div className="cone">
         <div className={`block six-left`}>
           <FourByOneFill clr={"#dfc48b"} />
@@ -50,6 +94,7 @@ const IceCream = () => {
         <div className={`block six-right`}>
           <FourByOneFill clr={coneColor} />
         </div>
+
         <div className={`block five-left`}>
           <TwoByTwoFill clr={"#dfc48b"} />
         </div>
@@ -62,6 +107,7 @@ const IceCream = () => {
         <div className={`block five-bottom`}>
           <TwoByOneLeftFill clr={"#daba77"} />
         </div>
+
         <div className={`block four`}>
           <ThreeByTwoFill clr={coneColor} />
         </div>
@@ -74,18 +120,6 @@ const IceCream = () => {
         <div className={`block one`}>
           <OneByOneFill clr={coneColor} />
         </div>
-      </div>
-      <div className="lego-to-do">
-        <div>
-          - figure out how to make image better after legos actually fall — just
-          change image to a full rectangle?
-        </div>
-        <a href="https://www.google.com/search?q=soccer+ball+legos&rlz=1C5CHFA_enUS896US896&sxsrf=ALeKk03ksN5fLWifLv9VG_iAeDskpB0v9A:1592639380868&source=lnms&tbm=isch&sa=X&ved=2ahUKEwio47SE9I_qAhVDLX0KHaFPDsIQ_AUoAnoECA0QBA&biw=1280&bih=798&dpr=2#imgrc=Hf4nuZNo6PdA2M">
-          soccer lego
-        </a>
-        <a href="https://www.google.com/search?q=lego+ice+cream+cone&tbm=isch&ved=2ahUKEwjp-MGS55DqAhV2AzQIHTsQAkAQ2-cCegQIABAA&oq=lego+ice+cream+cone&gs_lcp=CgNpbWcQAzICCAAyAggAMgYIABAIEB4yBggAEAgQHjIGCAAQCBAeMgQIABAYOgQIIxAnOgQIABBDOgUIABCxAzoHCAAQsQMQQzoECAAQHlCgwwFYwdkBYPPaAWgBcAB4AIABdogBoA2SAQQxOC4ymAEAoAEBqgELZ3dzLXdpei1pbWc&sclient=img&ei=SDjuXum0H_aG0PEPu6CIgAQ&bih=798&biw=1280&rlz=1C5CHFA_enUS896US896#imgrc=dnOjKwaebi286M">
-          ice cream lego
-        </a>
       </div>
     </div>
   )

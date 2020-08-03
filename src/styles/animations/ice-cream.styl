@@ -1,5 +1,9 @@
 @require '../responsive'
 
+order(idx)
+  transition transform 1s linear (0.1s * idx)
+  z-index idx
+
 .animation
   width 100%
 
@@ -10,7 +14,7 @@
     position absolute
 
     &.live
-      transform translate(0, 50vh) //max(200px, 50vh))
+      transform translate(0, 60vh)
 
       +media($mobile-screen)
         transform translate(0, 100vh)
@@ -34,20 +38,81 @@
       left 208px
 
   .ice-cream
-    .one-left
-      top 0
-      left -30px
-      transition transform 1s linear 1.8s
-      z-index 12
-    .one-center
-      top 4px
-      z-index 13
-      transition transform 1s linear 1.9s
-    .one-right
-      top 20px
-      left 25px
-      z-index 14
-      transition transform 1s linear 2s
+    .block
+      &.one
+        &.left
+          top 10px
+          left -36px
+          order(12)
+        &.center
+          top 18px
+          left -14px
+          order(13)
+        &.right
+          top 30px
+          left 19px
+          order(14)
+        &.top-left
+          left 14px
+          top -2px
+          order(15)
+        &.top-right
+          left 46px
+          top 10px
+          order(16)
+    .two
+      position relative
+      top -22px
+
+      .left
+        top 10px
+        left -36px
+        order(17)
+      .center
+        top 18px
+        left -14px
+        order(18)
+      .right
+        top 30px
+        left 19px
+        order(19)
+      .top-left
+        left 14px
+        top -2px
+        order(20)
+      .top-right
+        left 46px
+        top 10px
+        order(21)
+
+    .three
+      position relative
+      top -44px
+
+      .left
+        left -20px
+        top 7px
+        order(22)
+      .bottom
+        left -19px
+        top 25px
+        order(23)
+      .top
+        left 12px
+        top 13px
+        order(24)
+      .right
+        left 27px
+        top 31px
+        order(25)
+
+    .four
+      position relative
+      top -66px
+
+      .top
+        top 21px
+        order(26)
 
   .cone
     top calc(-25vh + 24px)
@@ -55,56 +120,44 @@
     .six-left
       top 1px
       left -24px
-      z-index 9
-      transition transform 1s linear 1.4s
+      order(9)
     .six-center
       top 8px
-      z-index 10
-      transition transform 1s linear 1.5s
+      order(10)
     .six-right
       top 20px
       left 23px
-      z-index 11
-      transition transform 1s linear 1.6s
+      order(11)
 
     .five-left
       top 30px
       left -15px
-      z-index 6
-      transition transform 1s linear 1s
+      order(6)
     .five-right
       top 42px
       left 15px
-      z-index 7
-      transition transform 1s linear 1.1s
+      order(7)
     .five-top
       top 21px
       left 25px
-      z-index 5
-      transition transform 1s linear 0.9s
+      order(5)
     .five-bottom
       top 38px
       left -25px
-      z-index 8
-      transition transform 1s linear 1.2s
+      order(8)
 
     .four
       top 58px
-      z-index 4
-      transition transform 1s linear 0.7s
+      order(4)
 
     .three
       top 80px
-      z-index 3
-      transition transform 1s linear 0.5s
-
+      order(3)
 
     .two
       top 105px
-      z-index 2
-      transition transform 1s linear 0.3s
+      order(2)
 
     .one
       top 125px
-      transition transform 1s linear 0.1s
-      z-index 1
+      order(1)

@@ -1,0 +1,224 @@
+@require '../responsive'
+
+order(idx)
+  transition transform 1s linear (0.1s * idx)
+  z-index idx
+
+.animation
+  width 100%
+
+  svg
+    height 100px
+
+  .block
+    position absolute
+
+    &.live
+      transform translate(0, 60vh)
+
+      +media($mobile-screen)
+        transform translate(0, 100vh)
+  .ball, .colors, .field
+    position absolute
+    top -25vh
+    left calc((100vw - 35%) / 2)
+
+    +media($large-screen)
+      left 400px
+
+    +media($extra-small-screen)
+      left 20vw
+
+    +media($mobile-screen)
+      left 274px
+      top -15vh
+      transform scale(0.7)
+
+    +media($smallest-screen)
+      left 208px
+
+  .field
+    background-color green
+    width 260px
+    height 142px
+    border 2px solid white
+    top calc(50vh - 60px)
+    left calc(((100vw - 35%) / 2) - 82px)
+    transform rotateX(68deg) rotate(-35deg) scale(1.6)
+
+    +media($large-screen)
+      left 320px
+
+    +media($extra-small-screen)
+      left calc(20vw - 80px)
+      transform rotateX(68deg) rotate(-35deg) scale(1)
+
+    +media($mobile-screen)
+      left 174px
+      top calc(60vh - 30px)
+
+    +media($smallest-screen)
+      display none
+
+    > *
+      border 2px solid white
+      position absolute
+
+    .half
+      height 142px
+      left -2px
+      top -2px
+      width 130px
+    .eighteen-1, .eighteen-2
+      height 90px
+      top 22px
+      width 40px
+      left -2px
+    .eighteen-2
+      right -2px
+      left initial
+    .circle
+      left 115px
+      top 50px
+      border-radius 50%
+      width 30px
+      height 30px
+
+  .colors
+    z-index 100
+
+    .cluster
+      position absolute
+      z-index 100
+
+      &.one
+        left -30px
+        top -41px
+        .block
+          order(20)
+      &.two
+        left 32px
+        top 2px
+        .block
+          order(15)
+      &.three
+        left -35px
+        top 35px
+        .block
+          order(7)
+      &.four
+        left 27px
+        top 78px
+        .block
+          order(3)
+
+      .block
+        position absolute
+        z-index 100
+
+        &.left
+          left -6px
+          top 6px
+        &.right
+          left 6px
+          top 6px
+
+  .ball
+    .one
+      position relative
+      top 50px
+
+      .left
+        left -14px
+        top 13px
+        order(0)
+      .right
+        left 14px
+        top 12px
+        order(1)
+
+    .two
+      position relative
+      top 22px
+
+    .three, .two
+      .left
+        top 10px
+        left -36px
+        order(6)
+      .center
+        top 18px
+        left -14px
+        order(7)
+      .right
+        top 30px
+        left 19px
+        order(8)
+      .top-left
+        left 14px
+        top -2px
+        order(9)
+      .top-right
+        left 46px
+        top 10px
+        order(10)
+
+    .three
+      .left
+        left -43px
+      .top-right
+        left 52px
+
+    .four
+      position relative
+      top -22px
+
+      .left
+        top 10px
+        left -36px
+        order(11)
+      .center
+        top 18px
+        left -14px
+        order(12)
+      .right
+        top 30px
+        left 19px
+        order(13)
+      .top-left
+        left 14px
+        top -2px
+        order(14)
+      .top-right
+        left 46px
+        top 10px
+        order(15)
+
+    .five
+      position relative
+      top -44px
+
+      .left
+        left -20px
+        top 7px
+        order(16)
+      .bottom
+        left -19px
+        top 25px
+        order(17)
+      .top
+        left 12px
+        top 13px
+        order(18)
+      .right
+        left 27px
+        top 31px
+        order(19)
+
+    .six
+      position relative
+      top -66px
+
+      .top
+        top 21px
+        order(20)
