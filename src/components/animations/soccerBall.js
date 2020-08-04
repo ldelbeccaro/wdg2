@@ -36,39 +36,49 @@ const SoccerBall = () => {
       <div className="colors">
         <div className="cluster one">
           <div className="block top">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
           <div className="block left">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
           <div className="block right">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
         </div>
         <div className="cluster two">
           <div className="block top">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
           <div className="block left">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
           <div className="block right">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
         </div>
         <div className="cluster three">
           <div className="block top">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
           <div className="block left">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
           <div className="block right">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
         </div>
         <div className="cluster four">
           <div className="block top">
+            <OneByOneFill clr={colorBg} withstroke />
             <OneByOneFill clr={colorBg} />
           </div>
         </div>
@@ -77,84 +87,106 @@ const SoccerBall = () => {
       <div className="ball">
         <div className="six">
           <div className={`block top`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
         </div>
 
         <div className="five">
           <div className={`block top`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
           <div className={`block left`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
           <div className={`block bottom`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
           <div className={`block right`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
         </div>
 
         <div className="four">
           <div className={`block top-left`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
           <div className={`block top-right`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
           <div className={`block left`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
           <div className={`block center`}>
+            <FourByTwoFill clr={ballColor} withstroke />
             <FourByTwoFill clr={ballColor} />
           </div>
           <div className={`block right`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
         </div>
 
         <div className="three">
           <div className={`block top-left`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
           <div className={`block top-right`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
           <div className={`block left`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
           <div className={`block center`}>
+            <FourByTwoFill clr={ballColor} withstroke />
             <FourByTwoFill clr={ballColor} />
           </div>
           <div className={`block right`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
         </div>
 
         <div className="two">
           <div className={`block top-left`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
           <div className={`block top-right`}>
+            <TwoByTwoFill clr={ballColor} withstroke />
             <TwoByTwoFill clr={ballColor} />
           </div>
           <div className={`block left`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
           <div className={`block center`}>
+            <FourByTwoFill clr={ballColor} withstroke />
             <FourByTwoFill clr={ballColor} />
           </div>
           <div className={`block right`}>
+            <ThreeByTwoFill clr={ballColor} withstroke />
             <ThreeByTwoFill clr={ballColor} />
           </div>
         </div>
 
         <div className="one">
           <div className={`block left`}>
+            <ThreeByOneFill clr={ballColor} withstroke />
             <ThreeByOneFill clr={ballColor} />
           </div>
           <div className={`block right`}>
+            <FourByTwoFill clr={ballColor} withstroke />
             <FourByTwoFill clr={ballColor} />
           </div>
         </div>

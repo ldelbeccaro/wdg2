@@ -1,0 +1,22 @@
+@require '../responsive'
+@require '../styles'
+
+.animation
+  width 100%
+
+  svg
+    height 100px
+    position absolute
+
+    &.stroke
+      stroke $darkGray
+      stroke-width 14
+
+  .block
+    position absolute
+
+    &.live
+      transform translate(0, 60vh)
+
+      +media($mobile-screen)
+        transform translate(0, 100vh)

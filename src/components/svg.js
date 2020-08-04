@@ -5,7 +5,7 @@ const svgDefaultProps = {
   viewBox: `0 0 864 864`,
 }
 
-const Svg = props => (
+const Svg = ({ withstroke, ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -16,6 +16,7 @@ const Svg = props => (
     style={{ enableBackground: `new 0 0 864 864` }}
     xmlSpace="preserve"
     onClick={props.onClick}
+    className={withstroke && "stroke"}
     {...props}
   >
     {props.children}
