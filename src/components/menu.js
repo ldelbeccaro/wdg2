@@ -100,7 +100,7 @@ const Menu = ({ pages }) => {
               target.classList.add("selected")
               target.setAttribute("style", `color: ${page.color};`)
               setBackground({ lastColorBackground: page.color })
-              if (currentNavItem) {
+              if (currentNavItem && currentNavItem !== target) {
                 currentNavItem.setAttribute("style", "color: #8c8c8c;")
               }
 

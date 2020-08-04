@@ -52,9 +52,6 @@ export default ({ buffer }) => {
       </Link>
       <div style={{ marginTop: "80px" }}>
         <p style={{ color: "red" }}>
-          figure out 0-width menu causing scrolling to right
-        </p>
-        <p style={{ color: "red" }}>
           - figure out how to make image better after legos actually fall — just
           change image to a full rectangle?
         </p>

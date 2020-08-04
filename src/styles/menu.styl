@@ -12,7 +12,7 @@ $darkWhite = darken($white, 45)
   width 32%
   opacity 1
   position relative
-  transition width 0.3s ease-out 0.15s, opacity 0.4s, left 0.7s
+  transition width 0.35s ease-out 0.15s, opacity 0.4s, left 0.7s
 
   +media($mobile-screen)
     left 0
@@ -22,6 +22,9 @@ $darkWhite = darken($white, 45)
     opacity 0
     padding 0
     width 0
+
+    *
+      display none
 
   .selected-nav-line
     left -1px
