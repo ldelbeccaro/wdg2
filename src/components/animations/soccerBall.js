@@ -8,8 +8,6 @@ import FourByTwoFill from "../../images/lego/4x2-fill"
 import ThreeByOneFill from "../../images/lego/3x1-fill"
 import ThreeByTwoFill from "../../images/lego/3x2-fill"
 import TwoByTwoFill from "../../images/lego/2x2-fill"
-import TwoByOneRightFill from "../../images/lego/2x1-right-fill"
-import TwoByOneLeftFill from "../../images/lego/2x1-left-fill"
 import OneByOneFill from "../../images/lego/1x1-fill"
 
 const SoccerBall = () => {

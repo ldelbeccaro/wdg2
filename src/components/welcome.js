@@ -51,7 +51,6 @@ export default ({ buffer }) => {
         RSVP →
       </Link>
       <div style={{ marginTop: "80px" }}>
-        <p style={{ color: "red" }}>password</p>
         <p style={{ color: "red" }}>
           - figure out how to make image better after legos actually fall — just
           change image to a full rectangle?

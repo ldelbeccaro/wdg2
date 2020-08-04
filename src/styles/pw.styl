@@ -1,0 +1,43 @@
+@require 'styles'
+
+.pw
+  align-items center
+  display flex
+  flex-direction column
+  height 100vh
+  justify-content center
+  width 100vw
+
+  h1
+    serifHeader()
+    color $darkGray
+    margin-bottom 40px
+    text-transform lowercase
+
+  .input
+    align-items baseline
+    display flex
+
+    input
+      input()
+      serifHeader()
+      color $black
+      font-size $fontL
+      padding 8px 0
+
+    .button
+      serifHeader()
+      border 1px solid $darkGray
+      border-radius 4px
+      cursor pointer
+      font-size $fontL
+      margin-left 16px
+      padding 12px
+      text-transform lowercase
+
+  .error
+    color transparent
+    margin-top 24px
+
+    &.show
+      color $red
