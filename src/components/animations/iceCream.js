@@ -38,20 +38,20 @@ const IceCream = () => {
         </div>
         <div className="three">
           <div className={`block top`}>
-            <ThreeByTwoFill clr={colorBg} withstroke />
-            <ThreeByTwoFill clr={colorBg} />
+            <TwoByTwoFill clr={colorBg} withstroke />
+            <TwoByTwoFill clr={colorBg} />
           </div>
           <div className={`block left`}>
-            <ThreeByTwoFill clr={colorBg} withstroke />
-            <ThreeByTwoFill clr={colorBg} />
+            <TwoByTwoFill clr={colorBg} withstroke />
+            <TwoByTwoFill clr={colorBg} />
           </div>
           <div className={`block bottom`}>
             <TwoByTwoFill clr={colorBg} withstroke />
             <TwoByTwoFill clr={colorBg} />
           </div>
           <div className={`block right`}>
-            <ThreeByTwoFill clr={colorBg} withstroke />
-            <ThreeByTwoFill clr={colorBg} />
+            <TwoByTwoFill clr={colorBg} withstroke />
+            <TwoByTwoFill clr={colorBg} />
           </div>
         </div>
         <div className="two">

@@ -72,30 +72,29 @@ order(idx)
       height 30px
 
   .colors
-    z-index 100
+    z-index 2
 
     .cluster
       position absolute
-      z-index 100
 
       &.one
-        left -30px
-        top -41px
+        left -34px
+        top -42px
         .block
           order(20)
       &.two
-        left 32px
-        top 2px
+        left 14px
+        top -1px
         .block
           order(15)
       &.three
-        left -35px
-        top 35px
+        left -49px
+        top 31px
         .block
           order(7)
       &.four
-        left 27px
-        top 78px
+        left 13px
+        top 65px
         .block
           order(3)
 
@@ -103,14 +102,9 @@ order(idx)
         position absolute
         z-index 100
 
-        &.left
-          left -6px
-          top 6px
-        &.right
-          left 6px
-          top 6px
-
   .ball
+    z-index 1
+
     .one
       position relative
       top 50px
@@ -120,7 +114,7 @@ order(idx)
         top 13px
         order(0)
       .right
-        left 14px
+        left 13px
         top 12px
         order(1)
 
@@ -128,84 +122,72 @@ order(idx)
       position relative
       top 22px
 
-    .three, .two
+    .two, .three, .four
       .left
         top 10px
-        left -36px
-        order(6)
-      .center
-        top 18px
-        left -14px
-        order(7)
-      .right
-        top 30px
-        left 19px
+        left -39px
         order(8)
+      .center
+        top 19px
+        left -16px
+        order(9)
+      .right
+        top 34px
+        left 22px
+        order(10)
       .top-left
         left 14px
-        top -2px
-        order(9)
+        top 0px
+        order(6)
       .top-right
         left 46px
-        top 10px
-        order(10)
+        top 12px
+        order(7)
 
+    .two
+      z-index 5
     .three
-      .left
-        left -43px
-      .top-right
-        left 52px
+      z-index 10
+
+      .color-right
+        left 60px
+        top 25px
+        order(8)
 
     .four
+      z-index 11
       position relative
       top -22px
-
-      .left
-        top 10px
-        left -36px
-        order(11)
-      .center
-        top 18px
-        left -14px
-        order(12)
-      .right
-        top 30px
-        left 19px
-        order(13)
-      .top-left
-        left 14px
-        top -2px
-        order(14)
-      .top-right
-        left 46px
-        top 10px
-        order(15)
 
     .five
       position relative
       top -44px
 
       .left
-        left -20px
-        top 7px
-        order(16)
+        left -30px
+        top 6px
+        order(12)
       .bottom
-        left -19px
-        top 25px
-        order(17)
+        left -16px
+        top 24px
+        order(14)
       .top
-        left 12px
-        top 13px
-        order(18)
+        left 16px
+        top 12px
+        order(13)
       .right
-        left 27px
-        top 31px
-        order(19)
+        left 31px
+        top 30px
+        order(16)
+      .color-right
+        left 44px
+        top 18px
+        order(15)
 
     .six
       position relative
       top -66px
 
       .top
-        top 21px
-        order(20)
+        top 17px
+        order(16)

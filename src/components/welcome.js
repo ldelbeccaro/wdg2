@@ -51,7 +51,6 @@ export default ({ buffer }) => {
         RSVP →
       </Link>
       <div style={{ marginTop: "80px" }}>
-        <p style={{ color: "red" }}>fix legos to line up</p>
         <p style={{ color: "red" }}>
           when planned: links in FAQ, schedule, location (plus content
           animations & responsiveness), pick colors & pictures
