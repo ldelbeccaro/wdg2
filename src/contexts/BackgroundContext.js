@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 const defaultValues = {
-  bg: "#fff",
+  bg: "blank.png",
   colorBg: "#fff",
   setBackground: () => {},
 }

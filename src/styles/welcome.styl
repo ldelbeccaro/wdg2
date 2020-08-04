@@ -42,30 +42,31 @@
       height: 720px;
       width: 720px;
 
-    img
-      height 122%
+    .gatsby-image-wrapper
+      height 122% !important
+      width 122% !important
       object-fit cover
       position absolute
       top 10%
       transform rotate(-45deg)
-      left -80%
+      left -28%
+
+      +media($normal-screen)
+        left -22%
+        top 15%
 
       +media($mobile-screen)
         border-radius 2px
-        height 100%
+        height 100% !important
         left 0
         position relative
         top 0
         transform none
-        width 100%
-
-      +media($normal-screen)
-        left -65%
-        top 15%
+        width 100% !important
 
   .welcome-blob
     animation welcomeBlob 15s infinite running
-    background-color $gray
+    background-color #d1bcab
     border-radius 40%
     top 35%
     left 45%
@@ -81,7 +82,7 @@
 
   .welcome-blob-2
     animation welcomeBlobTwo 15s 2s infinite running
-    background-color #7c9067
+    background-color $gray
     border-radius 40%
     top 55%
     left -10vw

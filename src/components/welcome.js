@@ -2,11 +2,11 @@ import React, { useContext } from "react"
 import { Link } from "gatsby"
 
 import "../styles/welcome.styl"
-import image from "../images/root.png"
 
 import MenuContext from "../contexts/MenuContext"
 
 import Animation from "./animations/animation"
+import HomeImage from "./image"
 
 export default ({ buffer }) => {
   const { setMenu } = useContext(MenuContext)
@@ -19,7 +19,7 @@ export default ({ buffer }) => {
         <p>April 21, 2022 • 4pm • Paso Robles, CA</p>
       </div>
       <div className="welcome-image">
-        <img src={image} alt="Laura and Ashkon in Italy" />
+        <HomeImage alt="Laura and Ashkon in Italy" />
       </div>
       <div className="message">
         <p>
@@ -52,14 +52,11 @@ export default ({ buffer }) => {
       </Link>
       <div style={{ marginTop: "80px" }}>
         <p style={{ color: "red" }}>
+          figure out 0-width menu causing scrolling to right
+        </p>
+        <p style={{ color: "red" }}>
           - figure out how to make image better after legos actually fall — just
           change image to a full rectangle?
-        </p>
-        <p style={{ color: "red" }}>
-          make sure images load before they need to
-        </p>
-        <p style={{ color: "red" }}>
-          figure out 0-width menu causing scrolling to right
         </p>
         <p style={{ color: "red" }}>
           when planned: links in FAQ, schedule, location (plus content

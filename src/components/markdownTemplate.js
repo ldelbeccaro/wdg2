@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import BackgroundContext from "../contexts/BackgroundContext"
 import MenuContext from "../contexts/MenuContext"
@@ -19,7 +20,7 @@ export default function Template({ data }) {
 
   useEffect(() => {
     setBackground({
-      background: data.markdownRemark.frontmatter.image.publicURL,
+      background: data.markdownRemark.frontmatter.image.relativePath,
       colorBackground: data.markdownRemark.frontmatter.color,
       lastColorBackground: data.markdownRemark.frontmatter.color,
     })
@@ -36,8 +37,10 @@ export default function Template({ data }) {
   }
   const Component = componentMap[post.frontmatter.component]
 
+  const Image = <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+
   return (
-    <Layout>
+    <Layout Image={Image}>
       <div
         className={`template-content ${post.frontmatter.component}-template`}
       >
@@ -49,7 +52,7 @@ export default function Template({ data }) {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $imagePath: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -60,6 +63,14 @@ export const query = graphql`
         menuColor
         image {
           publicURL
+          relativePath
+        }
+      }
+    }
+    placeholderImage: file(relativePath: { eq: $imagePath }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }

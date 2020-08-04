@@ -23,6 +23,11 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              image {
+                relativePath
+              }
+            }
           }
         }
       }
@@ -37,6 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.fields.slug,
+        imagePath: node.frontmatter.image.relativePath,
       },
     })
   })
