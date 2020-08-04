@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useContext,
-  useRef,
-  useEffect,
-  useCallback,
-} from "react"
+import React, { useState, useContext, useEffect, useCallback } from "react"
 import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
 
