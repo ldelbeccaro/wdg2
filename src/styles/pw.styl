@@ -1,4 +1,5 @@
 @require 'styles'
+@require 'responsive'
 
 .pw
   align-items center
@@ -11,12 +12,17 @@
   h1
     serifHeader()
     color $darkGray
-    margin-bottom 40px
+    margin-bottom 24px
     text-transform lowercase
 
   .input
     align-items baseline
     display flex
+    padding 24px
+
+    +media($mobile-screen)
+      align-items center
+      flex-direction column
 
     input
       input()
@@ -24,6 +30,9 @@
       color $black
       font-size $fontL
       padding 8px 0
+
+      +media($mobile-screen)
+        width calc(100vw - 80px)
 
     .button
       serifHeader()
@@ -34,6 +43,10 @@
       margin-left 16px
       padding 12px
       text-transform lowercase
+
+      +media($mobile-screen)
+        margin 24px 0
+        width min-content
 
   .error
     color transparent
