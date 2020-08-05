@@ -52,6 +52,9 @@ export default ({ buffer }) => {
       </Link>
       <div style={{ marginTop: "80px" }}>
         <p style={{ color: "red" }}>
+          maybe load images in photos.js with gatsby-image for slow connections
+        </p>
+        <p style={{ color: "red" }}>
           when planned: links in FAQ, schedule, location (plus content
           animations & responsiveness), pick colors & pictures
         </p>
