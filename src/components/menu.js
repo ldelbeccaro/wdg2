@@ -25,20 +25,17 @@ const Menu = ({ pages }) => {
       const currentPage =
         typeof window !== `undefined`
           ? pages.find(
-              page => window.location.pathname === page.node.frontmatter.url
+              page =>
+                window.location.pathname.replace(/(\/)([a-z]*)(\/?)/, "$2") ===
+                page.node.frontmatter.url.replace(/(\/)([a-z]*)(\/?)/, "$2")
             )
           : undefined
       if (currentPage) {
         setPageUrl(currentPage.node.frontmatter.url)
+        setCurrentNavItem(navRef.querySelector(`.nav-item[href="${pageUrl}"]`))
       }
     }
-  }, [navRef])
-
-  useEffect(() => {
-    if (navRef) {
-      setCurrentNavItem(navRef.querySelector(`.nav-item[href="${pageUrl}"]`))
-    }
-  }, [pageUrl])
+  }, [navRef, navShowing])
 
   const getNavHeight = useCallback(
     e => {
@@ -84,7 +81,7 @@ const Menu = ({ pages }) => {
         .map(page => page.node.frontmatter)
         .map(page => (
           <Link
-            className="nav-item"
+            className={`nav-item${pageUrl === page.url ? ` current` : ``}`}
             key={page.url}
             to={page.url}
             onClick={e => {
@@ -98,7 +95,9 @@ const Menu = ({ pages }) => {
                 .setAttribute(
                   "style",
                   `background-color: ${page.color}; top: auto; bottom: ${
-                    navRef.offsetHeight - parseInt(navHeight)
+                    target === target.parentNode.lastChild
+                      ? 0
+                      : navRef.offsetHeight - parseInt(navHeight)
                   }px; height: ${navHeight}`
                 )
               setBackground({ lastColorBackground: page.color })
@@ -112,7 +111,9 @@ const Menu = ({ pages }) => {
                   .setAttribute(
                     "style",
                     `background-color: ${page.color}; top: auto; bottom: ${
-                      navRef.offsetHeight - parseInt(navHeight)
+                      target === target.parentNode.lastChild
+                        ? 0
+                        : navRef.offsetHeight - parseInt(navHeight)
                     }px; height: 0`
                   )
               }, 5)
