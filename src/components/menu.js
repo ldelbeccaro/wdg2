@@ -93,31 +93,50 @@ const Menu = ({ pages }) => {
 
               target.classList.add("selected")
               target.setAttribute("style", `color: ${page.color};`)
+              navRef
+                .querySelector(".selected-nav-line")
+                .setAttribute(
+                  "style",
+                  `background-color: ${page.color}; top: auto; bottom: ${
+                    navRef.offsetHeight - parseInt(navHeight)
+                  }px; height: ${navHeight}`
+                )
               setBackground({ lastColorBackground: page.color })
               if (currentNavItem && currentNavItem !== target) {
                 currentNavItem.setAttribute("style", "color: #8c8c8c;")
               }
 
               setTimeout(() => {
-                setMenu({ content: <div /> })
-                navRef.setAttribute("style", "width: 0; left: 100vw;")
-              }, 500)
+                navRef
+                  .querySelector(".selected-nav-line")
+                  .setAttribute(
+                    "style",
+                    `background-color: ${page.color}; top: auto; bottom: ${
+                      navRef.offsetHeight - parseInt(navHeight)
+                    }px; height: 0`
+                  )
+              }, 5)
 
               setTimeout(() => {
-                navRef.setAttribute(
-                  "style",
-                  "width: 0; padding: 0; left: 100vw"
-                )
+                setMenu({ content: <div /> })
+                navRef.setAttribute("style", "width: 0;")
+              }, 700)
+
+              setTimeout(() => {
+                navRef.setAttribute("style", "width: 0; padding: 0;")
                 setMenu({
                   showing: false,
                   menuNavColor: page.menuColor,
                 })
-              }, 700)
+              }, 1200)
 
               setTimeout(() => {
                 target.classList.remove("selected")
                 target.setAttribute("style", "")
                 navRef.setAttribute("style", "")
+                navRef
+                  .querySelector(".selected-nav-line")
+                  .setAttribute("style", "")
                 if (pageUrl === target.getAttribute("href")) {
                   setMenu({ content: lastPageContent })
                 } else {

@@ -14,6 +14,9 @@ accommodation
 
 things to do
 
+nice design
+https://www.60fps.fr/en/about
+
 inspo
 maybe subnav like this https://www.awwwards.com/inspiration/navigation-transition-k24
 or maybe like this https://www.awwwards.com/inspiration/big-circle-hover-effect

@@ -58,7 +58,7 @@ const Header = ({ siteTitle }) => {
     if (navShowing) {
       setTimeout(() => {
         setMenu({ content: <div /> })
-        navRef.setAttribute("style", "width: 0; opacity: 0;")
+        navRef.setAttribute("style", "width: 0;")
       }, 0)
 
       setTimeout(() => {
