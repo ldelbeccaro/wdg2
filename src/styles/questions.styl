@@ -1,51 +1,52 @@
 @require 'styles'
 
-$backgroundColor = #b2e9ff
-$shadowColor = darken($backgroundColor, 70)
-
 .questions
-  display grid
-  grid-auto-rows 8px
-  grid-gap 32px
-  grid-template-columns repeat(auto-fill, minmax(250px,1fr))
-  padding 0 40px 40px 40px
+  padding 40px 80px
+  background white
+  background linear-gradient(0deg, rgba(222,224,249,0.7) 0%, rgba(206,227,251,0.7) 43%, rgba(239,255,251,0.8) 75%, rgba(255,255,255,1) 100%)
 
   +media($mobile-screen)
-    grid-template-columns repeat(auto-fill, minmax(272px,1fr))
     padding 24px
 
   .question
-    background-color white
     cursor default
+    margin 160px 0
     opacity 1
-    padding 24px
     position relative
     transition filter 0.4s ease-in-out
+    width calc(100vw - 160px)
 
-    $colors = #b2ffc8 #b2e9ff #b2c3ff #b2ffef #e5ddff #b2f6ff #cee3fb #d2e1ff #b2dcff #dee0f9
+    &:nth-child(1)
+      margin-top 80px
+
+    &:nth-child(even)
+      align-items flex-end
+      display flex
+      flex-direction column
+      text-align right
+
+      .q
+        justify-content flex-end
 
     for idx in 0..9
       &:nth-child({idx})
-
         animation waitToFadeIn (0.2s * idx) linear, fadeInQuestion 1s ease (0.2s * idx)
-        filter drop-shadow(0 10px 5px alpha(darken($colors[idx], 70), 0.1))
 
-        .card-border
-          background alpha($colors[idx], 0.5)
-
-        &:hover
-          filter drop-shadow(0 8px 8px alpha(darken($colors[idx], 70), 0.2))
 
     .q
       align-items center
       display flex
+      font-family 'Merriweather'
+      font-size $fontXL
       margin-bottom 32px
+      max-width 700px
       padding-right 8px
       position relative
       z-index 4
 
       .icon
-        margin 0 12px 8px 0
+        height 20px
+        margin-right 12px
 
       .text
         color $black
@@ -56,24 +57,9 @@ $shadowColor = darken($backgroundColor, 70)
       color $darkGray
       font-weight 400
       line-height 1.2em
+      max-width 700px
       position relative
       z-index 3
-
-    .card-border
-      animation growIn 1.5s ease
-      height 72px
-      right 16px
-      position absolute
-      top -8px
-      transition top 0.4s ease-in-out, width 0.4s ease-in-out, right 0.4s ease-in-out
-      width 8px
-      z-index 1
-
-    &.hover
-      .card-border
-        right 0
-        top 0
-        width 100%
 
 @keyframes waitToFadeIn
   from
@@ -90,14 +76,3 @@ $shadowColor = darken($backgroundColor, 70)
   to
     opacity 1
     transform translateY(0)
-
-@keyframes growIn
-  0%
-    opacity 0
-    height 0
-  40%
-    opacity 0
-    height 0
-  100%
-    opacity 1
-    height 72px

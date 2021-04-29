@@ -39,6 +39,7 @@ module.exports = {
         fonts: [
           `karla\:400,500`,
           `Tajawal\:200,300,400,500,700,800,900`,
+          `Avenir\:300,400,500`,
           `Roboto\:300,400,500`,
           `Merriweather\:300`,
           // merriweather regular, montserrat bold

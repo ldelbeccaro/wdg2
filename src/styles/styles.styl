@@ -13,8 +13,8 @@ $red = #AC3B2A
 $green = #87cc94
 
 $fontXXL = 72px
-$fontXL = 36px
-$fontXLMobile = 30px
+$fontXL = 30px
+$fontXLMobile = 24px
 $fontL = 24px
 $fontM = 20px
 $fontMMobile = 18px
@@ -23,7 +23,7 @@ $fontXS = 14px
 
 regularText()
   color $black
-  font-family 'Tajawal'
+  font-family 'Avenir'
   font-size $fontM
   font-weight 400
 
@@ -44,14 +44,14 @@ subtext()
   color $darkGray
 
 link()
-  border-bottom 1px solid transparent
+  border-bottom 1px solid $gray
   color $darkGray
   cursor pointer
   font-weight 500
   text-decoration none
   transition all 0.5s ease
   &:hover
-    border-bottom 1px solid $gray
+    border-bottom 1px solid $reallyDarkGray
     color $black
 
 input()

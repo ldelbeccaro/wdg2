@@ -1,22 +1,15 @@
-import React, { useContext, useEffect } from "react"
-
-import BackgroundContext from "../contexts/BackgroundContext"
+import React from "react"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Welcome from "../components/welcome"
 
-import blank from "../images/blank.png"
-
-const IndexPage = () => {
-  const { setBackground } = useContext(BackgroundContext)
-  useEffect(
-    () => setBackground({ background: blank, backgroundAnimation: "0" }),
-    [setBackground]
-  )
+const IndexPage = ({ data }) => {
+  const Image = <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 
   return (
-    <Layout>
+    <Layout Image={Image} blur={false}>
       <SEO title="Home" />
       <div className="home">
         <Welcome buffer />
@@ -26,3 +19,15 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    placeholderImage: file(relativePath: { eq: "proposal.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

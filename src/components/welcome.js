@@ -6,25 +6,14 @@ import "../styles/welcome.styl"
 import MenuContext from "../contexts/MenuContext"
 
 import Animation from "./animations/animation"
-import HomeImage from "./image"
 
 export default ({ buffer }) => {
   const { setMenu } = useContext(MenuContext)
   return (
     <div className={`welcome${buffer ? ` buffer` : ``}`}>
-      <div className="welcome-blob"></div>
-      <div className="welcome-blob-2"></div>
       <div className="main-info">
-        <h2>Laura & Ashkon are getting married!</h2>
-        <p>April 21, 2022 • 4pm • Paso Robles, CA</p>
-      </div>
-      <div className="welcome-image">
-        <HomeImage alt="Laura and Ashkon in Italy" />
-      </div>
-      <div className="message">
-        <p>
-          Welcome to our wedding website! Click{" "}
-          <span
+        <div className="links">
+          <div
             className="link"
             onClick={() => setMenu({ showing: true, content: Animation })}
             onKeyDown={e => {
@@ -34,25 +23,26 @@ export default ({ buffer }) => {
             role="link"
             tabIndex={0}
           >
-            MENU
-          </span>{" "}
-          in the top right corner to find resources and information about our
-          schedule, location and accommodations, frequently asked questions, and
-          more.
-        </p>
-        <p>
-          Feel free to <a href="mailto:ashkonlaura@gmail.com">contact us</a> if
-          you have any questions at all :) We love you all and cannot wait to
-          celebrate with you!
-        </p>
-        <p>Love, Laura & Ashkon</p>
+            menu
+          </div>
+          <Link to="/rsvp" className="link">
+            rsvp
+          </Link>
+          <a href="mailto:ashkonlaura@gmail.com" className="link">
+            contact
+          </a>
+        </div>
+        <h2>Ashkon & Laura are getting married!</h2>
+        <p>July 23, 2022 • Palos Verdes, CA</p>
+        <Link to="/rsvp" className="rsvp-link link">
+            rsvp →
+        </Link>
       </div>
-      <Link to="/rsvp" className="button">
-        RSVP →
-      </Link>
       <div style={{ marginTop: "80px" }}>
         <p style={{ color: "red" }}>
-          maybe load images in photos.js with gatsby-image for slow connections
+          make us be more to the right in home image
+          maybe load images in photos.js with gatsby-image for slow connections (see image.js)
+          change font of body text
         </p>
         <p style={{ color: "red" }}>
           when planned: links in FAQ, schedule, location (plus content

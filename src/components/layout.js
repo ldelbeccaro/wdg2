@@ -10,7 +10,7 @@ import Menu from "./menu"
 import "../styles/index.styl"
 import "../styles/layout.styl"
 
-const Layout = ({ children, Image }) => {
+const Layout = ({ children, Image, blur = true }) => {
   const { navShowing, MainContent, setMenu } = useContext(MenuContext)
 
   useEffect(() => setMenu({ content: children, lastPageContent: children }), [])
@@ -44,14 +44,14 @@ const Layout = ({ children, Image }) => {
 
   return (
     <div className="layout">
-      <div className="blur">
-        <div className="background">{Image}</div>
+      <div className={blur ? `bg blur` : `bg`}>
+        <div className="background">{Image && Image}</div>
         <div
           className="color-background"
           style={{ opacity: navShowing ? 0.8 : 0 }}
         ></div>
       </div>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {blur && <Header siteTitle={data.site.siteMetadata.title} />}
       <div className="content">
         <div className="main-content">{MainContent}</div>
         <Menu pages={data.allMarkdownRemark.edges} />
