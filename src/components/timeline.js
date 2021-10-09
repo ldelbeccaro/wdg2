@@ -1,39 +1,61 @@
-import PropTypes from "prop-types"
 import React from "react"
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
 
-// import "../styles/timeline.styl"
+import "../styles/timeline.styl"
 
-const Timeline = () => (
-  <div>
-    <p>See invitation style? wdg planning workona tabs</p>
-    <p>
-      <a href="https://dribbble.com/shots/6201976-BDC-Landing-Page-Explorations">
-        event page inspo
-      </a>
-    </p>
-    <p>
-      <a href="https://dribbble.com/shots/5466962-SAMS-Culture-Event-Page">
-        another
-      </a>
-    </p>
-    <p>
-      <a href="https://throwbacks-music.com/">scrolling inspo</a>
-    </p>
-    <div>
-      Reminder of the ceremony start time and any timing notes (e.g. suggesting
-      guests arrive 30 minutes ahead of time to enjoy a pre-ceremony cocktail).
-      You could also include the reception end time, so guests have a sense of
-      how late the party will go.
+const Timeline = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "ocean.jpeg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  const Image = <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+
+  return (
+    <div className='timeline'>
+      <div className='column left'>
+        {Image}
+      </div>
+      <div className='column right'>
+        <div className='hidden'></div>
+        <div className='events'>
+          <div className='event'>
+            <div className='datetime'>
+              <div className='date'>Friday, July 22</div>
+              <div className='time'>7pm</div>
+            </div>
+            <div className='details'>
+              <div className='title'>Welcome party</div>
+              <div className='location'>Terranea Resort • Cielo Point</div>
+            </div>
+          </div>
+          <div className='event'>
+            <div className='datetime'>
+              <div className='date'>Saturday, July 23</div>
+              <div className='time'>4pm - 10pm</div>
+            </div>
+            <div className='details'>
+              <div className='title'>Ceremony & Reception</div>
+              <div className='location'>Terranea Resort • Palos Verdes Meadows</div>
+              <div className='notes'>Arrive early for a pre-ceremony cocktail!</div>
+            </div>
+          </div>
+        </div>
+        <div className='footer'>
+          <div className='notes'>Attire for all events is beachy formal (e.g., summery cocktail attire).</div>
+          <div className='notes'>Parking is available at the Resort for a reduced $15 rate.</div>
+        </div>
+      </div>
     </div>
-  </div>
-)
-
-Timeline.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Timeline.defaultProps = {
-  siteTitle: `Laura & Ashkon`,
+  )
 }
 
 export default Timeline

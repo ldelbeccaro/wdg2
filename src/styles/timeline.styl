@@ -1,0 +1,70 @@
+@require 'styles'
+
+.timeline
+  display flex
+  height 100vh
+  left 0
+  position absolute
+  top 0
+  width 100vw
+
+  .column
+    top 0
+    width 50vw
+
+    &.left
+      align-self flex-end
+      overflow-y hidden
+
+    &.right
+      background white
+      display flex
+      flex-direction column
+      justify-content space-between
+      align-items center
+      padding 100px 80px 60px
+      width calc(50vw - 160px)
+
+      .hidden
+        background transparent 
+        height 1px
+        width 100%
+
+      .events
+        margin 30px 0
+
+        .event
+          margin 60px 0
+          display grid
+          grid-template-columns 200px minmax(auto, 300px)
+
+          .datetime
+            text-align left
+
+          .date
+            font-weight 500
+            margin-right 12px
+            margin-bottom 12px
+            text-transform uppercase
+
+          .title
+            serifHeader()
+            font-size $fontL
+            margin-bottom 12px
+            margin-top 30px
+            text-transform lowercase
+
+          .location
+            color $darkGray
+            font-size $fontS
+
+      .notes
+        color rgb(151, 167, 125)
+        margin-top 20px
+        font-size $fontS
+        font-weight 500
+
+      .footer
+        .notes
+          text-align center
+          margin-top 12px

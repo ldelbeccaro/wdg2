@@ -1,0 +1,124 @@
+@require 'styles'
+
+.main-content > .location
+  height 100vh
+  left 0
+  position absolute
+  top 0
+  width 100vw
+
+  .view-header
+    display flex
+    justify-content center
+
+    .back
+      margin-right 20px
+      text-transform lowercase
+
+  .location-content
+    // default view
+    .view
+      align-items center
+      border-radius 50%
+      display flex
+      justify-content center
+      overflow hidden
+      padding 80px
+      position absolute
+      z-index 10000
+
+      &.things
+        height 600px
+        left calc(50% - 300px - 80px)
+        top -40%
+        width 600px
+        align-items flex-end
+        padding 160px
+        top -60%
+
+        .icon
+          background #b25561
+
+      &.accommodations
+        height 500px
+        left -2%
+        width 550px
+        top 35%
+
+        .icon
+          background $gray
+
+      &.travel
+        height 520px
+        right -10%
+        width 520px
+        top 20%
+
+        .icon
+          background #abc0d9
+
+      &.hover
+        .icon
+          background white
+        .bg-image
+          opacity 0.6 
+
+      .bg-image
+        height 100%
+        opacity 0
+        width 100%
+        position absolute
+
+      .section-header
+        cursor pointer
+        display flex
+        flex-direction column
+        align-items center
+        padding 40px
+        z-index 2
+        border 1px solid $gray // delete
+
+        .icon
+          border-radius 50%
+          height 24px
+          margin-bottom 16px
+          padding 24px
+
+        .view-name
+          font-weight 500
+
+    .center
+      serifHeader()
+      align-items center
+      display flex
+      font-size $fontXL
+      height 100px
+      justify-content center
+      left calc(50% - 150px)
+      position absolute
+      top calc(50% - 50px)
+      width 300px
+      z-index 1
+
+  // indiv views
+  .view-header
+    margin-top 160px
+
+  .todo, .travel, .hotel-list
+    color black
+
+@keyframes waitToFadeIn
+  from
+    opacity 0
+    transform translateY(-16px)
+  to
+    opacity 0
+    transform translateY(-16px)
+
+@keyframes fadeInQuestion
+  from
+    opacity 0
+    transform translateY(-16px)
+  to
+    opacity 1
+    transform translateY(0)

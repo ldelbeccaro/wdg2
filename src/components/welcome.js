@@ -29,7 +29,7 @@ export default ({ buffer }) => {
             rsvp
           </Link>
           <a href="mailto:ashkonlaura@gmail.com" className="link">
-            contact
+            email
           </a>
         </div>
         <h2>Ashkon & Laura are getting married!</h2>
@@ -37,17 +37,6 @@ export default ({ buffer }) => {
         <Link to="/rsvp" className="rsvp-link link">
             rsvp →
         </Link>
-      </div>
-      <div style={{ marginTop: "80px" }}>
-        <p style={{ color: "red" }}>
-          make us be more to the right in home image
-          maybe load images in photos.js with gatsby-image for slow connections (see image.js)
-          change font of body text
-        </p>
-        <p style={{ color: "red" }}>
-          when planned: links in FAQ, schedule, location (plus content
-          animations & responsiveness), pick colors & pictures
-        </p>
       </div>
     </div>
   )

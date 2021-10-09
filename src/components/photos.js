@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react"
 
 import "../styles/photos.styl"
 
-import nye from "../images/about.png"
 import hawaii from "../images/location.png"
 import chelsea from "../images/chelsea.png"
 import italy from "../images/italy.png"
@@ -10,37 +9,30 @@ import dannys from "../images/dannys.png"
 import serious from "../images/stacey.png"
 import peace from "../images/home.png"
 import cris from "../images/schedule.png"
-import france from "../images/questions.png"
-import cluster from "../images/photos.png"
+import france from "../images/questions.jpeg"
+import subway from "../images/subway.jpeg"
+import stacey from "../images/stacey1.jpeg"
 
 const photosOne = [
-  { img: hawaii, caption: `Our first Hawai'ian adventure` },
-  { img: chelsea, caption: `At Stamford Bridge (Chelsea's stadium)` },
-  { img: italy, caption: `Our favorite lookout in Sicily` },
-  { img: dannys, caption: `The Hibs' (Laura's soccer team's) home pub` },
-  {
-    img: serious,
-    caption: `Stacey & Eric had an amazing photographer at their wedding`,
-  },
+  { img: hawaii, caption: `` },
+  { img: chelsea, caption: `CHELSEA FC ⚽ 🔵` },
+  { img: italy, caption: `` },
+  { img: dannys, caption: `` },
+  { img: serious, caption: `` },
 ]
 const photosTwo = [
-  {
-    img: peace,
-    caption: `Ashkon's all-time favorite photo; Laura tried to veto it...`,
-  },
-  { img: cris, caption: `Cris & Max's wedding` },
-  { img: nye, caption: `Hibs holiday party` },
-  { img: france, caption: `Women's world cup 2019 🏆 USWNT wins` },
-  { img: cluster, caption: `Some pictures to be de-clustered` },
+  { img: peace, caption: `` },
+  { img: stacey, caption: `` },
+  { img: cris, caption: `` },
+  { img: france, caption: `Women's world cup 2019 🏆` },
+  { img: subway, caption: `` },
 ]
 
 const Photo = ({ img, caption, onLoad }) => {
   return (
     <div className="photo">
-      <div className="cover">
-        <div className="caption">{caption}</div>
-      </div>
       <img src={img} alt={caption} onLoad={onLoad} />
+      <div className="caption">{caption}</div>
     </div>
   )
 }

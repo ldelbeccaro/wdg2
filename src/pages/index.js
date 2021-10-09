@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -22,7 +23,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    placeholderImage: file(relativePath: { eq: "proposal.png" }) {
+    placeholderImage: file(relativePath: { eq: "champagne.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

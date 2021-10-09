@@ -20,7 +20,7 @@ const Questions = () => {
       </Question>
       <Question icon={briefcase} q="What should I wear/pack?">
         {`All of our events are beach formal — summery semi-formal, if you will :)
-        We also encourage sweatpants, because we never pack a bag without
+        Bring a bathing suit, some light layers, and dancing shoes! We also encourage sweatpants, because we never pack a bag without
         sweatpants.`}
       </Question>
       <Question icon={sun} q="What will the weather be like?">
@@ -30,7 +30,7 @@ const Questions = () => {
       <Question icon={users} q="Is my family invited?">
         {`When you `}
         <Link className='link' to="/rsvp">RSVP</Link> and enter your name, you'll be able to see
-        who we've counted in your party. Please let us know if we missed anyone!
+        who we've counted in your party. We have a TON of family and had to keep extra guests relatively limited, but let us know if we missed anyone!
       </Question>
       <Question icon={truck} q="Will there be transportation?">
         All events are located at Terranea Resort. If you're staying outside of the resort, we ask that you arrange your own transportation to and from events. Learn more{" "}
@@ -40,7 +40,7 @@ const Questions = () => {
         #LDBgetsSMASHed
       </Question>
       <Question icon={gift} q="Where are you registered?">
-        Our registry can be found <a className='link' href="https://registry.theknot.com/laura-del-beccaro-ashkon-nosrat-july-2022-ca/39774017">here</a> :)
+        We absolutely don't need gifts — the best gift you can give us is your presence at our wedding. Second choice is a donation to <a href="kidsclub.org/donate">Boys & Girls Clubs of SF</a> ❤️ But we're also registered <a className='link' href="https://registry.theknot.com/laura-del-beccaro-ashkon-nosrat-july-2022-ca/39774017">here</a> if you're like Laura's mom and refuse to listen to no-gift rules :)
       </Question>
       <Question icon={phone} q="What's your contact info?">
         Email us at <a className='link' href="mailto:ashkonlaura@gmail.com">✉ ashkonlaura@gmail.com</a>!
