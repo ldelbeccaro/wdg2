@@ -16,7 +16,8 @@ const Questions = () => {
   return (
     <div className="questions">
       <Question icon={send} q="When/how do I RSVP?">
-        Please <Link className='link' to="/rsvp">RSVP on our website</Link> by June 3.
+        When you get your invitation! Stay tuned — all RSVPs will be through our website.
+        {/* Please <Link className='link' to="/rsvp">RSVP on our website</Link> by June 3. */}
       </Question>
       <Question icon={briefcase} q="What should I wear/pack?">
         {`All of our events are beach formal — summery semi-formal, if you will :)

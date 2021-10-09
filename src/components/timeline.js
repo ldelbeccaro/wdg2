@@ -41,11 +41,14 @@ const Timeline = () => {
             <div className='datetime'>
               <div className='date'>Saturday, July 23</div>
               <div className='time'>4pm - 10pm</div>
+              <div className='time' style={{marginTop:'100px'}}>10pm +</div>
             </div>
             <div className='details'>
               <div className='title'>Ceremony & Reception</div>
               <div className='location'>Terranea Resort • Palos Verdes Meadows</div>
               <div className='notes'>Arrive early for a pre-ceremony cocktail!</div>
+              <div className='title'>After party</div>
+              <div className='location'>TBD</div>
             </div>
           </div>
         </div>

@@ -25,17 +25,23 @@ export default ({ buffer }) => {
           >
             menu
           </div>
-          <Link to="/rsvp" className="link">
-            rsvp
+          <Link to="/location" className="link">
+            accommodations
           </Link>
+          {/* <Link to="/rsvp" className="link">
+            rsvp
+          </Link> */}
           <a href="mailto:ashkonlaura@gmail.com" className="link">
             email
           </a>
         </div>
         <h2>Ashkon & Laura are getting married!</h2>
         <p>July 23, 2022 • Palos Verdes, CA</p>
-        <Link to="/rsvp" className="rsvp-link link">
+        {/* <Link to="/rsvp" className="rsvp-link link">
             rsvp →
+        </Link> */}
+        <Link to="/location" className="rsvp-link link">
+            book →
         </Link>
       </div>
     </div>
