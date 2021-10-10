@@ -53,7 +53,8 @@ const Location = () => {
           <div className='subsection'>
             <div className='notes'>We have a very large room block at Terranea Resort! This is where all of our events will be hosted, so we highly recommend staying here if you can.</div>
             <div className='instructions'>You must make reservations via phone to get our discount. Our reduced rate is $350/night for a Resort View room and $425/night for an Ocean View room; request either one when you call. Note that our rates extend 3 days before and 3 days after our event dates (7/22-24) if you'd like to come early or stay late!</div>
-            <div className='instructions'>Call Terranea at (855) 938-4047. You must make your reservations by June 20, 2022. Tell them it's for the Del Beccaro-Nosrat wedding, and provide your name, address, email address, requested room type, and check-in/check-out dates. Check-in is at 4pm and check-out is at 11am.</div>
+            <div className='instructions'>Call Terranea at (855) 938-4047 and press 2 (reservations), then 3 (new reservations) when you get to the menu. Tell them it's for the "Del Beccaro-Nosrat wedding" and provide your name, address, email address, requested room type, and check-in/check-out dates. Check-in is at 4pm and check-out is at 11am.</div>
+            <div className='instructions'>You must make your reservations by June 20, 2022!</div>
           </div>
         </div>
         <div className='section'>
@@ -97,7 +98,7 @@ const Location = () => {
           <div className='bg-image'><img src={images[viewSection]} /></div>
         </div>
       ))}
-      <div className='center'>Palos Verdes, CA</div>
+      <div className='center'>Terranea Resort • Palos Verdes, CA</div>
     </div>
     )
   }

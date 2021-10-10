@@ -26,7 +26,7 @@
       padding 80px
       position absolute
 
-      &.things
+      &.where
         height 450px
         left calc(50% - 300px - 80px)
         top -20%
@@ -39,7 +39,7 @@
         .bg-image img
           object-position center top
 
-      &.where
+      &.things
         height 600px
         left -3%
         width 650px
@@ -47,6 +47,9 @@
 
         .icon
           background $gray
+
+        .bg-image img
+          object-position right bottom
 
       &.travel
         height 580px
@@ -80,6 +83,10 @@
           align-items: flex-start;
           opacity 1
 
+          img
+            margin-top 0
+            transition margin-top 0.1s linear
+
         .view-name
           font-weight 500
           z-index 100
@@ -92,8 +99,11 @@
           width 100px
           opacity 0.7
 
+          img
+            margin-top 20px
+
         .bg-image
-          opacity 0.6
+          opacity 0.4
 
       .bg-image
         height 100%
@@ -101,7 +111,7 @@
         width 100%
         position absolute
         z-index 1
-        transition opacity 0.5s linear 0.1s
+        transition opacity 0.3s linear 0.1s
 
         img
           height 100%
@@ -114,12 +124,13 @@
       align-items center
       display flex
       font-size $fontXL
-      height 100px
+      height 50px
       justify-content center
-      left calc(50% - 150px)
+      left calc(50% - 300px)
+      line-height 1.5
       position absolute
-      top calc(50% - 50px)
-      width 300px
+      top calc(50% - 25px)
+      width 600px
       z-index 1000
 
   // indiv views
