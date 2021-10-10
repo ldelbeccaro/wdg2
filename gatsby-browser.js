@@ -18,6 +18,14 @@ export const onClientEntry = () => {
   mixpanel.track('Load site');
 }
 
+export const onRouteUpdate = () => {
+  mixpanel.track('Visit page');
+}
+
+export const onRouteUpdateDelayed = () => {
+  mixpanel.track('Visit page');
+}
+
 // export const wrapPageElement = ({ element, props }) => {
 //   // props provide same data to PasswordWrapper as Page element will get
 //   // including location, data, etc - you don't need to pass it
