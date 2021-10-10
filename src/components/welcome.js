@@ -35,7 +35,7 @@ export default ({ buffer }) => {
             email
           </a>
         </div>
-        <h2>Ashkon & Laura are getting married!</h2>
+        <h2>ashkon & laura are getting married!</h2>
         <p>July 23, 2022 • Palos Verdes, CA</p>
         {/* <Link to="/rsvp" className="rsvp-link link">
             rsvp →

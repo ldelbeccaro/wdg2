@@ -43,84 +43,84 @@ const RSVP = () => {
     .map((resp, i) => (!resp ? true : !!rsvp.meals[i]))
     .some(meal => !meal)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const newAllNames = await getNamesFromAirtable()
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const newAllNames = await getNamesFromAirtable()
 
-      setAllNames(
-        newAllNames.map(record => ({
-          id: record.id,
-          name: record.fields.name,
-          meal: record.fields.dinner,
-          rsvp: record.fields.RSVP,
-          restrictions: record.fields["dietary restrictions"],
-          guests: !record.fields["related guests"]
-            ? []
-            : record.fields["related guests"].map(id => {
-                const fullRecord = newAllNames.find(record => record.id === id)
-                return {
-                  id: fullRecord.id,
-                  name: fullRecord.fields.name,
-                  meal: fullRecord.fields.dinner,
-                  rsvp: fullRecord.fields.RSVP,
-                  restrictions: fullRecord.fields["dietary restrictions"],
-                }
-              }),
-        }))
-      )
-    }
-    fetchData()
-  }, [])
+  //     setAllNames(
+  //       newAllNames.map(record => ({
+  //         id: record.id,
+  //         name: record.fields.name,
+  //         meal: record.fields.dinner,
+  //         rsvp: record.fields.RSVP,
+  //         restrictions: record.fields["dietary restrictions"],
+  //         guests: !record.fields["related guests"]
+  //           ? []
+  //           : record.fields["related guests"].map(id => {
+  //               const fullRecord = newAllNames.find(record => record.id === id)
+  //               return {
+  //                 id: fullRecord.id,
+  //                 name: fullRecord.fields.name,
+  //                 meal: fullRecord.fields.dinner,
+  //                 rsvp: fullRecord.fields.RSVP,
+  //                 restrictions: fullRecord.fields["dietary restrictions"],
+  //               }
+  //             }),
+  //       }))
+  //     )
+  //   }
+  //   fetchData()
+  // }, [])
 
-  useEffect(() => {
-    const positions = [stageOneRef, stageTwoRef, stageThreeRef].map(ref => {
-      return ref.current.getBoundingClientRect().bottom
-    })
-    setRefPositions(positions)
-  }, [stageOneRef, stageTwoRef, stageThreeRef])
+  // useEffect(() => {
+  //   const positions = [stageOneRef, stageTwoRef, stageThreeRef].map(ref => {
+  //     return ref.current.getBoundingClientRect().bottom
+  //   })
+  //   setRefPositions(positions)
+  // }, [stageOneRef, stageTwoRef, stageThreeRef])
 
-  useEffect(() => {
-    if (!missingMeals) setError("")
-  }, [missingMeals])
+  // useEffect(() => {
+  //   if (!missingMeals) setError("")
+  // }, [missingMeals])
 
-  useEffect(() => {
-    const parentY = rightGridRef.current.getBoundingClientRect().y
+  // useEffect(() => {
+  //   const parentY = rightGridRef.current.getBoundingClientRect().y
 
-    if (rsvpStage === 1) {
-      const bottom = refPositions[rsvpStage - 1]
-      setStyle({
-        transform: `translateY(-${bottom + 40 - parentY + 48 - 144}px)`,
-      })
-    } else if (rsvpStage === 2) {
-      const height = stageTwoRef.current.offsetHeight
-      setStyle({
-        transform: `translateY(-${
-          refPositions[0] + 40 + height + 40 - parentY + 48 - 144
-        }px)`,
-      })
-    } else if (rsvpStage === 3) {
-      const height1 = stageTwoRef.current.offsetHeight
-      const height2 = stageThreeRef.current.offsetHeight
-      const scrollTop = rightGridRef.current.querySelector(".right-scroll")
-        .scrollTop
-      setStyle({
-        transform: `translateY(-${
-          refPositions[0] +
-          56 +
-          height1 +
-          40 +
-          height2 +
-          80 +
-          6 -
-          144 -
-          parentY -
-          scrollTop
-        }px)`,
-      })
-    } else {
-      setStyle(blankTransform)
-    }
-  }, [refPositions, rsvpStage])
+  //   if (rsvpStage === 1) {
+  //     const bottom = refPositions[rsvpStage - 1]
+  //     setStyle({
+  //       transform: `translateY(-${bottom + 40 - parentY + 48 - 144}px)`,
+  //     })
+  //   } else if (rsvpStage === 2) {
+  //     const height = stageTwoRef.current.offsetHeight
+  //     setStyle({
+  //       transform: `translateY(-${
+  //         refPositions[0] + 40 + height + 40 - parentY + 48 - 144
+  //       }px)`,
+  //     })
+  //   } else if (rsvpStage === 3) {
+  //     const height1 = stageTwoRef.current.offsetHeight
+  //     const height2 = stageThreeRef.current.offsetHeight
+  //     const scrollTop = rightGridRef.current.querySelector(".right-scroll")
+  //       .scrollTop
+  //     setStyle({
+  //       transform: `translateY(-${
+  //         refPositions[0] +
+  //         56 +
+  //         height1 +
+  //         40 +
+  //         height2 +
+  //         80 +
+  //         6 -
+  //         144 -
+  //         parentY -
+  //         scrollTop
+  //       }px)`,
+  //     })
+  //   } else {
+  //     setStyle(blankTransform)
+  //   }
+  // }, [refPositions, rsvpStage])
 
   const onSubmitRsvp = () => {
     if (missingMeals) {
@@ -175,16 +175,17 @@ const RSVP = () => {
             ref={stageOneRef}
             style={style}
           >
-            <div className="label">What's your name?</div>
+            <div className="label">coming soon :)</div>
+            {/* <div className="label">What's your name?</div> */}
             <div className="input-container">
-              <input
+              {/* <input
                 aria-label="your name"
                 value={nameInput}
                 onChange={e => {
                   setNameInput(e.target.value)
                   setMatchingNames(filterAndSortItems(allNames, nameInput))
                 }}
-              />
+              /> */}
               <div className="dropdown">
                 {matchingNames.map(name => (
                   <div

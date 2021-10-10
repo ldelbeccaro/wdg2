@@ -52,6 +52,7 @@ const Layout = ({ children, Image, blur = true }) => {
         ></div>
       </div>
       {blur && <Header siteTitle={data.site.siteMetadata.title} />}
+      {!blur && navShowing && <div style={{height: '144px'}}/>}
       <div className="content">
         <div className="main-content">{MainContent}</div>
         <Menu pages={data.allMarkdownRemark.edges} />
