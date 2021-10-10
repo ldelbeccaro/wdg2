@@ -4,8 +4,8 @@ import React, { useState } from "react"
 import send from "../images/icons/send.svg"
 import briefcase from "../images/icons/briefcase.svg"
 import sun from "../images/icons/sun.svg"
-import hawaii from "../images/location.png"
-import champagne from "../images/champagne.jpeg"
+import italy from "../images/italy.png"
+import ski from "../images/ski.jpg"
 import group from "../images/group.jpeg"
 
 import "../styles/location.styl"
@@ -17,12 +17,12 @@ const Location = () => {
   const icons = {
     'things to do': <img src={send} />,
     'travel': <img src={briefcase} />,
-    'accommodations': <img src={sun} />,
+    'where to stay': <img src={sun} />,
   }
   const images = {
-    'things to do': champagne,
-    'travel': hawaii,
-    'accommodations': group,
+    'things to do': ski,
+    'travel': italy,
+    'where to stay': group,
   }
 
   let content;
@@ -45,7 +45,7 @@ const Location = () => {
         <div className='section'><div className='section-title'>City of Angels</div><div className='notes'>The Los Angeles area is huge! From Disneyland to Hollywood, there's a ton you can see — the world is your oyster :)</div></div>
       </div>
     )
-  } else if (view === 'accommodations') {
+  } else if (view === 'where to stay') {
     content = (
       <div className='hotel-list'>
         <div className='section'>
@@ -66,7 +66,7 @@ const Location = () => {
           </div>
           <div className='subsection'>
             <div className='title'>Airbnb</div>
-            <div className='instructions'>There are <a href="https://www.airbnb.com/s/Rancho-Palos-Verdes--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=november&flexible_trip_dates%5B%5D=october&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&query=Rancho%20Palos%20Verdes%2C%20CA%2C%20United%20States&place_id=ChIJn41UcNpL3YARtJSWblt_RME&checkin=2022-07-22&checkout=2022-07-24&adults=2&source=structured_search_input_header&search_type=autocomplete_click">plenty of Airbnbs in the area</a> if you prefer to secure your own accommodations.</div>
+            <div className='instructions'>There are also <a href="https://www.airbnb.com/s/Rancho-Palos-Verdes--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=november&flexible_trip_dates%5B%5D=october&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&query=Rancho%20Palos%20Verdes%2C%20CA%2C%20United%20States&place_id=ChIJn41UcNpL3YARtJSWblt_RME&checkin=2022-07-22&checkout=2022-07-24&adults=2&source=structured_search_input_header&search_type=autocomplete_click">plenty of Airbnbs in the area</a> if you prefer to secure your own accommodations.</div>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ const Location = () => {
   } else if (view === 'default') {
     content = (
     <div className='menu'>
-      {['accommodations', 'travel', 'things to do'].map(viewSection => (
+      {['where to stay', 'travel', 'things to do'].map(viewSection => (
         <div
           className={`view ${viewSection} ${viewSection === hoverView ? `hover` : ``}`}
           onClick={() => setView(viewSection)}
