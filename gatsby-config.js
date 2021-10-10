@@ -42,7 +42,8 @@ module.exports = {
           `Avenir\:300,400,500`,
           `Roboto\:300,400,500`,
           `Merriweather\:300`,
-          // merriweather regular, montserrat bold
+          `Manrope\:200,300,400,500`
+          // montserrat bold
         ],
       },
     },

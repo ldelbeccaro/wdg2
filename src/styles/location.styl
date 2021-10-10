@@ -102,10 +102,59 @@
 
   // indiv views
   .view-header
-    margin-top 160px
+    display flex
+    justify-content space-between
+    margin 160px auto 40px
+    max-width 1200px
+
+    .back
+      border-bottom 1px solid transparent
+      cursor pointer
+      padding-bottom 8px
+
+      &:hover
+        border-bottom 1px solid black
+
+    .title
+      header()
+
+    .filler
+      width 68px
+      height 1px
 
   .todo, .travel, .hotel-list
     color black
+    max-width 1200px
+    margin 0 auto
+    padding-bottom 80px
+
+    .section
+      margin-bottom 40px
+
+      .section-title
+        serifHeader()
+        margin-bottom 20px
+
+      .subsection
+        margin 20px 0
+
+        .title
+          header()
+
+    .notes, .instructions
+      line-height 1.4em
+      margin 10px 0
+
+    .notes
+      subtext()
+      font-size $fontM
+
+      ul
+        margin-left 20px
+
+    .instructions
+      color #99c0e3
+      font-weight 500
 
 @keyframes waitToFadeIn
   from
