@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useCallback } from "react"
 import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
+import mixpanel from 'mixpanel-browser'
 
 import "../styles/menu.styl"
 
@@ -33,6 +34,7 @@ const Menu = ({ pages }) => {
       if (currentPage) {
         setPageUrl(currentPage.node.frontmatter.url)
         setCurrentNavItem(navRef.querySelector(`.nav-item[href="${pageUrl}"]`))
+        mixpanel.track('Visit page', {'Page': currentPage.node.frontmatter.title})
       }
     }
   }, [navRef, navShowing])

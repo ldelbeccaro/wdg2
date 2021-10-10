@@ -58,8 +58,11 @@
           background #abc0d9
 
       &.hover
-        .icon
+        .section-header .icon
           background white
+          height: 100px;
+          width: 100px;
+
         .bg-image
           opacity 0.6 
 
@@ -68,6 +71,8 @@
         opacity 0
         width 100%
         position absolute
+        z-index 1
+        transition opacity 0.5s linear 0.1s
 
       .section-header
         cursor pointer
@@ -75,17 +80,26 @@
         flex-direction column
         align-items center
         padding 40px
+        position relative
         z-index 2
-        border 1px solid $gray // delete
 
         .icon
           border-radius 50%
           height 24px
+          width 24px
           margin-bottom 16px
           padding 24px
+          position: absolute;
+          transition height 0.1s linear, width 0.1s linear, background 0.1s linear
+          z-index 10
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
 
         .view-name
           font-weight 500
+          z-index 100
+          margin-top 80px
 
     .center
       serifHeader()
@@ -98,7 +112,7 @@
       position absolute
       top calc(50% - 50px)
       width 300px
-      z-index 1
+      z-index 1000
 
   // indiv views
   .view-header
