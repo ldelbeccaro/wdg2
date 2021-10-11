@@ -1,5 +1,40 @@
 @require 'responsive'
 
+@font-face
+  font-family GeneralSans
+  src url('./fonts/GeneralSans-Medium.ttf')
+  font-weight 500
+  font-display swap
+  font-style normal
+
+@font-face
+  font-family GeneralSans
+  src url('./fonts/GeneralSans-Regular.ttf')
+  font-weight 400
+  font-display swap
+  font-style normal
+
+@font-face
+  font-family GeneralSans
+  src url('./fonts/GeneralSans-Light.ttf')
+  font-weight 300
+  font-display swap
+  font-style normal
+
+@font-face
+  font-family GeneralSans
+  src url('./fonts/GeneralSans-ExtraLight.ttf')
+  font-weight 200
+  font-display swap
+  font-style normal
+
+@font-face
+  font-family Merriweather
+  src url('./fonts/Merriweather-Light.ttf')
+  font-weight 300
+  font-display swap
+  font-style normal
+
 $tan = #e3d7bd
 $lightTan = #ebe6d9
 $lightestTan = #f6f3e7
@@ -23,7 +58,7 @@ $fontXS = 14px
 
 regularText()
   color $black
-  font-family 'Manrope'
+  font-family GeneralSans, sans-serif
   font-size $fontM
   font-weight 300
 
@@ -35,7 +70,7 @@ header()
     font-size $fontXLMobile
 
 serifHeader()
-  font-family 'Merriweather'
+  font-family Merriweather
   header()
 
 subtext()

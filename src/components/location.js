@@ -39,10 +39,10 @@ const Location = () => {
             </ul>
           </div>
         </div>
-        <div className='section'><div className='section-title'>Hikes</div><div className='notes'>Palos Verdes is famous for its hiking trails! Many of them run through Terranea :) there's a full guide here.</div></div>
-        <div className='section'><div className='section-title'>Beaches</div><div className='notes'>Closest beach: Torrance beach. Other iconic beaches: Santa Monica, Venice, Manhattan or Orange County</div></div>
+        <div className='section'><div className='section-title'>Hikes</div><div className='notes'>Palos Verdes is famous for its hiking trails! Many of them run through Terranea :) and you can find a great list <a href="https://www.alltrails.com/us/california/rancho-palos-verdes">here</a>.</div></div>
+        <div className='section'><div className='section-title'>Beaches</div><div className='notes'>Closest beach: Torrance beach<br />Other iconic beaches: Venice, Manhattan Beach, Santa Monica, or Orange County (Newport or Laguna Beach)</div></div>
         <div className='section'><div className='section-title'>Golf</div><div className='notes'>There's a very fun (and very windy) par 3 course at Terranea, and a few other golf courses nearby. (We recommend PVGC.)</div></div>
-        <div className='section'><div className='section-title'>City of Angels</div><div className='notes'>The Los Angeles area is huge! From Disneyland to Hollywood, there's a ton you can see — the world is your oyster :)</div></div>
+        <div className='section'><div className='section-title'>City of Angels</div><div className='notes'>The Los Angeles area is huge! From Disneyland to Hollywood, there's a ton you can see — LA is your oyster :)</div></div>
       </div>
     )
   } else if (view === 'where to stay') {
@@ -75,8 +75,14 @@ const Location = () => {
   } else if (view === 'travel') {
     content = (
       <div className='travel'>
-        <div className='notes'>✈️ Terranea Resort is about 30 mintes from LAX (Los Angeles) and LGB (Long Beach). Both are great airports to fly into!</div>
-        <div className='notes'>🚙 A maps search for "Terranea Resort" will get you where you need to go. As you pull up, they should have your name and will tell you where to go. There is parking at the Resort, but we recommend using rideshare apps (Lyft, Uber, etc.) to get around as car rentals can be expensive.</div>
+        <div className='section'>
+          <div className='section-title'>✈️</div>
+          <div className='notes'>Terranea Resort is about 30 mintes from both LAX (Los Angeles) and LGB (Long Beach). Both are great airports to fly into!</div>
+        </div>
+        <div className='section'>
+          <div className='section-title'>🚙</div>
+          <div className='notes'>A maps search for "Terranea Resort" should do it. As you pull up, they will have your name and tell you where to go. There is parking at the Resort, but we recommend using rideshare apps (Lyft, Uber, etc.) to get around as car rentals can be expensive.</div>
+        </div>
       </div>
     )
   } else if (view === 'default') {
@@ -85,10 +91,10 @@ const Location = () => {
       {['where to stay', 'travel', 'things to do'].map(viewSection => (
         <div
           className={`view ${viewSection} ${viewSection === hoverView ? `hover` : ``}`}
-          onClick={() => setView(viewSection)}
         >
           <div
             className='section-header'
+            onClick={() => setView(viewSection)}
             onMouseEnter={() => setHover(viewSection)}
             onMouseLeave={() => setHover('default')}
           >

@@ -33,20 +33,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `karla\:400,500`,
-          `Tajawal\:200,300,400,500,700,800,900`,
-          `Avenir\:300,400,500`,
-          `Roboto\:300,400,500`,
-          `Merriweather\:300`,
-          `Manrope\:200,300,400,500`
-          // montserrat bold
-        ],
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

@@ -16,10 +16,13 @@
 
   &.photos-template
     max-height calc(100vh - 104px - 80px)
-    max-width unquote("min(calc(35vw - 80px), 416px)")
+    max-width unquote("min(calc(40vw - 80px), 416px)")
     overflow-y scroll
     padding-left 80px
-    padding-top 20px
+    padding-top 0px
+
+    p
+      line-height 1.4em
 
     +media($large-screen)
       max-width 376px
