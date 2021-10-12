@@ -23,7 +23,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    placeholderImage: file(relativePath: { eq: "champagne.png" }) {
+    placeholderImage: file(relativePath: { eq: "champagne-extended-4.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

@@ -19,14 +19,8 @@ const Questions = () => {
         When you get your invitation! Stay tuned — all RSVPs will be through our website.
         {/* Please <Link className='link' to="/rsvp">RSVP on our website</Link> by June 3. */}
       </Question>
-      <Question icon={briefcase} q="What should I wear/pack?">
-        {`All of our events are beach formal — summery semi-formal, if you will :)
-        Bring a bathing suit, some light layers, and dancing shoes! We also encourage sweatpants, because we never pack a bag without
-        sweatpants.`}
-      </Question>
-      <Question icon={sun} q="What will the weather be like?">
-        It's generally warm in LA, but can be pretty windy — especially because we'll be right on the ocean. We
-        recommend dressing for summer but bringing a light layer just in case. We'll be outside the whole time. We'll generally be on grass and brick (and the dance floor!) so plan shoes accordingly.
+      <Question icon={phone} q="What's your contact info?">
+        Email us at <a className='link' href="mailto:ashkonlaura@gmail.com">✉ ashkonlaura@gmail.com</a>!
       </Question>
       <Question icon={users} q="Is my family invited?">
         {`When you `}
@@ -37,15 +31,21 @@ const Questions = () => {
         All events are located at <a href="/terranea.com/">Terranea Resort</a>. If you're staying outside of the resort, we ask that you arrange your own transportation to and from events. Learn more{" "}
         <Link className='link' to="/location">on the location page</Link>.
       </Question>
-      <Question icon={hash} q="What's your wedding hashtag?">
-        #LDBgetsSMASHed
-      </Question>
       <Question icon={gift} q="Where are you registered?">
         We absolutely don't need gifts — the best gift you can give us is your presence at our wedding. But we're also registered <a className='link' href="https://registry.theknot.com/laura-del-beccaro-ashkon-nosrat-july-2022-ca/39774017">here</a> if you're like our parents and refuse to listen to no-gift rules :)
       </Question>
-      <Question icon={phone} q="What's your contact info?">
-        Email us at <a className='link' href="mailto:ashkonlaura@gmail.com">✉ ashkonlaura@gmail.com</a>!
+      <Question icon={sun} q="What will the weather be like?">
+        It's generally warm in LA, but can be pretty windy — especially because we'll be right on the ocean. We
+        recommend dressing for summer but bringing a light layer just in case. We'll be outside the whole time. We'll generally be on grass and brick (and the dance floor!) so plan shoes accordingly.
       </Question>
+      <Question icon={briefcase} q="What should I wear/pack?">
+        {`All of our events are beach formal — summery semi-formal, if you will :)
+        Bring a bathing suit, some light layers, and dancing shoes! We also encourage sweatpants, because we never pack a bag without
+        sweatpants.`}
+      </Question>
+      {/* <Question icon={hash} q="What's your wedding hashtag?">
+        #LDBgetsSMASHed
+      </Question> */}
     </div>
   )
 }

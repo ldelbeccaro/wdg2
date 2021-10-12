@@ -2,186 +2,125 @@
 
 .main-content > .location
   animation fadeInContent 0.7s linear
-  height 100vh
-  left 0
-  position absolute
-  top 0
-  width 100vw
+  max-width 1200px
+  margin 0 auto
+  width calc(100% - 160px)
 
-  .view-header
+  .header
+    serifHeader()
+    align-items center
     display flex
+    font-size $fontXL
     justify-content center
-
-    .back
-      margin-right 20px
-      text-transform lowercase
+    line-height 1.5
+    margin-bottom 40px
 
   .location-content
-    // default view
-    .view
-      align-items center
-      border-radius 50%
-      display flex
-      justify-content center
-      padding 80px
+    margin-bottom 80px
+    position relative
+
+    .bg-image
+      height 100%
+      width 100%
       position absolute
 
-      &.where
-        height 450px
-        left calc(50% - 300px - 80px)
-        top -20%
-        width 450px
-        padding 160px
-        transform translateX(0) translateY(0)
+      img
+        height 100%
+        object-position left top
+        object-fit cover
+        width 100%
 
-        .icon
-          // animation icon1 2s linear
-          background #cbf2ff
-
-        .bg-image img
-          object-position center top
-
-      &.things
-        height 600px
-        left -3%
-        width 650px
-        top 32%
-
-        .icon
-          background $gray
-
-        .bg-image img
-          object-position right bottom
-
-      &.travel
-        height 580px
-        right -13%
-        width 580px
-        top 18%
-
-        .icon
-          background #abc0d9
-
+    .content-section
       .section-header
         cursor pointer
-        display flex
-        flex-direction column
+        display grid
+        grid-template-columns 72px 150px auto
         align-items center
-        padding 40px
+        padding 40px 0
         position relative
         z-index 10000
 
         .icon
-          border-radius 50%
           height 24px
           width 24px
-          margin-bottom 16px
           padding 24px
-          position: absolute;
-          transition height 0.2s ease-in-out, width 0.2s ease-in-out, background 0.2s linear, opacity 0.2s linear
           z-index 10
           display: flex;
           justify-content: center;
           align-items: flex-start;
           opacity 1
+          z-index 3
 
           img
             margin-top 0
-            transition margin-top 0.2s ease-in-out
+
+        .white
+          background white
+          height 100%
+          opacity 1
+          overflow hidden
+          width 100%
+          position absolute
+          z-index 2
+          transition opacity 0.5s linear
+
+        .view-name
+          flex-shrink 0
+          font-weight 400
+          z-index 3
+
+      &.hover
+        .icon
 
         .view-name
           font-weight 500
-          z-index 100
-          margin-top 80px
 
-      .bg-image
-        border-radius 50%
-        height 100%
-        opacity 0
-        overflow hidden
-        width 100%
-        position absolute
-        z-index 1
-        transition opacity 0.4s linear 0.2s
+        .white
+          opacity 0.6
 
-        img
-          height 100%
-          object-fit cover
-          width 100%
-          z-index 1
+      &.expanded
+        .section-header
+          align-items flex-start
 
-      &.hover
-        .section-header .icon
-          background white
-          height 100px
-          width 100px
-          opacity 0.7
+          .view-name
+            margin-top 26px
 
-          img
-            margin-top 20px
+          .todo, .travel-content, .hotel-list
+            padding-top 24px
 
-        .bg-image
-          opacity 0.4
+        .white
+          opacity 0.93
+          position absolute
+          top 0
 
-    .center
-      serifHeader()
-      align-items center
-      display flex
-      font-size $fontXL
-      height 50px
-      justify-content center
-      left calc(50% - 300px)
-      line-height 1.5
-      position absolute
-      top calc(50% - 25px)
-      width 600px
-      z-index 1000
-
-  // indiv views
-  .view-header
-    display flex
-    justify-content space-between
-    margin 160px auto 60px
-    max-width 1200px
-    padding 0 80px
-
-    .back
-      border-bottom 1px solid transparent
-      cursor pointer
-      padding-bottom 8px
-
-      &:hover
-        border-bottom 1px solid black
-
-    .title
-      header()
-
-    .filler
-      width 68px
-      height 1px
-
-  .todo, .travel, .hotel-list
+  .todo, .travel-content, .hotel-list
     color black
     max-width 1200px
     margin 0 auto
-    padding 0 80px 80px
+    padding 0 20px
+    position relative
+    z-index 4
 
     .section
-      margin-bottom 60px
+      margin-bottom 50px
 
       .section-title
         serifHeader()
         margin-bottom 20px
 
-      .subsection
-        margin 30px 0
+    .subsection
+      padding-bottom 20px
 
-        .title
-          header()
+      &:last-child
+        padding 0
+
+      .title
+        header()
+        margin-bottom 15px
 
     .notes, .instructions
       line-height 1.4em
-      margin 10px 0
+      margin-bottom 10px
 
     .notes
       subtext()
@@ -193,23 +132,3 @@
     .instructions
       color #99c0e3
       font-weight 500
-
-@keyframes icon1
-  0%
-    transform translateY(0) translateX(0)
-  5%
-    transform translateY(20px) translateX(40px)
-  25%
-    transform translateY(70px) translateX(100px)
-  40%
-    transform translateY(200px) translateX(30px)
-  50%
-    transform translateY(130px) translateX(50px)
-  80%
-    transform translateY(50px) translateX(60px)
-  85%
-    transform translateY(230px) translateX(150px)
-  95%
-    transform translateY(100px) translateX(100px)
-  100%
-    transform translateY(0px) translateX(0px)
