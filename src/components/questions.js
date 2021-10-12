@@ -28,11 +28,11 @@ const Questions = () => {
         who we've counted in your party. We have a TON of family and had to keep extra guests relatively limited, but let us know if we missed anyone!
       </Question>
       <Question icon={truck} q="Will there be transportation?">
-        All events are located at <a href="/terranea.com/">Terranea Resort</a>. If you're staying outside of the resort, we ask that you arrange your own transportation to and from events. Learn more{" "}
+        All events are located at <a target="_blank" href="/terranea.com/">Terranea Resort</a>. If you're staying outside of the resort, we ask that you arrange your own transportation to and from events. Learn more{" "}
         <Link className='link' to="/location">on the location page</Link>.
       </Question>
       <Question icon={gift} q="Where are you registered?">
-        We absolutely don't need gifts — the best gift you can give us is your presence at our wedding. But we're also registered <a className='link' href="https://registry.theknot.com/laura-del-beccaro-ashkon-nosrat-july-2022-ca/39774017">here</a> if you're like our parents and refuse to listen to no-gift rules :)
+        We absolutely don't need gifts — the best gift you can give us is your presence at our wedding. But we're also registered <a className='link' target="_blank" href="https://registry.theknot.com/laura-del-beccaro-ashkon-nosrat-july-2022-ca/39774017">here</a> if you're like our parents and refuse to listen to no-gift rules :)
       </Question>
       <Question icon={sun} q="What will the weather be like?">
         It's generally warm in LA, but can be pretty windy — especially because we'll be right on the ocean. We

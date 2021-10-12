@@ -69,18 +69,25 @@
           font-weight 400
           z-index 3
 
+          .collapse
+            subtext()
+            font-weight 400
+            font-size $fontS
+            cursor pointer
+            margin-top 16px
+
       &.hover
-        .icon
-
-        .view-name
-          font-weight 500
-
         .white
           opacity 0.6
+
+      &.hover:not(&.expanded)
+        .view-name
+          font-weight 500
 
       &.expanded
         .section-header
           align-items flex-start
+          cursor default
 
           .view-name
             margin-top 26px
@@ -94,6 +101,7 @@
           top 0
 
   .todo, .travel-content, .hotel-list
+    animation fadeInContent 0.7s linear
     color black
     max-width 1200px
     margin 0 auto

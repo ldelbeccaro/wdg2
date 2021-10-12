@@ -31,11 +31,11 @@ const Location = () => {
         <div className='instructions'>Near Palos Verdes:</div>
         <div className='notes'>Terranea has some excellent restaurants; we LOVE Gushiya Ramen and Sushi; Pinky's Hot Box has delicious chicken sandwiches; at Tacos El Goloso you must get the Tacos Dorados De Birria</div>
         <div className='instructions'>In the greater LA area:</div>
-        <div className='notes'>Felix Trattoria for the best Italian food in the US (must make a reservation relatively far in advance); far too many others to name but <a href='https://la.eater.com/'>here's</a> a great resource!</div>
+        <div className='notes'>Felix Trattoria for the best Italian food in the US (must make a reservation relatively far in advance); far too many others to name but <a target="_blank" href='https://la.eater.com/'>here's</a> a great resource!</div>
       </div>
       <div className='section'>
         <div className='section-title'>Hikes</div>
-        <div className='notes'>Palos Verdes is famous for its hiking trails! Many of them run through Terranea :) and you can find a great list <a href="https://www.alltrails.com/us/california/rancho-palos-verdes">here</a>.</div>
+        <div className='notes'>Palos Verdes is famous for its hiking trails! Many of them run through Terranea :) and you can find a great list <a target="_blank" href="https://www.alltrails.com/us/california/rancho-palos-verdes">here</a>.</div>
       </div>
       <div className='section'>
         <div className='section-title'>Beaches</div>
@@ -73,11 +73,11 @@ const Location = () => {
         <div className='subsection'>
           <div className='title'>Hotels</div>
           <div className='notes'>There are more cost effective hotel options in Redondo Beach, Torrance, or San Pedro that are still relatively close to our venue.</div>
-          <div className='instructions'><a href="https://www.google.com/travel/hotels?utm_campaign=sharing&utm_medium=link&utm_source=htls&ts=CAESCgoCCAMKAggDEAAaXgpAEjwyJTB4ODBkZDRiZGE3MDU0OGQ5ZjoweGMxNDQ3ZjViNmU5Njk0YjQ6E1JhbmNobyBQYWxvcyBWZXJkZXMaABIaEhQKBwjmDxAHGBYSBwjmDxAHGBgYAjICCAEqCwoHKAE6A1VTRBoA&rp=SAI&destination=Rancho%20Palos%20Verdes&ap=MAFasAIKBQjIARAAIgNVU0QqFgoHCOUPEAoYDBIHCOUPEAoYDRgBKACwAQFYAWgBcgQIAhgAmgE8EhNSYW5jaG8gUGFsb3MgVmVyZGVzGiUweDgwZGQ0YmRhNzA1NDhkOWY6MHhjMTQ0N2Y1YjZlOTY5NGI0ogEfCggvbS8wcjB0axITUmFuY2hvIFBhbG9zIFZlcmRlc6oBBwoDCPABGACqAQ8KAggSEgMImwESAghoGAGqARIKAggUEgIIMBICCFISAghOGAGqAQcKAwicARgAqgETCgIIHBICCFESAghzEgMInQIYAaoBEgoCCBESAggqEgIIQBICCDgYAaoBEgoCCC4SAghWEgIIPRICCEsYAaoBBgoCCCwYAKoBEgoCCDUSAggyEgIIXRICCBAYAZIBAiABaAA&ved=0CAAQ5JsGahcKEwjovvyvrMDzAhUAAAAAHQAAAAAQaA">Here's</a> a list of all nearby hotels available on the applicable dates.</div>
+          <div className='instructions'><a target="_blank" href="https://www.google.com/travel/hotels?utm_campaign=sharing&utm_medium=link&utm_source=htls&ts=CAESCgoCCAMKAggDEAAaXgpAEjwyJTB4ODBkZDRiZGE3MDU0OGQ5ZjoweGMxNDQ3ZjViNmU5Njk0YjQ6E1JhbmNobyBQYWxvcyBWZXJkZXMaABIaEhQKBwjmDxAHGBYSBwjmDxAHGBgYAjICCAEqCwoHKAE6A1VTRBoA&rp=SAI&destination=Rancho%20Palos%20Verdes&ap=MAFasAIKBQjIARAAIgNVU0QqFgoHCOUPEAoYDBIHCOUPEAoYDRgBKACwAQFYAWgBcgQIAhgAmgE8EhNSYW5jaG8gUGFsb3MgVmVyZGVzGiUweDgwZGQ0YmRhNzA1NDhkOWY6MHhjMTQ0N2Y1YjZlOTY5NGI0ogEfCggvbS8wcjB0axITUmFuY2hvIFBhbG9zIFZlcmRlc6oBBwoDCPABGACqAQ8KAggSEgMImwESAghoGAGqARIKAggUEgIIMBICCFISAghOGAGqAQcKAwicARgAqgETCgIIHBICCFESAghzEgMInQIYAaoBEgoCCBESAggqEgIIQBICCDgYAaoBEgoCCC4SAghWEgIIPRICCEsYAaoBBgoCCCwYAKoBEgoCCDUSAggyEgIIXRICCBAYAZIBAiABaAA&ved=0CAAQ5JsGahcKEwjovvyvrMDzAhUAAAAAHQAAAAAQaA">Here's</a> a list of all nearby hotels available on the applicable dates.</div>
         </div>
         <div className='subsection'>
           <div className='title'>Airbnb</div>
-          <div className='instructions'>There are also <a href="https://www.airbnb.com/s/Rancho-Palos-Verdes--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=november&flexible_trip_dates%5B%5D=october&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&query=Rancho%20Palos%20Verdes%2C%20CA%2C%20United%20States&place_id=ChIJn41UcNpL3YARtJSWblt_RME&checkin=2022-07-22&checkout=2022-07-24&adults=2&source=structured_search_input_header&search_type=autocomplete_click">plenty of Airbnbs in the area</a> if you prefer to secure your own accommodations.</div>
+          <div className='instructions'>There are also <a target="_blank" href="https://www.airbnb.com/s/Rancho-Palos-Verdes--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=november&flexible_trip_dates%5B%5D=october&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&query=Rancho%20Palos%20Verdes%2C%20CA%2C%20United%20States&place_id=ChIJn41UcNpL3YARtJSWblt_RME&checkin=2022-07-22&checkout=2022-07-24&adults=2&source=structured_search_input_header&search_type=autocomplete_click">plenty of Airbnbs in the area</a> if you prefer to secure your own accommodations.</div>
         </div>
       </div>
     </div>
@@ -98,7 +98,6 @@ const Location = () => {
       <div className='header'>Terranea Resort • Palos Verdes, CA</div>
       <div className='location-content'>
         <div className='bg-image'>
-          {/* {Object.values(expanded).every(x => !x) && <img src={group} />} */}
           <img src={group} />
         </div>
         {['travel', 'where to stay', 'things to do'].map(section => {
@@ -109,13 +108,21 @@ const Location = () => {
             >
               <div
                 className='section-header'
-                onClick={() => setExpanded({...expanded, [sectionName]: !expanded[sectionName]})}
+                onClick={e => {
+                  if (e.target.className === 'collapse') return
+                  setExpanded({...expanded, [sectionName]: true})
+                }}
                 onMouseEnter={() => setHover(section)}
                 onMouseLeave={() => setHover('default')}
                 >
                 <div className='icon'>{icons[section]}</div>
                 <div className='white'></div>
-                <div className='view-name'>{section}</div>
+                <div className='view-name'>
+                  {section}
+                  {expanded[sectionName] && (
+                    <div className='collapse' onClick={() => setExpanded({...expanded, [sectionName]: false})}>collapse</div>
+                  )}
+                </div>
                 {expanded[sectionName] && content[sectionName]}
               </div>
             </div>
