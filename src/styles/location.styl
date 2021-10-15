@@ -6,6 +6,9 @@
   margin 0 auto
   width calc(100% - 160px)
 
+  +media($extra-small-screen)
+    width calc(100% - 48px)
+
   .header
     serifHeader()
     align-items center
@@ -14,6 +17,9 @@
     justify-content center
     line-height 1.5
     margin-bottom 40px
+
+    +media($extra-small-screen)
+      margin-top 40px
 
   .location-content
     margin-bottom 80px
@@ -30,6 +36,9 @@
         object-fit cover
         width 100%
 
+        +media($extra-small-screen)
+          object-position 12% top
+
     .content-section
       .section-header
         cursor pointer
@@ -39,6 +48,9 @@
         padding 40px 0
         position relative
         z-index 10000
+
+        +media($extra-small-screen)
+          grid-template-columns 72px auto
 
         .icon
           height 24px
@@ -63,6 +75,9 @@
           position absolute
           z-index 2
           transition opacity 0.5s linear
+
+          +media($extra-small-screen)
+            opacity 0.8
 
         .view-name
           flex-shrink 0
@@ -92,6 +107,13 @@
           .view-name
             margin-top 26px
 
+            +media($extra-small-screen)
+              display flex
+
+              .collapse
+                margin-top 1px
+                margin-left 12px
+
           .todo, .travel-content, .hotel-list
             padding-top 24px
 
@@ -108,6 +130,9 @@
     padding 0 20px
     position relative
     z-index 4
+
+    +media($extra-small-screen)
+      grid-column span 2
 
     .section
       margin-bottom 50px

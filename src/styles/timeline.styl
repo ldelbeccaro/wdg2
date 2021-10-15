@@ -6,16 +6,23 @@
   left 0
   position absolute
   top 0
-  width 100vw
+  width 100%
 
   .column
     animation fadeInContent 0.7s linear
     top 0
+    height 100%
     width 50vw
 
     &.left
       align-self flex-end
       overflow-y hidden
+
+      +media($extra-small-screen)
+        width 0
+
+      .gatsby-image-wrapper
+        height 100%
 
     &.right
       background white
@@ -26,6 +33,10 @@
       padding 100px 80px 60px
       width calc(50vw - 160px)
 
+      +media($extra-small-screen)
+        padding 50px 40px 30px
+        width calc(100vw - 80px)
+
       .hidden
         background transparent 
         height 1px
@@ -33,6 +44,9 @@
 
       .events
         margin 30px 0
+
+        +media($mobile-screen)
+          margin 0
 
         .date
           margin 60px 0
@@ -47,6 +61,9 @@
           margin 20px 0 40px
           display grid
           grid-template-columns 200px minmax(auto, 300px)
+
+          +media($small-screen)
+            grid-template-columns 100px minmax(auto, 300px)
 
           .datetime
             text-align left

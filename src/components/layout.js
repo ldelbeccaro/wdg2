@@ -45,14 +45,14 @@ const Layout = ({ children, Image, blur = true }) => {
   return (
     <div className="layout">
       <div className={blur ? `bg blur` : `bg`}>
-        <div className="background">{Image && Image}</div>
+        <div className="background">{!!Image && Image}</div>
         <div
           className="color-background"
           style={{ opacity: navShowing ? 0.8 : 0 }}
         ></div>
       </div>
       {blur && <Header siteTitle={data.site.siteMetadata.title} />}
-      {!blur && navShowing && <div style={{height: '144px'}}/>}
+      {!blur && navShowing && <div className='nav-buffer' />}
       <div className="content">
         <div className="main-content">{MainContent}</div>
         <Menu pages={data.allMarkdownRemark.edges} />

@@ -3,7 +3,7 @@ title: "about"
 url: "/about"
 index: 5
 image: "../images/blank.png"
-color: "#a9253b"
+color: "#8180e5"
 menuColor: "#000"
 component: "photos"
 ---

@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
 import "../styles/welcome.styl"
 
@@ -7,10 +8,24 @@ import MenuContext from "../contexts/MenuContext"
 
 import Animation from "./animations/animation"
 
-export default ({ buffer }) => {
+const Welcome = ({ buffer }) => {
   const { setMenu } = useContext(MenuContext)
+
+  const data = useStaticQuery(graphql`
+    query ChampagneQuery {
+      placeholderImage: file(relativePath: { eq: "champagne.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div className={`welcome${buffer ? ` buffer` : ``}`}>
+      <Img className='mobile-image' fluid={data.placeholderImage.childImageSharp.fluid} />
       <div className="main-info">
         <div className="links">
           <div
@@ -47,3 +62,5 @@ export default ({ buffer }) => {
     </div>
   )
 }
+
+export default Welcome
