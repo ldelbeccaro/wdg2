@@ -60,9 +60,13 @@ const Location = () => {
         <div className='section-title'>Terranea Resort</div>
         <div className='subsection'>
           <div className='notes'>We have a very large room block at Terranea Resort! This is where all of our events will be hosted, so we highly recommend staying here if you can.</div>
-          <div className='instructions'>You must make reservations via phone to get our discount. Our reduced rate is $350/night for a Resort View room and $425/night for an Ocean View room; request either one when you call. Note that our rates extend 3 days before and 3 days after our event dates (7/22-24) if you'd like to come early or stay late!</div>
-          <div className='instructions'>Call Terranea at (855) 938-4047 and press 2 (reservations), then 3 (new reservations) when you get to the menu. Tell them it's for the "Del Beccaro-Nosrat wedding" and provide your name, address, email address, requested room type, and check-in/check-out dates. Check-in is at 4pm and check-out is at 11am.</div>
-          <div className='instructions'>You must make your reservations by June 20, 2022!</div>
+          <div className='notes'>Our reduced rate is $350/night for a Resort View room and $425/night for an Ocean View room. Note that our rates extend 3 days before and 3 days after our event dates (7/22-24) if you'd like to come early or stay late.</div>
+          <div className='notes'>Our <a target="_blank" href="/schedule">events</a> are on Friday 7/22 and Saturday 7/23. Check-in is at 4pm and check-out is at 11am.</div>
+          <div className='instructions'>You can make reservations online or via phone to get our discount. You must book by June 20, 2022 — we recommend booking as soon as possible to guarantee availability.</div>
+          <div className='instructions'>Online:</div>
+          <div className='instructions'>Visit <a target="_blank" href="https://book.passkey.com/go/DelBeccaroNosratWedding">this link</a>, enter the dates you'd like to stay and click Search. Select the room type you're interested in, click Next twice to skip the next two screens, and fill out the remaining information to book. Note you're not booked until you click "Confirm reservation" on the last screen.</div>
+          <div className='instructions'>Phone:</div>
+          <div className='instructions'>Call Terranea at (855) 938-4047 and press 2 (reservations), then 3 (new reservations) when you get to the menu. Tell them it's for the "Del Beccaro-Nosrat wedding" and provide your name, address, email address, requested room type, and check-in/check-out dates.</div>
         </div>
       </div>
       <div className='section'>
@@ -72,12 +76,12 @@ const Location = () => {
         </div>
         <div className='subsection'>
           <div className='title'>Hotels</div>
-          <div className='notes'>There are more cost effective hotel options in Redondo Beach, Torrance, or San Pedro that are still relatively close to our venue.</div>
-          <div className='instructions'><a target="_blank" href="https://www.google.com/travel/hotels?utm_campaign=sharing&utm_medium=link&utm_source=htls&ts=CAESCgoCCAMKAggDEAAaXgpAEjwyJTB4ODBkZDRiZGE3MDU0OGQ5ZjoweGMxNDQ3ZjViNmU5Njk0YjQ6E1JhbmNobyBQYWxvcyBWZXJkZXMaABIaEhQKBwjmDxAHGBYSBwjmDxAHGBgYAjICCAEqCwoHKAE6A1VTRBoA&rp=SAI&destination=Rancho%20Palos%20Verdes&ap=MAFasAIKBQjIARAAIgNVU0QqFgoHCOUPEAoYDBIHCOUPEAoYDRgBKACwAQFYAWgBcgQIAhgAmgE8EhNSYW5jaG8gUGFsb3MgVmVyZGVzGiUweDgwZGQ0YmRhNzA1NDhkOWY6MHhjMTQ0N2Y1YjZlOTY5NGI0ogEfCggvbS8wcjB0axITUmFuY2hvIFBhbG9zIFZlcmRlc6oBBwoDCPABGACqAQ8KAggSEgMImwESAghoGAGqARIKAggUEgIIMBICCFISAghOGAGqAQcKAwicARgAqgETCgIIHBICCFESAghzEgMInQIYAaoBEgoCCBESAggqEgIIQBICCDgYAaoBEgoCCC4SAghWEgIIPRICCEsYAaoBBgoCCCwYAKoBEgoCCDUSAggyEgIIXRICCBAYAZIBAiABaAA&ved=0CAAQ5JsGahcKEwjovvyvrMDzAhUAAAAAHQAAAAAQaA">Here's</a> a list of all nearby hotels available on the applicable dates.</div>
+          <div className='notes'>There are more cost effective hotel options in Redondo Beach, Torrance, or San Pedro that are still close to our venue :)</div>
+          <div className='instructions'><a target="_blank" href="https://www.google.com/travel/hotels?utm_campaign=sharing&utm_medium=link&utm_source=htls&ts=CAESCgoCCAMKAggDEAAaXgpAEjwyJTB4ODBkZDRiZGE3MDU0OGQ5ZjoweGMxNDQ3ZjViNmU5Njk0YjQ6E1JhbmNobyBQYWxvcyBWZXJkZXMaABIaEhQKBwjmDxAHGBYSBwjmDxAHGBgYAjICCAEqCwoHKAE6A1VTRBoA&rp=SAI&destination=Rancho%20Palos%20Verdes&ap=MAFasAIKBQjIARAAIgNVU0QqFgoHCOUPEAoYDBIHCOUPEAoYDRgBKACwAQFYAWgBcgQIAhgAmgE8EhNSYW5jaG8gUGFsb3MgVmVyZGVzGiUweDgwZGQ0YmRhNzA1NDhkOWY6MHhjMTQ0N2Y1YjZlOTY5NGI0ogEfCggvbS8wcjB0axITUmFuY2hvIFBhbG9zIFZlcmRlc6oBBwoDCPABGACqAQ8KAggSEgMImwESAghoGAGqARIKAggUEgIIMBICCFISAghOGAGqAQcKAwicARgAqgETCgIIHBICCFESAghzEgMInQIYAaoBEgoCCBESAggqEgIIQBICCDgYAaoBEgoCCC4SAghWEgIIPRICCEsYAaoBBgoCCCwYAKoBEgoCCDUSAggyEgIIXRICCBAYAZIBAiABaAA&ved=0CAAQ5JsGahcKEwjovvyvrMDzAhUAAAAAHQAAAAAQaA">Here's</a> a list of all nearby hotels available on the applicable dates!</div>
         </div>
         <div className='subsection'>
           <div className='title'>Airbnb</div>
-          <div className='instructions'>There are also <a target="_blank" href="https://www.airbnb.com/s/Rancho-Palos-Verdes--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=november&flexible_trip_dates%5B%5D=october&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&query=Rancho%20Palos%20Verdes%2C%20CA%2C%20United%20States&place_id=ChIJn41UcNpL3YARtJSWblt_RME&checkin=2022-07-22&checkout=2022-07-24&adults=2&source=structured_search_input_header&search_type=autocomplete_click">plenty of Airbnbs in the area</a> if you prefer to secure your own accommodations.</div>
+          <div className='instructions'>There are also <a target="_blank" href="https://www.airbnb.com/s/Rancho-Palos-Verdes--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=november&flexible_trip_dates%5B%5D=october&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&query=Rancho%20Palos%20Verdes%2C%20CA%2C%20United%20States&place_id=ChIJn41UcNpL3YARtJSWblt_RME&checkin=2022-07-22&checkout=2022-07-24&adults=2&source=structured_search_input_header&search_type=autocomplete_click">plenty of Airbnbs in the area</a> if you prefer to secure your own accommodations!</div>
         </div>
       </div>
     </div>
