@@ -9,9 +9,23 @@
   +media($extra-small-screen)
     padding 40px 24px 16px
 
+  .mobile-image
+    height 100vh
+    left 0
+    opacity 0
+    position absolute !important
+    top 0
+    width 100vw
+    z-index 0
+
+    +media($extra-small-screen)
+      opacity 1
+
   .main-info
     max-width 350px
     margin-left 90px
+    position relative
+    z-index 1
 
     +media($extra-small-screen)
       margin-left 0
@@ -63,15 +77,3 @@
 
     &:hover
       border 1px solid $darkGray
-
-  .mobile-image
-    height 100vh
-    left 0
-    opacity 0
-    position absolute !important
-    top 0
-    width 100vw
-    z-index -1
-
-    +media($extra-small-screen)
-      opacity 1
