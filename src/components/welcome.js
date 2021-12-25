@@ -11,21 +11,8 @@ import Animation from "./animations/animation"
 const Welcome = ({ buffer }) => {
   const { setMenu } = useContext(MenuContext)
 
-  const data = useStaticQuery(graphql`
-    query ChampagneQuery {
-      placeholderImage: file(relativePath: { eq: "champagne.jpg" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <div className={`welcome${buffer ? ` buffer` : ``}`}>
-      <Img className='mobile-image' fluid={data.placeholderImage.childImageSharp.fluid} />
       <div className="main-info">
         <div className="links">
           <div

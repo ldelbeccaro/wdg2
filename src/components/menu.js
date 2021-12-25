@@ -143,7 +143,15 @@ const Menu = ({ pages }) => {
                 } else {
                   navigate(target.getAttribute("href"))
                 }
+
+                if (page.title === 'home') {
+                  setMenu({ currentPage: page.title })
+                }
               }, 1500)
+
+              setTimeout(() => {
+                setMenu({ currentPage: page.title})
+              }, 2000)
             }}
             onMouseEnter={e => {
               setNavHeight(getNavHeight(e))

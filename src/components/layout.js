@@ -11,7 +11,7 @@ import "../styles/index.styl"
 import "../styles/layout.styl"
 
 const Layout = ({ children, Image, blur = true }) => {
-  const { navShowing, MainContent, setMenu } = useContext(MenuContext)
+  const { navShowing, MainContent, setMenu, currentPage } = useContext(MenuContext)
 
   useEffect(() => setMenu({ content: children, lastPageContent: children }), [])
 
@@ -44,7 +44,7 @@ const Layout = ({ children, Image, blur = true }) => {
 
   return (
     <div className="layout">
-      <div className={blur ? `bg blur` : `bg`}>
+      <div className={`${blur ? `bg blur` : `bg`} page-${currentPage}`}>
         <div className="background">{!!Image && Image}</div>
         <div
           className="color-background"

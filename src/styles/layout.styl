@@ -10,6 +10,13 @@
     width 100%
     z-index -1
 
+    &.page-home
+      .background
+        +media($extra-small-screen)
+          background-image url('../images/champagne.jpg')
+          img
+            opacity 0 !important
+
     &.blur
       animation blurBackground 3s
       filter blur(3px)

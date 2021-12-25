@@ -78,7 +78,7 @@ const Header = ({ siteTitle }) => {
           to="/"
           style={{ color: colorBg }}
           onClick={() => {
-            setMenu({ showing: false, content: Welcome })
+            setMenu({ showing: false, content: Welcome, currentPage: 'home' })
             setBackground({
               colorBackground: color,
               lastColorBackground: color,
