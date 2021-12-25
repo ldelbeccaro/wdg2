@@ -34,8 +34,9 @@ const Timeline = () => {
                 <div className='time'>7pm</div>
               </div>
               <div className='details'>
-                <div className='title'>Welcome party</div>
+                <div className='title'>Welcome dinner</div>
                 <div className='location'>Terranea Resort • Cielo Point</div>
+                <div className='notes'>Dinner will be served buffet-style. Arrive whenever you'd like!</div>
               </div>
             </div>
           </div>
