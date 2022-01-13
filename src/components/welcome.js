@@ -30,12 +30,12 @@ const Welcome = ({ buffer }) => {
           <Link to="/location" className="link">
             accommodations
           </Link>
+          <Link to="https://registry.theknot.com/laura-del-beccaro-ashkon-nosrat-july-2022-ca/39774017" className="link">
+            registry
+          </Link>
           {/* <Link to="/rsvp" className="link">
             rsvp
           </Link> */}
-          <a href="mailto:ashkonlaura@gmail.com" className="link">
-            email
-          </a>
         </div>
         <h2>ashkon & laura are getting married!</h2>
         <p>July 23, 2022 • Palos Verdes, CA</p>
