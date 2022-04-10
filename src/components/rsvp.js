@@ -262,7 +262,7 @@ const RSVP = () => {
                       </div>
                     ))}
                   </div>
-                  {!rsvp.rsvps.filter(r => !!r).length && (
+                  {!rsvp.rsvps.filter(r => !!r).length && nameInput && (
                     <div className="sorry">{`Sorry ${rsvp.rsvps.length > 1 ? `no one can` : `you can't`} make it! Hope to see you soon :)`}</div>
                   )}
                   <div
@@ -286,7 +286,7 @@ const RSVP = () => {
                       }
                     }}
                   >
-                    {rsvp.rsvps.filter(r => !!r).length ? `Next` : `Send RSVP`}
+                    {!rsvp.rsvps.filter(r => !!r).length && nameInput ? `Send RSVP` : `Next`}
                   </div>
                 </>
               }
