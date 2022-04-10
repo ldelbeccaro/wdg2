@@ -27,7 +27,7 @@ const sendRsvpToAirtable = rsvp => {
 const getNamesFromAirtable = async () => {
   return base("Guests")
     .select({
-      sort: [{ field: "name", direction: "desc" }],
+      sort: [{ field: "name", direction: "asc" }],
       fields: [
         "name",
         "RSVP",
@@ -35,6 +35,7 @@ const getNamesFromAirtable = async () => {
         "dinner",
         "dietary restrictions",
       ],
+      view: "All invites",
     })
     .all()
     .then(records => {

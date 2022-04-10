@@ -14,18 +14,18 @@ import subway from "../images/subway.jpeg"
 import stacey from "../images/stacey1.jpeg"
 
 const photosOne = [
-  { img: hawaii, caption: `` },
-  { img: chelsea, caption: `CHELSEA FC ⚽ 🔵` },
-  { img: italy, caption: `` },
-  { img: dannys, caption: `` },
+  { img: hawaii, caption: `Our special place` },
+  { img: italy, caption: `Sicilia` },
   { img: serious, caption: `` },
+  { img: chelsea, caption: `CHELSEA FC ⚽ 🔵` },
+  { img: dannys, caption: `` },
 ]
 const photosTwo = [
   { img: peace, caption: `` },
-  { img: stacey, caption: `` },
   { img: cris, caption: `` },
   { img: france, caption: `Women's world cup 2019 🏆` },
   { img: subway, caption: `` },
+  { img: stacey, caption: `` },
 ]
 
 const Photo = ({ img, caption, onLoad }) => {

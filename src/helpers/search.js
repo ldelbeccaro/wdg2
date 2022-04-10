@@ -1,6 +1,6 @@
 import distance from "fast-levenshtein"
 
-function addSortInfo(item, searchInput, minInputLength = 3) {
+function addSortInfo(item, searchInput, minInputLength = 2) {
   let newItem = { ...item }
   const lowercaseItemName = newItem.name.toLowerCase()
   const input = searchInput.toLowerCase()

@@ -16,8 +16,12 @@ const Questions = () => {
   return (
     <div className="questions">
       <Question icon={send} q="When/how do I RSVP?">
-        When you get your invitation! Stay tuned — all RSVPs will be through our website.
-        {/* Please <Link className='link' to="/rsvp">RSVP on our website</Link> by June 3. */}
+        Please <Link className='link' to="/rsvp">RSVP on our website</Link> by May 27, 2022!
+      </Question>
+      <Question icon={briefcase} q="What should I wear/pack?">
+        {`All of our events are "beach cocktail" — slightly more casual than cocktail attire. Feel free to skip the tie or wear a summery dress. Most importantly, optimize for comfort!
+        For the overall trip, bring a bathing suit, some light layers, and dancing shoes :) We also encourage sweatpants, because we never pack a bag without
+        sweatpants.`}
       </Question>
       <Question icon={phone} q="What's your contact info?">
         Email us at <a className='link' href="mailto:ashkonlaura@gmail.com">✉ ashkonlaura@gmail.com</a>!
@@ -36,12 +40,7 @@ const Questions = () => {
       </Question>
       <Question icon={sun} q="What will the weather be like?">
         It's generally warm in LA, but can be pretty windy — especially because we'll be right on the ocean. We
-        recommend dressing for summer but bringing a light layer just in case. We'll be outside the whole time. We'll generally be on grass and brick (and the dance floor!) so plan shoes accordingly.
-      </Question>
-      <Question icon={briefcase} q="What should I wear/pack?">
-        {`All of our events are beach formal — summery semi-formal, if you will :)
-        Bring a bathing suit, some light layers, and dancing shoes! We also encourage sweatpants, because we never pack a bag without
-        sweatpants.`}
+        recommend dressing for summer but bringing a light layer just in case, as we'll be outside the whole time. We'll generally be on grass and brick (and the dance floor!) so plan shoes accordingly.
       </Question>
       {/* <Question icon={hash} q="What's your wedding hashtag?">
         #LDBgetsSMASHed

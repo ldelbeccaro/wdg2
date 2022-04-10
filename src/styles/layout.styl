@@ -14,13 +14,14 @@
       .background
         +media($extra-small-screen)
           background-image url('../images/champagne.jpg')
+
           img
             opacity 0 !important
 
     &.blur
-      animation blurBackground 3s
-      filter blur(3px)
-      -webkit-filter blur(3px)
+      animation blurBackground 4s
+      filter blur(7px)
+      -webkit-filter blur(7px)
 
       .background
         opacity 0.5
@@ -32,7 +33,7 @@
       height 100%
       width 100%
       position fixed
-      transition background-image 0.6s linear
+      transition background-image 1s linear
 
       .gatsby-image-wrapper
         height 100%
@@ -91,12 +92,12 @@
     filter: blur(3px);
     -webkit-filter: blur(3px);
   }
-  20% {
+  30% {
     filter: blur(0px);
     -webkit-filter: blur(0px);
   }
   100% {
-    filter: blur(3px);
-    -webkit-filter: blur(3px);
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
   }
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import "../styles/timeline.styl"
 
@@ -49,7 +49,7 @@ const Timeline = () => {
               <div className='details'>
                 <div className='title'>Ceremony & Reception</div>
                 <div className='location'>Terranea Resort • Palos Verdes Meadows</div>
-                <div className='notes'>Arrive early for a pre-ceremony cocktail!</div>
+                <div className='notes'>Arrive early for a pre-ceremony cocktail! Ceremony starts at 4pm sharp.</div>
               </div>
             </div>
             <div className='event'>
@@ -58,13 +58,13 @@ const Timeline = () => {
               </div>
               <div className='details'>
                 <div className='title'>After party</div>
-                <div className='location'>TBD</div>
+                <div className='location'>Terranea Resort • TBD</div>
               </div>
             </div>
           </div>
         </div>
         <div className='footer'>
-          <div className='notes'>Attire for all events is beachy formal (e.g., summery cocktail attire).</div>
+          <div className='notes'>Attire for all events is beach cocktail (see our <Link className='link' to="/questions">FAQ page</Link>).</div>
           <div className='notes'>Parking is available at the Resort for a reduced $15 rate.</div>
         </div>
       </div>
