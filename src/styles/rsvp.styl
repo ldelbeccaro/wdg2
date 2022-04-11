@@ -96,9 +96,12 @@
     top -144px
     height 100vh
 
+    +media($extra-small-screen)
+      margin-left 0
+
     +media($mobile-screen)
-      margin-left -10px
-      margin-right 10px
+      margin-right 0
+      height calc(100vh - 60px)
 
     .right-scroll
       height 100vh
@@ -107,6 +110,14 @@
       right -20px
       top 0
       width 100%
+
+      +media($extra-small-screen)
+        padding 0 20px
+        margin-left 20px
+
+      +media($mobile-screen)
+        top 64px
+        height calc(100vh - 140px)
 
       &.fixed
         position sticky
@@ -117,10 +128,6 @@
           margin-left 10px
           margin-top 40px
           height calc(100vh - 40px)
-
-      +media($mobile-screen)
-        top 64px
-        right -10px
 
   .name-stage, .rsvp-stage, .meal-stage, .submit-stage
     transition transform 1s ease, opacity 1s ease
@@ -278,8 +285,12 @@
             display grid
             justify-items flex-start
             margin-top 40px
-            row-gap 20px
+            gap 20px 10px
             grid-template-columns 1fr 1fr
+
+          .select .label
+            +media($extra-small-screen)
+              font-size $fontMMobile
 
     &.stage-2
       opacity 1
@@ -292,6 +303,7 @@
 
     +media($mobile-screen)
       padding-right 40px
+      width calc(100vw - 80px)
 
     .submit-container
       align-items center

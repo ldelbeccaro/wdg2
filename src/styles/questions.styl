@@ -7,24 +7,32 @@
   flex-direction column
   justify-content center
   left 0
+  margin-left calc(50% - 50vw)
   padding 40px 80px
   position absolute
-  width calc(100% - 160px)
+  width calc(100vw - 160px)
 
-  +media($extra-small-screen)
-    padding 24px
-    width calc(100% - 48px)
+  +media($small-screen)
+    padding 40px
+    width calc(100% - 80px)
+
+    +media($mobile-screen)
+      padding 24px
+      width calc(100vw - 48px)
 
   .question
     cursor default
-    margin 40px auto
+    margin 40px auto 80px
     opacity 1
     position relative
     transition filter 0.4s ease-in-out
     width calc(100vw - 160px)
-    max-width 1040px
+    max-width 1200px
 
-    +media($extra-small-screen)
+    +media($small-screen)
+      width calc(100vw - 80px)
+
+    +media($mobile-screen)
       width calc(100vw - 48px)
 
     &:nth-child(1)

@@ -25,7 +25,7 @@ export default function Template({ data }) {
       colorBackground: data.markdownRemark.frontmatter.color,
       lastColorBackground: data.markdownRemark.frontmatter.color,
     })
-    setMenu({ menuNavColor: data.markdownRemark.frontmatter.menuColor })
+    setMenu({ menuNavColor: data.markdownRemark.frontmatter.menuColor, currentPage: data.markdownRemark.frontmatter.component })
   }, [])
 
   const post = data.markdownRemark
