@@ -18,6 +18,9 @@ const Questions = () => {
       <Question icon={send} q="When/how do I RSVP?">
         Please <Link className='link' to="/rsvp">RSVP on our website</Link> by May 27, 2022!
       </Question>
+      <Question icon={briefcase} q="Is COVID vaccination required?">
+        {`We have several immunocompromised guests coming to the wedding, and it's quite a big one! We want to make sure we're being as safe as humanly possible, so we'll be requiring COVID-19 vaccination to come to the wedding. If you're not vaccinated, we would really, really love for you to reconsider! Please don't hesitate to reach out to us to formulate a plan :)`}
+      </Question>
       <Question icon={briefcase} q="What should I wear/pack?">
         {`All of our events are "beach cocktail" — slightly more casual than cocktail attire. Feel free to skip the tie or wear a summery dress. Most importantly, optimize for comfort!
         For the overall trip, bring a bathing suit, some light layers, and dancing shoes :) We also encourage sweatpants, because we never pack a bag without
