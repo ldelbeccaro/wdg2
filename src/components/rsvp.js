@@ -172,6 +172,7 @@ const RSVP = () => {
             <div className="input-container">
               <input
                 aria-label="your name"
+                autoFocus
                 value={nameInput}
                 onChange={e => {
                   setNameInput(e.target.value)
