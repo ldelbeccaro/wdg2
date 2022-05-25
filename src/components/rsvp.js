@@ -341,7 +341,7 @@ const RSVP = () => {
                         </div>
                       </div>
                       <div className="input meal">
-                        {["Filet mignon", "Chilean sea bass", "Mushroom risotto (vegan)", "Children's meal"].map(
+                        {["Filet mignon", "California sea bass", "Mushroom risotto (vegan)", "Children's meal"].map(
                           meal => (
                             <Select
                               key={meal}

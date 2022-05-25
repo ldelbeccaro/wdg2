@@ -38,6 +38,9 @@ const Questions = () => {
         All events are located at <a target="_blank" href="/terranea.com/">Terranea Resort</a>. If you're staying outside of the resort, we ask that you arrange your own transportation to and from events. Learn more{" "}
         <Link className='link' to="/location">on the location page</Link>.
       </Question>
+      <Question icon={truck} q="Will there be childcare?">
+        We have some really exciting childcare options available! Please email us at <a className='link' href="mailto:ashkonlaura@gmail.com">✉ ashkonlaura@gmail.com</a> for more information.
+      </Question>
       <Question icon={gift} q="Where are you registered?">
         We absolutely don't need gifts — the best gift you can give us is your presence at our wedding. But we're also registered <a className='link' target="_blank" href="https://registry.theknot.com/laura-del-beccaro-ashkon-nosrat-july-2022-ca/39774017">here</a> if you're like our parents and refuse to listen to no-gift rules :)
       </Question>

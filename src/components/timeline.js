@@ -44,7 +44,7 @@ const Timeline = () => {
             <div className='date-text'>Saturday, July 23</div>
             <div className='event'>
               <div className='datetime'>
-                <div className='time'>4pm - 10pm</div>
+                <div className='time'>4pm - 11pm</div>
               </div>
               <div className='details'>
                 <div className='title'>Ceremony & Reception</div>
@@ -54,7 +54,7 @@ const Timeline = () => {
             </div>
             <div className='event'>
               <div className='datetime'>
-                <div className='time'>10pm +</div>
+                <div className='time'>11pm +</div>
               </div>
               <div className='details'>
                 <div className='title'>After party</div>
